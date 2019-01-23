@@ -1,6 +1,6 @@
 # Week 1
 
-If you are a mac user and you are may need to follow the instructions under [mac-hints.md](mac-hints.md).
+If you are a mac user and you may need to follow the instructions under [mac-hints.md](mac-hints.md).
 
 ## Setup
 * Install the latest version(8.6.3) of [Haskell Platform](https://www.haskell.org/platform/). **If you are on Linux, you might want to install the latest version from [stack](https://docs.haskellstack.org/en/stable/README/#how-to-install), just install [stack](https://docs.haskellstack.org/en/stable/README/#how-to-install) and then run `stack ghc`**.
