@@ -17,7 +17,7 @@ If you are a mac user you may need to follow the instructions under [mac-hints.m
 * If you have not already, sign up for a free GitHub account following these [instructions](https://help.github.com/articles/signing-up-for-a-new-github-account/)
 * If you have not already, set up git on your computer following these [instructions](https://help.github.com/articles/set-up-git/)
 * run ```cabal update```
-* run ```cabal install tasty``` and ```cabal install tasty-hunit``` to get the test libraries
+* run ```cabal new-install tasty tasty-hunit --lib``` to get the test libraries
 
 ## Setup Your Local Repository
 * Follow this [link](https://classroom.github.com/a/7OYEsnd0) to create your private repo for this class.
@@ -27,7 +27,7 @@ If you are a mac user you may need to follow the instructions under [mac-hints.m
 * ```cd``` into the newly created directory by typing ```cd cs320-hw-username``` with ```username``` replaced with your user name
 * You always want to take advantage of the latest corrections to the assignments and shared tests so we will add the main repository as a source
   * check the status of your repo: ```git status```
-  * In your terminal type ```git remote add upstream https://github.com/BU-CS320/Fall-2019.git```
+  * In your terminal type ```git remote add upstream https://github.com/BU-CS320/Spring-2019.git```
   * check the status of your repo: ```git status```
   * check that it worked by typing ```git remote -v```.  You should see see the line ```upstream https://github.com/BU-CS320/Spring-2019.git (fetch)```
   * You always want to keep your assignment up to date by running ```git pull upstream master```, do that now
