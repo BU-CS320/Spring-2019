@@ -1,6 +1,6 @@
 # Week 1
 
-If you are a mac user and you are may need to follow the instructions under [mac-hints.md](mac-hints.md).
+If you are a mac user you may need to follow the instructions under [mac-hints.md](mac-hints.md).
 
 ## Setup
 * Install the latest version(8.6.3) of [Haskell Platform](https://www.haskell.org/platform/). **If you are on Linux, you might want to install the latest version from [stack](https://docs.haskellstack.org/en/stable/README/#how-to-install), just install [stack](https://docs.haskellstack.org/en/stable/README/#how-to-install) and then run `stack ghc`**.
@@ -19,7 +19,7 @@ If you are a mac user and you are may need to follow the instructions under [mac
 * ```cd``` into the newly created directory by typing ```cd cs320-hw-username``` with ```username``` replaced with your user name
 * You always want to take advantage of the latest corrections to the assignments and shared tests so we will add the main repository as a source
   * check the status of your repo: ```git status```
-  * In your terminal type ```git remote add upstream https://github.com/BU-CS320/Fall-2018.git```
+  * In your terminal type ```git remote add upstream https://github.com/BU-CS320/Fall-2019.git```
   * check the status of your repo: ```git status```
   * check that it worked by typing ```git remote -v```.  You should see see the line ```upstream https://github.com/BU-CS320/Spring-2019.git (fetch)```
   * You always want to keep your assignment up to date by running ```git pull upstream master```, do that now
