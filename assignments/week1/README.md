@@ -9,7 +9,7 @@ If you are a mac user you may need to follow the instructions under [mac-hints.m
 * If you have not already, sign up for a free GitHub account following these [instructions](https://help.github.com/articles/signing-up-for-a-new-github-account/)
 * If you have not already, set up git on your computer following these [instructions](https://help.github.com/articles/set-up-git/)
 * run ```cabal update```
-* run ```cabal install tasty``` and ```cabal install tasty-hunit``` to get the test libraries
+* run ```cabal new-install tasty tasty-hunit --lib``` to get the test libraries
 
 ## Setup Your Local Repository
 * Follow this [link](https://classroom.github.com/a/7OYEsnd0) to create your private repo for this class.
