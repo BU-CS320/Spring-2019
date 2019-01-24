@@ -13,7 +13,7 @@ If you are a mac user you may need to follow the instructions under [mac-hints.m
   - Type ```:q``` to quit
 * If you have not already, sign up for a free GitHub account following these [instructions](https://help.github.com/articles/signing-up-for-a-new-github-account/)
 * If you have not already, set up git on your computer following these [instructions](https://help.github.com/articles/set-up-git/)
-* run ```cabal update```
+* run ```cabal new-update```
 * run ```cabal new-install tasty tasty-hunit --lib``` to get the test libraries
 
 ## Setup Your Local Repository
@@ -48,7 +48,7 @@ Ok, one module loaded.
   * reset the terminal by typing ```:reload```
   * Haskell doesn't let us see the definition of functions, but we can test by running ```ident greeting``` and see if we get back the greeting we expect
   * type ```:q``` to quit the REPL in the 
-* run the tests by running ```cabal test```, some students may need to run ```cabal configure --enable-tests``` first
+* run the tests by running ```cabal new-test```, some students may need to run ```cabal new-configure --enable-tests``` first
 * check the status of your repo: ```git status```, you should see that the files have changed
 * make a commit by typing ```git commit -a -m "my first commit"``` into the console
 * check the status of your repo: ```git status```
