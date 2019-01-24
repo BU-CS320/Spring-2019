@@ -4,14 +4,11 @@ If you are a mac user you may need to follow the instructions under [mac-hints.m
 
 ## Setup
 * Install the latest version(8.6.3) of [Haskell Platform](https://www.haskell.org/platform/). 
-  - **Notice**: If you are on Linux (especially Ubuntu), you might want to install the latest version of GHC from 
-    [stack](https://docs.haskellstack.org/en/stable/README/#how-to-install), 
-    just install [stack](https://docs.haskellstack.org/en/stable/README/#how-to-install) by follow the instructions
-    and then run the following command
-    ```console
-    stack ghc
-    stack install cabal-install
-    ```
+  - **Notice For Linux User**: 
+    If you are on Linux (especially Ubuntu), you might NOT get the latest version (`GHC 8.6.3` and `cabal 2.4.1.0`) by following the instruction on Haskell Platform.
+    Although the older version of GHC probably will not be a problem for this course, 
+    please note that your code will be tested on GHC version 8.6.3.
+    Here are two of the options to get the latest version of GHC: [ghcup](https://github.com/haskell/ghcup) and [stack](https://docs.haskellstack.org/en/stable/README/).
   - Open your terminal and type ```ghci``` you should see ```GHCi, version 8.6.3: http://www.haskell.org/ghc/  :? for help```
   - Type ```:q``` to quit
 * If you have not already, sign up for a free GitHub account following these [instructions](https://help.github.com/articles/signing-up-for-a-new-github-account/)
