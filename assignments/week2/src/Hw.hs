@@ -1,6 +1,13 @@
 module Hw where
 import Prelude(Show, undefined)
 
+-- HOMEWORK ONE     Due 2/5 by 11:59pm by upload to your repo
+--    (with a couple of hours "grace period" before it is considered late)
+--    Note: There is also an analytical part to the homework
+--    which will be posted on the class web page, and due to be
+--    uploaded to Gradescope with the same due date and time, and
+--    with the same grace period. 
+
 -- Fill in the bodies of the undefined functions and data.
 -- DO NOT CHANGE THE TYPE SIGNATURES!
 
@@ -10,8 +17,9 @@ import Prelude(Show, undefined)
 -- or use a helper function. 
 -- You may always add your own helper functions and helper data!
 
--- Constants are like 0-ary functions (no arguments);
--- variable and function names must be in lower case.
+-- Remember: Constructors must be capitalized; variable
+-- and function names must be in lower case. 
+-- Constructor constants are like 0-ary functions (no arguments). 
 
 
 -- Part A: Basic Boolean data and functions
