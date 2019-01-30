@@ -1,4 +1,5 @@
 module HwHint where
+import Hw
 
 -- you will likely need to define the following helper function
 
