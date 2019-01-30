@@ -10,3 +10,11 @@ To get the assignment run ```git pull upstream master``` in your homework direct
 1. run ```git commit -a -m "whoo hoo I'm done with HW"``` to make a commit to your laptop
 1. run ```git push``` to submit your commit to your private gitHub acount
 1. check that you can see your solutions on the website for your private repo
+
+## REPL hints
+* `:reload` or `:r` will reload the file
+* `:type` or `:t` will tell you the type of an expression
+* `:quit` or `:q` will leave the repl
+
+## ```git``` issues
+If you are having ```git``` issues, run ```git status``` and call on Mark for help.
