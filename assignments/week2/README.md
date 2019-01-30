@@ -1,6 +1,8 @@
-# HW Due 2/5
+# HW1 Due 2/5
 
 To get the assignment run ```git pull upstream master``` in your homework directory.
+
+## Note that the test have not yet been posted
 
 ## Submit (similar to [week1](../week1))
 1. run the tests by running ```cabal test``` 
