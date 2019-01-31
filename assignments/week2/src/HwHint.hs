@@ -1,5 +1,6 @@
 module HwHint where
-import Hw
+import Prelude(Show, undefined)
+import Hw(List)
 
 -- you will likely need to define the following helper function
 
