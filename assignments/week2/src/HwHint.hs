@@ -2,7 +2,8 @@ module HwHint where
 import Prelude(Show, undefined)
 import Hw(List)
 
--- you will likely need to define the following helper function
+-- you will likely need to define the following helper function, 
+-- you can copy and paste it into the main assignment
 
 -- Concatenate two lists, make sure it works
 -- if either or both are empty
