@@ -54,7 +54,7 @@ module Main where
     aI ->  -- the input for the function you want to test
     TestTree 
   testOneArgFuncByIso sucMsg f g input = testCase sucMsg $ 
-    assertEqual [] (isoMap . f $ input) (g . isoMap $ input)
+    assertEqual [] (g . isoMap $ input) (isoMap . f $ input)
 
   testTwoArgFuncByIso :: 
     (Iso aI1 bI1, Iso aI2 bI2, Iso aO bO, Eq bO, Show bO, Show aO, Show aI1, Show aI2) => 
@@ -64,7 +64,7 @@ module Main where
     aI1 -> aI2 ->  -- the input for the function you want to test
     TestTree
   testTwoArgFuncByIso sucMsg f g input1 input2 = testCase sucMsg $ 
-    assertEqual [] (isoMap (f input1 input2)) (g (isoMap input1) (isoMap input2))
+    assertEqual [] (g (isoMap input1) (isoMap input2)) (isoMap (f input1 input2))
 
   -- this function converts from our custom Bools to the standard Bools so we have a lot of automatic things already defined
   fromhwBoolToStandardBool :: Hw.Bool -> Prelude.Bool
@@ -299,7 +299,7 @@ module Main where
 
   -- test max
   maxTemp x y 
-    | x < y = y 
+    | x < y = y
     | otherwise = x 
   maxTest = testGroup "test ge function"
     [
