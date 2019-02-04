@@ -20,6 +20,9 @@ module Main where
       , dayTest
       , monthTest
       , pointTest
+      , shortAnsTest
+      , natListTest
+      , listTest
     ]
   
   -- Utils 
@@ -47,10 +50,33 @@ module Main where
       | n < 0 = undefined -- don't convert nagative number to Nat
       | n > 0 = Succ (isoInverse (n - 1)) 
 
+  -- define the iso between Nat and a subset of int
+  instance Iso Hw.Nat Prelude.Int where 
+    isoMap Zero = 0
+    isoMap (Succ n) = (isoMap n) + 1
+    isoInverse 0 = Zero 
+    isoInverse n 
+      | n < 0 = undefined -- don't convert nagative number to Nat
+      | n > 0 = Succ (isoInverse (n - 1)) 
+
   -- define the iso between Hw point and prelude point
   instance Iso Hw.Point (Integer, Integer) where 
     isoMap p = (isoMap . getX $ p, isoMap . getY $ p)
     isoInverse (x, y) = makePoint (isoInverse x) (isoInverse y)
+
+  -- define the iso between ListNat and List Integer 
+  instance Iso ListNat [Integer] where 
+    isoMap NilNat = []
+    isoMap (ConsNat h t) = (isoMap h):(isoMap t) 
+    isoInverse [] = NilNat
+    isoInverse (h:t) = ConsNat (isoInverse h) (isoInverse t)
+
+  instance (Iso a b) => Iso (List a) [b] where
+    isoMap Nil = [] 
+    isoMap (Cons h t) = (isoMap h):(isoMap t) 
+    isoInverse [] = Nil 
+    isoInverse (h:t) = Cons (isoInverse h) (isoInverse t)
+      
 
   -- this function test a function by existing isomorphic function
   -- it feeds the testing function and the existing function with isomorphic parameters
@@ -452,3 +478,114 @@ module Main where
       | a1 <- [0..2], a2 <- [0..2], b1 <- [0..2], b2 <- [0..2]
     ]
   
+  ---- Test for ShortAnswer ----
+
+  shortAnsTest = testGroup "test for short answer"
+    [
+      ans1Test
+      , ansTrueTest
+    ]
+
+  -- test for ans1
+  ans1Test = testCase "check ans1 is 1" $ assertEqual [] 
+    Hw.True (gradeAnswer (answerNat Hw.one) ans1)
+
+  -- test for ansTrue 
+  ansTrueTest = testCase "check ansTrue is True" $ assertEqual [] 
+    Hw.True (gradeAnswer (answerNat Hw.one) ans1)
+
+
+  ---- Test for ListNat ----
+
+  -- test sample
+  natListTestSample = [
+      [],
+      [1, 2],
+      [3, 1, 4],
+      [0, 5, 6],
+      [1],
+      [1,2,3,4,5,6,7]
+    ]::[[Integer]]
+
+  -- test for list nat
+  natListTest = testGroup "test all the functions defined on ListNat"
+      [
+        natLengthTest
+        , sumTest
+        , eqListTest
+        , memberTest
+      ]
+  
+  -- test for length 
+  natLengthTest = testGroup "test lengthOfListNat function"
+    [
+      testOneArgFuncByIso ("testing lengthOfListNat " ++ show l) 
+        lengthOfListNat (Prelude.length::[Integer] -> Int) 
+        (isoInverse l)
+      | l <- natListTestSample
+    ]
+
+  -- test for sum 
+  sumTest = testGroup "test sum function"
+    [
+      testOneArgFuncByIso ("testing sum of " ++ show l) 
+        Hw.sum (Prelude.sum::[Integer] -> Integer) 
+        (isoInverse l)
+      | l <- natListTestSample
+    ]
+
+  -- test for eqList
+  eqListTest = testGroup "test eqList function"
+    [
+      testTwoArgFuncByIso ("testing equality of " ++ show l1 ++ " and " ++ show l2) 
+        Hw.eqList ((==)::[Integer] -> [Integer] -> Prelude.Bool) 
+        (isoInverse l1)
+        (isoInverse l2)
+      | l1 <- natListTestSample, l2 <- natListTestSample
+    ]
+
+  -- test for member
+  memberTest = testGroup "test eqList function"
+    [
+      testTwoArgFuncByIso ("testing member " ++ show n ++ " with list " ++ show l) 
+        Hw.member (elem::Integer -> [Integer] -> Prelude.Bool) 
+        (isoInverse n)
+        (isoInverse l)
+      | n <- [0, 1, 4]::[Integer], l <- natListTestSample
+    ]
+
+
+  ---- Test for List ---
+  -- test sample
+  boolListTestSample = [
+      [],
+      [Prelude.True],
+      [Prelude.False],
+      [Prelude.True, Prelude.False],
+      [Prelude.True, Prelude.True, Prelude.False, Prelude.False]
+    ]
+  
+  -- all the test for List
+  listTest = testGroup "all the function on list"
+      [
+        lengthTestNat
+        , lengthTestBool
+      ]
+  
+  -- length test 
+  lengthTestNat = testGroup "test length function for List Nat"
+    [
+      testOneArgFuncByIso ("testing length for list " ++ show l) 
+        (Hw.length :: List Nat -> Nat)
+        (Prelude.length::[Integer] -> Int) 
+        (isoInverse l)
+      | l <- natListTestSample
+    ]
+  lengthTestBool = testGroup "test length function for List Bool"
+    [
+      testOneArgFuncByIso ("testing length for list " ++ show l) 
+        (Hw.length :: List Hw.Bool -> Nat) 
+        (Prelude.length::[Prelude.Bool] -> Int) 
+        (isoInverse l)
+      | l <- boolListTestSample
+    ]
