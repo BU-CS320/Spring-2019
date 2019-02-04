@@ -1,5 +1,6 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE FlexibleInstances #-}
 
 module Main where
 
@@ -18,6 +19,7 @@ module Main where
       , natTest
       , dayTest
       , monthTest
+      , pointTest
     ]
   
   -- Utils 
@@ -36,6 +38,7 @@ module Main where
     isoInverse Prelude.True =  Hw.True 
     isoInverse Prelude.False = Hw.False
   
+  -- define the iso between Nat and a subset of integer
   instance Iso Hw.Nat Prelude.Integer where 
     isoMap Zero = 0
     isoMap (Succ n) = (isoMap n) + 1
@@ -43,6 +46,11 @@ module Main where
     isoInverse n 
       | n < 0 = undefined -- don't convert nagative number to Nat
       | n > 0 = Succ (isoInverse (n - 1)) 
+
+  -- define the iso between Hw point and prelude point
+  instance Iso Hw.Point (Integer, Integer) where 
+    isoMap p = (isoMap . getX $ p, isoMap . getY $ p)
+    isoInverse (x, y) = makePoint (isoInverse x) (isoInverse y)
 
   -- this function test a function by existing isomorphic function
   -- it feeds the testing function and the existing function with isomorphic parameters
@@ -341,7 +349,9 @@ module Main where
   -- all the days should be different from each other 
   dayEqualityTest = testGroup "test the equality of days"
     [
-      testCase ("test equality of " ++ show (nextNDaysOf d n1) ++ " with " ++ show (nextNDaysOf d n2))
+      testCase ("test equality of the " ++ 
+        show n1 ++ "th day after favoriteDay and the " ++ 
+        show n2 ++ "th day after favoriteDay")
       $ assertEqual [] (n1 == n2) ((nextNDaysOf d n1) == (nextNDaysOf d n2)) 
       | n1 <- [0..6], n2 <- [0..6]
     ]
@@ -400,6 +410,45 @@ module Main where
       $ assertEqual [] m (nextNMonthsOf m 12)
       | m <- allMonths
     ]
-  
 
+  ---- Test Point ----
+  -- implement Eq type class for Point
+  deriving instance Eq Point
+
+  -- test for point
+  pointTest = testGroup "test all the function on Points" 
+    [
+      testUnpackThenPack
+      , testPackThenUnpack
+      , testManhattanDistance
+    ]
+
+  -- test for iso
+  testUnpackThenPack = testGroup "test packing and then unpack"
+      [
+        testCase ("packing with " ++ show n1 ++ " and " ++ show n2 ++ " then unpack")
+          $ assertEqual [] (n1, n2) 
+            (isoMap . (isoInverse::(Integer, Integer) -> Point) $ (n1, n2))
+        | n1 <- [0..2], n2 <- [0..2]
+      ]
+
+  testPackThenUnpack = testGroup "test unpack and then pack"
+      [
+        testCase ("unpacking ("++ show n1 ++ ", " ++ show n2 ++ ") then unpack")
+          $ assertEqual [] (makePoint (isoInverse n1) (isoInverse n2))
+            ((isoInverse::(Integer, Integer) -> Point) . isoMap $ (makePoint (isoInverse n1) (isoInverse n2)))
+        | n1 <- [0..2] :: [Integer], n2 <- [0..2] :: [Integer]
+      ]
+  
+  -- test for manhattanDistance
+  manhattanTemp :: (Integer, Integer) -> (Integer, Integer) -> Integer
+  manhattanTemp (a1, b1) (a2, b2)= abs (a1 - a2) + abs (b1 - b2)
+  testManhattanDistance = testGroup "test for manhattan distance"
+    [
+      testTwoArgFuncByIso ("testing manhattanDistance between " ++ show (a1, b1) ++ " and " ++ show (a2, b2)) 
+        manhattanDistance manhattanTemp 
+        ((isoInverse::(Integer, Integer) -> Point) (a1, b1))
+        ((isoInverse::(Integer, Integer) -> Point) (a2, b2))  
+      | a1 <- [0..2], a2 <- [0..2], b1 <- [0..2], b2 <- [0..2]
+    ]
   
