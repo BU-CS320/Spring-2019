@@ -299,7 +299,7 @@ module Main where
     ]
   
   -- test even
-  tempEven s = (s `mod` 2) == 1
+  tempEven s = (s `mod` 2) == 0
   isEvenTest = testGroup "test isEven function"
     [
       testOneArgFuncByIso ("testing isEven " ++ show a1) 
