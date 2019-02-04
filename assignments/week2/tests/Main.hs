@@ -1,4 +1,5 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE StandaloneDeriving #-}
 
 module Main where
 
@@ -13,8 +14,10 @@ module Main where
   
   allTests = testGroup "allTests" 
     [
-      boolTest,
-      natTest
+      boolTest
+      , natTest
+      , dayTest
+      , monthTest
     ]
   
   -- Utils 
@@ -125,7 +128,7 @@ module Main where
   
   ------- Tests 
   
-  ---- Test for Bool
+  ---- Test for Bool ----
   boolTest = testGroup "test for all the boolean functions"
     [
       notTest,
@@ -167,7 +170,7 @@ module Main where
       | b1 <- [Hw.True, Hw.False], b2 <- [Hw.True, Hw.False]
     ]
   
-  ---- Test for Nat
+  ---- Test for Nat ----
   natTest = testGroup "test for all nat function" 
     [
       basicNatTest,
@@ -202,7 +205,7 @@ module Main where
         Hw.add ((+)::Integer -> Integer -> Integer) 
         ((isoInverse::Integer -> Nat) a1)
         ((isoInverse::Integer -> Nat) a2)
-      | a1 <- [1 .. 5], a2 <- [1 .. 5]
+      | a1 <- [0 .. 5], a2 <- [0 .. 5]
     ]
 
 
@@ -213,7 +216,7 @@ module Main where
         Hw.mult ((*)::Integer -> Integer -> Integer) 
         ((isoInverse::Integer -> Nat) a1)
         ((isoInverse::Integer -> Nat) a2)  
-      | a1 <- [1 .. 5], a2 <- [1 .. 5]
+      | a1 <- [0 .. 5], a2 <- [0 .. 5]
     ]
   
   -- test exponential
@@ -224,7 +227,7 @@ module Main where
         Hw.exp (expTemp::Integer -> Integer -> Integer) 
         ((isoInverse::Integer -> Nat) a1)
         ((isoInverse::Integer -> Nat) a2)  
-      | a1 <- [1 .. 5], a2 <- [1 .. 5]
+      | a1 <- [0 .. 5], a2 <- [0 .. 5]
     ]
 
   -- test equality
@@ -234,7 +237,7 @@ module Main where
         Hw.eq ((==)::Integer -> Integer -> Prelude.Bool) 
         ((isoInverse::Integer -> Nat) a1)
         ((isoInverse::Integer -> Nat) a2)  
-      | a1 <- [1 .. 5], a2 <- [1 .. 5]
+      | a1 <- [0 .. 5], a2 <- [0 .. 5]
     ]
 
   -- test inequality
@@ -244,7 +247,7 @@ module Main where
         Hw.ne ((/=)::Integer -> Integer -> Prelude.Bool) 
         ((isoInverse::Integer -> Nat) a1)
         ((isoInverse::Integer -> Nat) a2)  
-      | a1 <- [1 .. 5], a2 <- [1 .. 5]
+      | a1 <- [0 .. 5], a2 <- [0 .. 5]
     ]
 
   -- test less than
@@ -254,7 +257,7 @@ module Main where
         Hw.lt ((<)::Integer -> Integer -> Prelude.Bool) 
         ((isoInverse::Integer -> Nat) a1)
         ((isoInverse::Integer -> Nat) a2)  
-      | a1 <- [1 .. 5], a2 <- [1 .. 5]
+      | a1 <- [0 .. 5], a2 <- [0 .. 5]
     ]
 
   -- test greater than
@@ -264,7 +267,7 @@ module Main where
         Hw.gt ((>)::Integer -> Integer -> Prelude.Bool) 
         ((isoInverse::Integer -> Nat) a1)
         ((isoInverse::Integer -> Nat) a2)  
-      | a1 <- [1 .. 5], a2 <- [1 .. 5]
+      | a1 <- [0 .. 5], a2 <- [0 .. 5]
     ]
   
   -- test less than equal
@@ -274,7 +277,7 @@ module Main where
         Hw.le ((<=)::Integer -> Integer -> Prelude.Bool) 
         ((isoInverse::Integer -> Nat) a1)
         ((isoInverse::Integer -> Nat) a2)  
-      | a1 <- [1 .. 5], a2 <- [1 .. 5]
+      | a1 <- [0 .. 5], a2 <- [0 .. 5]
     ]
 
   -- test greater than equal
@@ -284,22 +287,22 @@ module Main where
         Hw.ge ((>=)::Integer -> Integer -> Prelude.Bool) 
         ((isoInverse::Integer -> Nat) a1)
         ((isoInverse::Integer -> Nat) a2)  
-      | a1 <- [1 .. 5], a2 <- [1 .. 5]
+      | a1 <- [0 .. 5], a2 <- [0 .. 5]
     ]
   
   -- test even
-  tempEven s = (s `mod` 2) == 0
+  tempEven s = (s `mod` 2) == 1
   isEvenTest = testGroup "test isEven function"
     [
       testOneArgFuncByIso ("testing isEven " ++ show a1) 
         Hw.isEven (tempEven :: Integer -> Prelude.Bool)
         ((isoInverse::Integer -> Nat) a1)
-      | a1 <- [1 .. 5]
+      | a1 <- [0 .. 5]
     ]
 
   -- test max
   maxTemp x y 
-    | x < y = y
+    | x < y = y 
     | otherwise = x 
   maxTest = testGroup "test ge function"
     [
@@ -307,7 +310,96 @@ module Main where
         Hw.max (maxTemp::Integer -> Integer -> Integer) 
         ((isoInverse::Integer -> Nat) a1)
         ((isoInverse::Integer -> Nat) a2)  
-      | a1 <- [1 .. 5], a2 <- [1 .. 5]
+      | a1 <- [0 .. 5], a2 <- [0 .. 5]
     ]
   
+  ---- Test for Days ----
+  -- implement Eq type class for DaysOfWeek
+  deriving instance Eq DayOfWeek
+
+  -- this is a helper function to calculate the day for next n days
+  nextNDaysOf :: DayOfWeek -> Int -> DayOfWeek
+  nextNDaysOf d n
+    | n < 0 = undefined  -- do not support previous days
+    | n == 0 = d 
+    | n > 0 = nextNDaysOf (nextDay d) (n - 1)
+  
+  -- a list of all the posible days in week
+  allPossibleDays :: [DayOfWeek]
+  allPossibleDays = map (nextNDaysOf favoriteDay) [0..6]
+
+  weekends :: [DayOfWeek]
+  weekends = filter (isoMap . isWeekend) allPossibleDays
+
+  -- the test for days
+  dayTest = testGroup "testing all the function of DayOfWeek"
+    [
+      dayEqualityTest
+      , weekendsTest
+    ]
+
+  -- all the days should be different from each other 
+  dayEqualityTest = testGroup "test the equality of days"
+    [
+      testCase ("test equality of " ++ show (nextNDaysOf d n1) ++ " with " ++ show (nextNDaysOf d n2))
+      $ assertEqual [] (n1 == n2) ((nextNDaysOf d n1) == (nextNDaysOf d n2)) 
+      | n1 <- [0..6], n2 <- [0..6]
+    ]
+    where 
+      d = favoriteDay
+  
+  -- There can be only two weekend
+  weekendsTest = testGroup "test for weekends"
+      [
+        testCase ("There should be " ++ show numberOfWeekends ++ " weekends for " ++ show daysAfterWeekends ++ " days after all the weekends")
+        $ assertEqual [] numberOfWeekends 
+          (Prelude.length . filter  (isoMap . isWeekend) . map (\d -> nextNDaysOf d daysAfterWeekends) $ weekends)
+        | (numberOfWeekends, daysAfterWeekends) <-
+            [(2, 0), (1, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 6)]
+      ]
+
+  ---- Test Month ----
+  -- implement eq type class for for month
+  deriving instance Eq Month
+
+  -- helper
+  nextNMonthsOf :: Month -> Int -> Month
+  nextNMonthsOf m n
+    | n < 0 = undefined  -- do not support previous days
+    | n == 0 = m
+    | n > 0 = nextNMonthsOf (nextMonth m) (n - 1)
+
+  allMonths :: [Month]
+  allMonths = map (nextNMonthsOf partyMonth) [0..11]
+
+  -- The test for month
+  monthTest = testGroup "Test all the function on Month"
+    [
+      monthEqualityTest
+      , after12BackToOriginTest
+    ]
+
+  -- test for all the equality of month
+  -- only the same month should be equal to each other
+  -- others should be different 
+  monthEqualityTest = testGroup "test the equality of months"
+    [
+      testCase ("test equality of the "++ show n1 ++ 
+        "th month after party month and " ++ show n2 ++ 
+        "th month after party month")
+      $ assertEqual [] (n1 == n2) ((nextNMonthsOf m n1) == (nextNMonthsOf m n2)) 
+      | n1 <- [0..11], n2 <- [0..11]
+    ]
+    where 
+      m = partyMonth
+
+  -- test that for all month, after 12 month it will go back to the original month
+  after12BackToOriginTest = testGroup "test after 12 month the it should be the original month" 
+    [
+      testCase ("12 months after " ++ show m ++ " should still be " ++ show m)
+      $ assertEqual [] m (nextNMonthsOf m 12)
+      | m <- allMonths
+    ]
+  
+
   
