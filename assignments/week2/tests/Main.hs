@@ -8,6 +8,7 @@ module Main where
   -- quick check become very counter productive
 
   import Hw
+  import Data.Tree
   import Test.Tasty (defaultMain, testGroup, TestTree)
   import Test.Tasty.HUnit (assertEqual, assertBool, testCase, (@=?))
   
@@ -23,6 +24,7 @@ module Main where
       , shortAnsTest
       , natListTest
       , listTest
+      , treeTests
     ]
   
   -- Utils 
@@ -76,6 +78,37 @@ module Main where
     isoMap (Cons h t) = (isoMap h):(isoMap t) 
     isoInverse [] = Nil 
     isoInverse (h:t) = Cons (isoInverse h) (isoInverse t)
+  
+  -- this is a correction of the native haskell tree
+  -- it includes a tree and a value that represent 
+  -- a empty tree
+  -- because there is no empty tree in haskell tree type
+  data TreeWrapper a = Wrap (Data.Tree.Tree a) a deriving Show
+
+  -- get the value in the null tree
+  nullTreeVal (Wrap t v) = v 
+  -- unwrap the tree
+  unwrap (Wrap t e) = t
+  
+  -- define the isomorphism between non-empty homework tree and binary haskell tree
+  -- since haskell tree only defined on the non-empty case
+  -- and hw tree only defines the binary case  
+  -- for the empty tree it is
+  -- Wrap (Data.Tree.Node (toEnum 0) []) (toEnum 0)
+  instance (Iso a b, Enum b, Eq b) => Iso (Hw.Tree a) (TreeWrapper b) where 
+    isoMap Null = Wrap (Data.Tree.Node (toEnum 0) []) (toEnum 0)
+    isoMap (Hw.Node ltree value rtree) = 
+      Wrap 
+        (Data.Tree.Node (isoMap value) [unwrap . isoMap $ ltree,
+                                        unwrap . isoMap $ rtree])
+        (toEnum 0)
+
+    isoInverse (Wrap (Data.Tree.Node value [ltree, rtree]) e) 
+      | value == e = Hw.Null
+      | otherwise = undefined
+    isoInverse (Wrap (Data.Tree.Node value [ltree, rtree]) e) = 
+      Hw.Node (isoInverse . Wrap ltree $ e) (isoInverse value) (isoInverse . Wrap rtree $ e)
+    isoInverse _ = undefined
       
 
   -- this function test a function by existing isomorphic function
@@ -588,4 +621,135 @@ module Main where
         (Prelude.length::[Prelude.Bool] -> Int) 
         (isoInverse l)
       | l <- boolListTestSample
+    ]
+
+  ---- Tests for tree ----
+
+  -- test sample for nonempty-tree
+  nonemptyNatTreeTestSample = [
+      Hw.Node Null Hw.one Null,
+      Hw.Node (Hw.Node (Hw.Node (Hw.Node Null Hw.one Null) Hw.one Null) Hw.one Null) Hw.one Null,
+      Hw.Node 
+        (Hw.Node (Hw.Node Null Hw.zero Null) Hw.one (Hw.Node Null Hw.three Null)) 
+        Hw.two
+        (Hw.Node (Hw.Node Null Hw.four Null) Hw.one (Hw.Node Null Hw.five Null)) 
+    ] :: [Hw.Tree Nat]
+  nonemptyBoolTreeTestSample = [
+      Hw.Node Null Hw.True (Hw.Node Null Hw.False (Hw.Node Null Hw.True Null)),   
+      Hw.Node Null Hw.False Null
+    ] :: [Hw.Tree Hw.Bool]
+
+  -- all test all trees
+  treeTests = testGroup "test for Tree type"
+    [
+      sizeTests,
+      heightTests
+    ]
+
+  -- test for size 
+  sizeFoldFunc n [] = 0
+  sizeFoldFunc n [ltreeRes, rtreeRes] = ltreeRes + rtreeRes + 1
+  sizeFoldFunc _ _ = undefined
+
+  sizeCorrect :: (Eq a) => TreeWrapper a -> Int
+  sizeCorrect (Wrap t e) = foldTree sizeFoldFunc t
+
+  sizeEmptyTest = 
+    testCase "empty tree should have size 0"
+    $ assertEqual [] Hw.Zero (Hw.size Null)
+  sizeNonEmptyNatTest = [
+      testOneArgFuncByIso "testing size of a non-empty nat tree"
+        Hw.size (sizeCorrect:: TreeWrapper Integer -> Int)
+        natTree
+      | natTree <- nonemptyNatTreeTestSample
+    ]
+  sizeNonEmptyBoolTest = [
+      testOneArgFuncByIso "testing size of a non-empty bool tree"
+        Hw.size (sizeCorrect:: TreeWrapper Prelude.Bool -> Int)
+        boolTree
+      | boolTree <- nonemptyBoolTreeTestSample
+    ]
+  sizeTests = testGroup "testing the size function"
+    (sizeEmptyTest : sizeNonEmptyNatTest ++ sizeNonEmptyBoolTest)
+
+  -- test for height
+  heightFoldFunc n [] = 0
+  heightFoldFunc n [ltreeRes, rtreeRes] = Prelude.max ltreeRes rtreeRes + 1
+  heightFoldFunc _ _ = undefined
+
+  heightCorrect :: (Eq a) => TreeWrapper a -> Int
+  heightCorrect (Wrap t e) = foldTree heightFoldFunc t
+
+  heightEmptyTest = testCase "empty tree should have height 0"
+    $ assertEqual [] Hw.Zero (Hw.height Null)
+
+  heightNonEmptyNatTest = [
+      testOneArgFuncByIso "testing height of a non-empty nat tree"
+        Hw.height (heightCorrect :: TreeWrapper Integer -> Int)
+        natTree
+      | natTree <- nonemptyNatTreeTestSample
+    ]
+
+  heightNonEmptyBoolTest = [
+      testOneArgFuncByIso "testing height of a non-empty bool tree"
+        Hw.height (heightCorrect :: TreeWrapper Prelude.Bool -> Int)
+        boolTree
+      | boolTree <- nonemptyBoolTreeTestSample
+    ]
+
+  heightTests = testGroup "testing the height function"
+    (heightEmptyTest : heightNonEmptyNatTest ++ heightNonEmptyBoolTest)
+
+
+  -- test for inorder traversal 
+  inOrderFoldFunc n [] = []
+  inOrderFoldFunc n [ltreeRes, rtreeRes] = ltreeRes ++ [n] ++ rtreeRes
+  inOrderFoldFunc _ _ = undefined
+
+  inOrderCorrect :: (Eq a) => TreeWrapper a -> [a]
+  inOrderCorrect (Wrap t e) = foldTree inOrderFoldFunc t
+
+  inOrderEmptyTest = testCase "in order traverse empty tree should return []"
+    $ assertEqual [] Nil (Hw.inorder Null::List Integer)
+
+  inOrderNonEmptyNatTest = [
+      testOneArgFuncByIso "testing inorder of a non-empty nat tree"
+        Hw.inorder (inOrderCorrect :: TreeWrapper Integer -> [Integer])
+        natTree
+      | natTree <- nonemptyNatTreeTestSample
+    ]
+
+  inOrderNonEmptyBoolTest = [
+      testOneArgFuncByIso "testing inorder of a non-empty bool tree"
+        Hw.inorder (inOrderCorrect :: TreeWrapper Prelude.Bool -> [Prelude.Bool])
+        boolTree
+      | boolTree <- nonemptyBoolTreeTestSample
+    ]
+
+  inorderTests = testGroup "testing the inorder function"
+    (inOrderEmptyTest : inOrderNonEmptyNatTest ++ inOrderNonEmptyBoolTest)
+
+  -- test for preorder traversal 
+  preOrderFoldFunc n [] = []
+  preOrderFoldFunc n [ltreeRes, rtreeRes] = [n] ++ ltreeRes ++ rtreeRes
+  preOrderFoldFunc _ _ = undefined
+
+  preOrderCorrect :: (Eq a) => TreeWrapper a -> [a]
+  preOrderCorrect (Wrap t e) = foldTree preOrderFoldFunc t
+
+  preOrderEmptyTest = testCase "preorder traverse empty tree should return []"
+    $ assertEqual [] Nil (Hw.inorder Null::List Integer)
+
+  preOrderNonEmptyNatTest = [
+      testOneArgFuncByIso "testing inorder of a non-empty nat tree"
+        Hw.preorder (preOrderCorrect :: TreeWrapper Integer -> [Integer])
+        natTree
+      | natTree <- nonemptyNatTreeTestSample
+    ]
+
+  preOrderNonEmptyBoolTest = [
+      testOneArgFuncByIso "testing inorder of a non-empty bool tree"
+        Hw.preorder (preOrderCorrect :: TreeWrapper Prelude.Bool -> [Prelude.Bool])
+        boolTree
+      | boolTree <- nonemptyBoolTreeTestSample
     ]
