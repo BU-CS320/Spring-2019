@@ -103,7 +103,7 @@ module Main where
                                         unwrap . isoMap $ rtree])
         (toEnum 0)
 
-    isoInverse (Wrap (Data.Tree.Node value [ltree, rtree]) e) 
+    isoInverse (Wrap (Data.Tree.Node value []) e) 
       | value == e = Hw.Null
       | otherwise = undefined
     isoInverse (Wrap (Data.Tree.Node value [ltree, rtree]) e) = 
@@ -643,7 +643,9 @@ module Main where
   treeTests = testGroup "test for Tree type"
     [
       sizeTests,
-      heightTests
+      heightTests,
+      inorderTests,
+      preorderTests
     ]
 
   -- test for size 
@@ -741,15 +743,18 @@ module Main where
     $ assertEqual [] Nil (Hw.inorder Null::List Integer)
 
   preOrderNonEmptyNatTest = [
-      testOneArgFuncByIso "testing inorder of a non-empty nat tree"
+      testOneArgFuncByIso "testing preorder of a non-empty nat tree"
         Hw.preorder (preOrderCorrect :: TreeWrapper Integer -> [Integer])
         natTree
       | natTree <- nonemptyNatTreeTestSample
     ]
 
   preOrderNonEmptyBoolTest = [
-      testOneArgFuncByIso "testing inorder of a non-empty bool tree"
+      testOneArgFuncByIso "testing preorder of a non-empty bool tree"
         Hw.preorder (preOrderCorrect :: TreeWrapper Prelude.Bool -> [Prelude.Bool])
         boolTree
       | boolTree <- nonemptyBoolTreeTestSample
     ]
+
+  preorderTests = testGroup "testing the preorder function"
+    (preOrderEmptyTest : preOrderNonEmptyNatTest ++ preOrderNonEmptyBoolTest)
