@@ -2,7 +2,7 @@
 
 To get the assignment run ```git pull upstream master``` in your homework directory.
 
-## Note that the tests have not yet been completed yet
+## Note that the tests have not yet been completed yetf
 
 ## Submit code part (similar to [week1](../week1))
 1. run the tests by running ```cabal test``` 
@@ -14,6 +14,9 @@ To get the assignment run ```git pull upstream master``` in your homework direct
 ## Notes
 * For the `exp` function, the first argument is the index, and the second argument is the base. For example, `exp n m` should represent m ^ n [@98](https://piazza.com/class/jr9fgrf7efv7j0?cid=98)
 * there is a hints [video](https://www.youtube.com/watch?v=EsR8xLJOEn4) for the written part
+* there is a helper function you may want to implement here: src/HwHint.hs
+* DO NOT CHANGE THE TYPE SIGNATURES!
+* You may always add your own helper functions and helper data!
 
 ## REPL hints
 * `:reload` or `:r` will reload the file
