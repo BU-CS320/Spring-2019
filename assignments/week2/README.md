@@ -13,6 +13,10 @@ To get the assignment run ```git pull upstream master``` in your homework direct
 1. run ```git push``` to submit your commit to your private gitHub acount
 1. check that you can see your solutions on the website for your private repo
 
+## Submit analytical part of Homework
+
+You can simply go to www.gradescope.com to submit your assignment; you should have already been added to the roster; if there is a problem, contact Professor Snyder. For additional advice, see the Help page here:  https://www.gradescope.com/help#
+
 ## Notes
 * For the `exp` function, the first argument is the index, and the second argument is the base. For example, `exp n m` should represent m ^ n [@98](https://piazza.com/class/jr9fgrf7efv7j0?cid=98)
 * there is a hints [video](https://www.youtube.com/watch?v=EsR8xLJOEn4) for the written part
