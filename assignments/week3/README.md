@@ -13,6 +13,9 @@
 1. run ```git push``` to submit your commit to your private gitHub acount
 1. check that you can see your solutions on the website for your private repo
 
+## Notes
+* We have not realesed test code yet.
+* You may always add your own helper functions and helper data!
 
 ## REPL hints
 * `:load` or `:l` will change the module you are inspecting
@@ -22,3 +25,7 @@
 
 ## ```git``` issues
 If you are having ```git``` issues, run ```git status``` and post on piazza for help.
+
+## Further Reading
+* Read about Haskell modules: https://www.haskell.org/tutorial/modules.html
+* [Null References: The Billion Dollar Mistake](https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare)
