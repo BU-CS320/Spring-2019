@@ -15,7 +15,7 @@ To get the assignment run ```git pull upstream master``` in your homework direct
 
 ## Submit analytical part of Homework
 
-You can simply go to www.gradescope.com to submit your assignment; you should have already been added to the roster; if there is a problem, contact Professor Snyder. For additional advice, see the Help page here:  https://www.gradescope.com/help#
+You should have gotten an email about your account from Gradescope, with a request to set your password. Thereafter, you can simply go to www.gradescope.com to submit your assignment; if there is a problem, contact Professor Snyder. For additional advice, see the Help page here:  https://www.gradescope.com/help#
 
 ## Notes
 * For the `exp` function, the first argument is the index, and the second argument is the base. For example, `exp n m` should represent m ^ n [@98](https://piazza.com/class/jr9fgrf7efv7j0?cid=98)
