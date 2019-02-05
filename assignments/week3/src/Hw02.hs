@@ -3,10 +3,6 @@ module Hw02 where
 import Prelude (Show,undefined,Bool(True,False),(&&),(||),not,
                 Integer,(==),(/=),(<),(>),(<=),(>=),(+),(-),(*),div,mod)
 
-
-        
-
-        
         
         
 -- Part A: Practice defining functions on Integers
@@ -40,7 +36,8 @@ length _   = undefined
 -- Concatenate two lists, make sure it works
 -- if either or both are empty
 -- Hint: structural induction on first argument
-(++) :: (List a) -> (List a) -> (List a)             -- they probably did this in last hw
+-- you may have done this in the last hw
+(++) :: (List a) -> (List a) -> (List a)
 (++) _  _ = undefined
 
 -- Add an element to the end of the list
@@ -60,7 +57,7 @@ take :: Integer -> List a -> List a
 take _  _ = undefined
 
 
--- some "higher order functions"
+-- some "higher order" functions
 
 -- apply the function to each member of the list
 map :: (a -> b) ->  List a ->  List b
@@ -72,7 +69,6 @@ multiplyEachBy7 = undefined
 
 -- keep only the elements from the list that have the property of interest
 filter :: (a -> Bool) ->  List a ->  List a
--- filter _ _ = undefined
 filter  _  _ = undefined
 
 keepEvens :: List Bool ->  List Bool
@@ -84,13 +80,12 @@ data Pair a b = Pair a b deriving Show
 
 
 fst :: Pair a b -> a
-fst (Pair x _) = x
+fst  = undefined
 
 snd :: Pair a b -> b
-snd (Pair _ y) = y
+snd  = undefined
 
--- zip and unzip
-
+-- zip 2 lists together
 zip :: (List a) -> (List b) -> List (Pair a b)
 zip  _  _ = undefined
 
@@ -109,7 +104,7 @@ last :: List a -> Maybe a
 last _ = undefined
 
 
--- Next two define as infix operators
+-- Next we define an infix function
 
 -- return nth element in list, starting at 0; similar to array indexing
 (!!) :: List a -> Integer -> Maybe a
@@ -143,7 +138,6 @@ boolOrd = Ordering compareBool
 insert :: Ordering a -> a -> List a -> List a
 insert = undefined
 
-  
 
 -- sort the list
 sort :: Ordering a -> List a -> List a
@@ -170,14 +164,20 @@ mkMathStudent = undefined
 isCs :: Student ->  Bool
 isCs = undefined
 
+getBuId :: Student ->  Integer
+getBuId = undefined
+
+getYear :: Student ->  Integer
+getYear = undefined
+
 -- coolestStudent is defined to be the first CS student who is taking 320 in this list
 coolestStudent :: List Student -> Maybe Student
 coolestStudent = undefined
 
--- the student's need to be put into pairs for group projects
--- take the list of students and create pairs
--- if possible every Math student should be paired with a CS student
--- if some students are not paired up that is ok
+-- the students need to be put into pairs for group projects.
+-- Take the list of students and create pairs of math and CS students from the list.
+-- If possible every Math student should be paired with a CS student.
+-- If some students are not paired up that is ok.
 groupProject :: List Student -> List (Pair Student Student)
 groupProject ls = undefined
 
