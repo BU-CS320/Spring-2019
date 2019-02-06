@@ -23,7 +23,7 @@
 
 ### REPL hints
 * `:load` or `:l` will change the module you are inspecting
-* `:reload` or `:r` will reload the file
+* `:reload` or `:r` will reload the file.  Do this often!
 * `:type` or `:t` will tell you the type of an expression
 * `:quit` or `:q` will leave the repl
 
