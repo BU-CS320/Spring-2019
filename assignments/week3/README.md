@@ -21,7 +21,7 @@
 * We have not realesed test code yet
 * You may always add your own helper functions and helper data!
 #### 9:05 lab
-The gcd implementation we went over had a small bug, instead it should be defined more conventionally so `gcd 0 x = 1` and `gcd x 0 = 1`
+The gcd implementation we went over may have had a small bug.  Make sure your finction is defined in the conventional way so `gcd 0 x = 1` and `gcd x 0 = 1`
 
 ### REPL hints
 * `:load` or `:l` will change the module you are inspecting
