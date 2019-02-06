@@ -2,7 +2,7 @@
 ## Code Part
 ### Instructions
 * To get the assignment run ```git pull upstream master``` in your homework directory
-* `cd` into the `week3` repo, run `cabal new-repl`
+* `cd` into the `week3` directory, run `cabal new-repl`
 * Fill in the bodies of the undefined functions and data
 * DO NOT CHANGE THE TYPE SIGNATURES!
 
