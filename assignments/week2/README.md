@@ -1,4 +1,4 @@
-# HW1 Due 2/5
+# HW1 Due  ~~2/5~~ 2/6 [@295](https://piazza.com/class/jr9fgrf7efv7j0?cid=295)
 
 To get the assignment run ```git pull upstream master``` in your homework directory.
 
