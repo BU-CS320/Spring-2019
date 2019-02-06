@@ -20,6 +20,8 @@
 * Make sure your editor uses spaces instead of tabs, or you will likely get annoying parse errors.
 * We have not realesed test code yet
 * You may always add your own helper functions and helper data!
+#### 9:05 lab
+The gcd implementation we went over had a small bug, instead it should be defined more conventionally so `gcd 0 x = 1` and `gcd x 0 = 1`
 
 ### REPL hints
 * `:load` or `:l` will change the module you are inspecting
