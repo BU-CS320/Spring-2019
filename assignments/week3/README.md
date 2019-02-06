@@ -1,9 +1,9 @@
 # HW2 Due 2/11
 ## Code Part
 ### Instructions
-* To get the assignment run ```git pull upstream master``` in your homework directory.
-* reload the repl often!
-* Fill in the bodies of the undefined functions and data.
+* To get the assignment run ```git pull upstream master``` in your homework directory
+* `cd` into the `week3` repo, run `cabal new-repl`
+* Fill in the bodies of the undefined functions and data
 * DO NOT CHANGE THE TYPE SIGNATURES!
 
 ### Submit (similar to [week1](../week1))
@@ -18,7 +18,7 @@
 ### Notes
 * There was a typo in the type definition of `keepEvens` it should read `keepEvens :: List Integer ->  List Integer`.  We will try to avoid changing the source file to save you from merge conflicts.  We do not plan on grading the question but encourage you to try it as practice. [@282](https://piazza.com/class/jr9fgrf7efv7j0?cid=282)
 * Make sure your editor uses spaces instead of tabs, or you will likely get annoying parse errors.
-* We have not realesed test code yet.
+* We have not realesed test code yet
 * You may always add your own helper functions and helper data!
 
 ### REPL hints
