@@ -16,7 +16,7 @@
 1. check that you can see your solutions on the website for your private repo
 
 ### Notes
-* There was a typo in the type definition of `keepEvens` it should read `keepEvens :: List Integer ->  List Integer`.  We will try to avoid changing the source file to save you from merge conflicts.  We do not plan on grading the question but encourage you to try it as practice. [@282](https://piazza.com/class/jr9fgrf7efv7j0?cid=282)
+* There was a typo in the type signature of `keepEvens` it should read `keepEvens :: List Integer ->  List Integer`.  We have not changed the source file to make merge conflicts easier.  We do not plan on grading the question but encourage you to try it as practice. [@282](https://piazza.com/class/jr9fgrf7efv7j0?cid=282)
 * Make sure your editor uses spaces instead of tabs, or you will likely get annoying parse errors.
 * We have not realesed test code yet
 * You may always add your own helper functions and helper data!
