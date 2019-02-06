@@ -27,7 +27,7 @@
 * `:type` or `:t` will tell you the type of an expression
 * `:quit` or `:q` will leave the repl
 
-## ```git``` issues
+### ```git``` issues
 If you are having ```git``` issues, run ```git status``` and post on piazza for help.
 
 ## Further Reading
