@@ -6,13 +6,6 @@ import Test.Tasty (testGroup, TestTree)
 import Test.Tasty.HUnit (assertEqual, testCase, (@=?))
 import Test.Tasty.QuickCheck as QC
 
----- Test for Integers ----
-intTests = testGroup "tests for Integer function" 
-    [
-        fibTests,
-        gcdTests
-    ]
-
 -- Test for fib
 fibTests = testGroup "tests for fib function" 
     [
@@ -38,4 +31,11 @@ gcdTests = testGroup "tests for gcd function"
     [
         gcdDivisorTest,
         gcdGreatestTest
+    ]
+
+---- Test for Integers ----
+intTests = testGroup "tests for Integer function" 
+    [
+        fibTests,
+        gcdTests
     ]
