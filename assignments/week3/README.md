@@ -1,4 +1,6 @@
 # HW2 Due 2/11
+## Analytical Part
+Anylitical part availible [@331](https://piazza.com/class/jr9fgrf7efv7j0?cid=331)
 ## Code Part
 ### Instructions
 * To get the assignment run ```git pull upstream master``` in your homework directory
@@ -22,10 +24,10 @@
 otherwise the tests may timeout.
 * For the `zip` function match as mainy pairs as possible, you may stop when either list is empty [@299](https://piazza.com/class/jr9fgrf7efv7j0?cid=299)
 * Make sure your editor uses spaces instead of tabs, or you will likely get annoying parse errors.
-* We have not realesed test code yet
+* We have not finished releasing test code yet
 * You may always add your own helper functions and helper data!
 #### 9:05 lab
-The gcd implementation we went over may have had a small bug.  Make sure your finction is defined in the conventional way so `gcd 0 x = 1` and `gcd x 0 = 1`
+The gcd implementation we went over may have had a small bug.  Make sure your function is defined in the conventional way so `gcd 0 x = 1` and `gcd x 0 = 1`
 
 ### REPL hints
 * `:load` or `:l` will change the module you are inspecting
