@@ -41,21 +41,25 @@ tests for gcd function
     2
     3
     Use --quickcheck-replay=987365 --quickcheck-max-size=50 to reproduce.
-    forall m n larger than 0, gcd of m n is :                 FAIL
+    forall m n larger than 0, gcd of m n is larger or equal to all the common factor of m and n: FAIL
     *** Failed! Falsifiable (after 1 test):
     1
-    1
+    2
     Use --quickcheck-replay=217568 --quickcheck-max-size=50 to reproduce.
 ```
 In this case the test for `fib` passes and both of the tests for `gcd` failed.
 
-In the log message you can see the property we are testing, for example:
+In the first log message you can see the property we are testing, for example:
 "forall m n larger than 0, gcd of m n is divisible by both n and m".
-And after the message `Failed!`, you will see two numbers `2` and `3`,
+And after the message `Failed!`, you will see the reason of the failure: `Exception: 'divide by zero'` and two numbers `2` and `3`,
 they are respectively the value of `m` and `n` in the message.
 
 If you plugin `2` to `m` and `3` to `n`, 
-you will find that your `gcd m n` is not divisible by both `m` and `n`.
+you will find that your `gcd m n` will encounter a `division by zero` error when you run your `gcd m n`.
+
+In the second error message you will see `Falsifiable`,
+this means when your plug in `1` to `m` and `2` to `n`,
+the second property, namely "gcd of m n is larger or equal to all the common factor of m and n", doesn't hold.
 
 #### Replay Your Test Cases
 
