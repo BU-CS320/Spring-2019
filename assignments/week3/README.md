@@ -1,6 +1,8 @@
 # HW2 Due 2/11
 ## Analytical Part
-Anylitical part availible [@331](https://piazza.com/class/jr9fgrf7efv7j0?cid=331)
+Analytical part availible [@331](https://piazza.com/class/jr9fgrf7efv7j0?cid=331)
+
+WS, Sat 2/9 9:30am:  A line at the bottom of problem two was cut off, I have uploaded a new version to the web site. 
 ## Code Part
 ### Instructions
 * To get the assignment run ```git pull upstream master``` in your homework directory
