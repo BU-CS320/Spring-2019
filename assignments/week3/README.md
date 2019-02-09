@@ -54,7 +54,7 @@ In the first log message you can see the property we are testing, for example:
 And after the message `Failed!`, you will see the reason of the failure: `Exception: 'divide by zero'` and two numbers `2` and `3`,
 they are respectively the value of `m` and `n` in the message.
 
-If you plugin `2` to `m` and `3` to `n`, 
+If you plug in `2` to `m` and `3` to `n`, 
 you will find that your `gcd m n` will encounter a `division by zero` error when you run your `gcd m n`.
 
 In the second error message you will see `Falsifiable`,
