@@ -8,15 +8,6 @@ Anylitical part availible [@331](https://piazza.com/class/jr9fgrf7efv7j0?cid=331
 * Fill in the bodies of the undefined functions and data
 * DO NOT CHANGE THE TYPE SIGNATURES!
 
-### Submit (similar to [week1](../week1))
-1. run the tests by running ```cabal new-test``` 
-1. run ```git status``` to make sure git is ok
-1. run ```git commit -a -m "whoo hoo I'm done with HW"``` to make a commit to your laptop
-1. run ```git pull upstream master``` to get the latest tests
-1. run the tests by running ```cabal new-test``` 
-1. run ```git push``` to submit your commit to your private gitHub acount
-1. check that you can see your solutions on the website for your private repo
-
 ### Notes
 * There was a typo in the type signature of `keepEvens` it should read `keepEvens :: List Integer ->  List Integer`.  We have not changed the source file to make merge conflicts easier.  We do not plan on grading the question but encourage you to try it as practice. [@282](https://piazza.com/class/jr9fgrf7efv7j0?cid=282)
 * You need to install `tasty-quickcheck` to run the test cases.
@@ -28,6 +19,15 @@ otherwise the tests may timeout.
 * You may always add your own helper functions and helper data!
 #### 9:05 lab
 The gcd implementation we went over may have had a small bug.  Make sure your function is defined in the conventional way so `gcd 0 x = 1` and `gcd x 0 = 1`
+
+### Submit (similar to [week1](../week1))
+1. run the tests by running ```cabal new-test``` 
+1. run ```git status``` to make sure git is ok
+1. run ```git commit -a -m "whoo hoo I'm done with HW"``` to make a commit to your laptop
+1. run ```git pull upstream master``` to get the latest tests
+1. run the tests by running ```cabal new-test``` 
+1. run ```git push``` to submit your commit to your private gitHub acount
+1. check that you can see your solutions on the website for your private repo
 
 ### REPL hints
 * `:load` or `:l` will change the module you are inspecting
