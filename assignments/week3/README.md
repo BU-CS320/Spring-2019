@@ -36,7 +36,7 @@ tests for fib function
     forall n, fib n + fib (n+1) = fib (n+2):                  OK
     +++ OK, passed 20 tests; 26 discarded.
 tests for gcd function
-    forall m n larger than 0, gcd of m n divids both n and m: FAIL
+    forall m n larger than 0, gcd of m n is divisible by both n and m: FAIL
     *** Failed! Exception: 'divide by zero' (after 1 test and 4 shrinks):
     2
     3
@@ -50,12 +50,12 @@ tests for gcd function
 In this case the test for `fib` passes and both of the tests for `gcd` failed.
 
 In the log message you can see the property we are testing, for example:
-"forall m n larger than 0, gcd of m n divids both n and m".
+"forall m n larger than 0, gcd of m n is divisible by both n and m".
 And after the message `Failed!`, you will see two numbers `2` and `3`,
 they are respectively the value of `m` and `n` in the message.
 
 If you plugin `2` to `m` and `3` to `n`, 
-you will find that your `gcd m n` do not divides both `m` and `n`.
+you will find that your `gcd m n` is not divisible by both `m` and `n`.
 
 #### Replay Your Test Cases
 
