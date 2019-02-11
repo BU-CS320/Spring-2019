@@ -1,4 +1,4 @@
-# HW2 Due 2/11
+# HW2 Due 2/12
 ## Analytical Part
 Analytical part available [@331](https://piazza.com/class/jr9fgrf7efv7j0?cid=331)
 
