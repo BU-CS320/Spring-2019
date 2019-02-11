@@ -11,7 +11,7 @@ import IntTests (intTests)
 
 main = 
     do 
-        -- setEnv "TASTY_TIMEOUT" "5s"
+        setEnv "TASTY_TIMEOUT" "5s"
         setEnv "TASTY_QUICKCHECK_TESTS" "20"
         setEnv "TASTY_QUICKCHECK_MAX_SIZE" "50"
         defaultMain allTests
