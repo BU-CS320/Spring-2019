@@ -1,8 +1,12 @@
-# HW2 Due 2/11
+# HW2 Due 2/12
 ## Analytical Part
 Analytical part available [@331](https://piazza.com/class/jr9fgrf7efv7j0?cid=331)
 
 WS, Sat 2/9 9:30am:  A line at the bottom of problem two was cut off, I have uploaded a new version to the web site. 
+
+WS, Sun 2/10 11:50am: There was a typo in Problem One a4, fixed online now.  Look at the video hints, where I actually
+solve this part of the problem:  https://www.youtube.com/watch?v=B1VB2GDGmuM
+
 ## Code Part
 ### Instructions
 * To get the assignment run ```git pull upstream master``` in your homework directory
