@@ -17,6 +17,7 @@ solve this part of the problem:  https://www.youtube.com/watch?v=B1VB2GDGmuM
 ### Notes
 * There was a typo in the type signature of `keepEvens` it should read `keepEvens :: List Integer ->  List Integer`.  We have not changed the source file to make merge conflicts easier.  We do not plan on grading the question but encourage you to try it as practice. [@282](https://piazza.com/class/jr9fgrf7efv7j0?cid=282)
 * You need to install `tasty-quickcheck` to run the test cases.
+* If your test times out, you need to close and reopen your terminal to do further testing.
 * For fib, you might need to find a efficient definition, 
 otherwise the tests may timeout.
 * For the `zip` function match as mainy pairs as possible, you may stop when either list is empty [@299](https://piazza.com/class/jr9fgrf7efv7j0?cid=299)
