@@ -3,10 +3,19 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE  DeriveDataTypeable, DeriveGeneric #-}
 
-module TestBase (List, Student, Comparison, Set, Hw02.Maybe) where 
+module TestBase (
+  List(..), Student(..), Comparison(..), 
+  Set(..), Hw02.Maybe(..), Pair(..), Hw02.Ordering(..)
+  ) where 
 
-import Hw02
-import Set
+import Hw02 (
+  List(..), Pair(..), Maybe(..), 
+  Comparison(..), Ordering(..), Student(..)
+  )
+import Set (
+  size, empty, singleton, insert, fromList, delete, member, elems,
+  Set
+  )
 import GHC.Generics (Generic)
 import Data.Typeable (Typeable)
 import Test.QuickCheck.Arbitrary.Generic
@@ -39,6 +48,15 @@ p2l :: [a] -> List a
 p2l [] = Nil
 p2l (x:xs) = Cons x (p2l xs)
 
+-- translate Maybe to Prelude
+m2p :: Hw02.Maybe a -> Prelude.Maybe a
+m2p Hw02.Nothing = Prelude.Nothing
+m2p (Hw02.Just n) = Prelude.Just n
+
+-- translate Prelude to Maybe
+p2m :: Prelude.Maybe a -> Hw02.Maybe a
+p2m Prelude.Nothing = Hw02.Nothing
+p2m (Prelude.Just n) = Hw02.Just n
 
 instance (Arbitrary a) => Arbitrary (List a) where
   arbitrary = do ls <- arbitrary; pure $ p2l $ ls
@@ -47,8 +65,11 @@ instance (Arbitrary a) => Arbitrary (List a) where
 -- type class for comparasion
 deriving instance Eq Comparison
 
--- define equality on Maybe
+-- define type classes on Maybe
 deriving instance (Eq a) => Eq (Hw02.Maybe a) 
+instance (Arbitrary a) => Arbitrary (Hw02.Maybe a) where
+  arbitrary = do ls <- arbitrary; pure $ p2m $ ls
+  shrink a =  fmap p2m (shrink $ m2p a)
 
 -- type class for set
 instance (Eq a) => Eq (Set a) where 

@@ -5,7 +5,7 @@
 module ListTests where
 
 import TestBase
-import Hw02 hiding (List)
+import Hw02 (isEmpty, length, (++), addToEnd, reverse, concat, take, map, multiplyEachBy7, filter, fst, snd, zip, head, last, (!!))
 import Data.List
 import Test.Tasty (testGroup, TestTree)
 import Test.Tasty.HUnit (assertEqual, testCase, assertBool, (@=?))
