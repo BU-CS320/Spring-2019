@@ -3,7 +3,7 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE  DeriveDataTypeable, DeriveGeneric #-}
 
-module TestBase where 
+module TestBase (List, Student, Comparison, Set) where 
 
 import Hw02
 import Set
