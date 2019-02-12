@@ -3,7 +3,7 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE  DeriveDataTypeable, DeriveGeneric #-}
 
-module TestBase (List, Student, Comparison, Set) where 
+module TestBase (List, Student, Comparison, Set, Hw02.Maybe) where 
 
 import Hw02
 import Set
@@ -46,6 +46,9 @@ instance (Arbitrary a) => Arbitrary (List a) where
 
 -- type class for comparasion
 deriving instance Eq Comparison
+
+-- define equality on Maybe
+deriving instance (Eq a) => Eq (Hw02.Maybe a) 
 
 -- type class for set
 instance (Eq a) => Eq (Set a) where 
