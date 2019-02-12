@@ -37,8 +37,8 @@ instance (Generic a, Arbitrary a) => Arbitrary (List a) where
 deriving instance Eq Comparison
 
 -- type class for set
-instance (Eq a) => (Set a) where 
-    set1 == set2 = elems set1 == elem set2
+instance (Eq a) => Eq (Set a) where 
+    set1 == set2 = elems set1 == elems set2
 -- because set have an ordering inside of them,
 -- therefore there cannot be any Arbitrary defined on set
 -- we need to generate a arbitrary list and convert them into set
