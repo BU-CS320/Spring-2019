@@ -8,8 +8,13 @@
 * DO NOT CHANGE THE TYPE SIGNATURES!
 
 ### Notes
-* we will release some additional problems soon
 * no tests are posted yet
+
+### REPL hints
+* `:load` or `:l` will change the module you are inspecting
+* `:reload` or `:r` will reload the file.  Do this often!
+* `:type` or `:t` will tell you the type of an expression
+* `:quit` or `:q` will leave the repl
 
 ### Submit (similar to [week1](../week1))
 1. run the tests by running ```cabal new-test``` 
@@ -20,8 +25,3 @@
 1. run ```git push``` to submit your commit to your private gitHub acount
 1. check that you can see your solutions on the website for your private repo
 
-### REPL hints
-* `:load` or `:l` will change the module you are inspecting
-* `:reload` or `:r` will reload the file.  Do this often!
-* `:type` or `:t` will tell you the type of an expression
-* `:quit` or `:q` will leave the repl
