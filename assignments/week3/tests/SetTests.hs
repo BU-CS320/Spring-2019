@@ -3,7 +3,7 @@ module SetTests where
 import TestBase
 import Set as S hiding (Set)
 import Data.Set 
-import Hw02 hiding (List)
+import Hw02  (intOrd, boolOrd, length, (!!), Maybe(..))
 import Data.List
 import Test.Tasty (testGroup, TestTree)
 import Test.Tasty.HUnit (assertEqual, testCase, (@=?))
