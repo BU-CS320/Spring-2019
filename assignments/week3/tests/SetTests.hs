@@ -55,10 +55,10 @@ setRepeatTest = QC.testProperty "for all list l and integer i, we insert element
 -- each elements in elems should be a member of set
 setElemsIsMemberTest = QC.testProperty "for all set s, evey elements of elems s should be member of s"$
     \l -> let 
-            s = S.fromList l 
-            elementsOfS = elems s 
+            s = S.fromList intOrd l 
+            elementsOfS = S.elems s 
           in 
-            all (\e -> member e s) elementsOfS 
+            all (\e -> S.member e s) $ l2p elementsOfS 
 
 -- if you insert an element into the set, set should have that element 
 setInsertExistsBool = QC.testProperty "forall set of bool s and bool b, if you insert b into s, b should be member of s" $
