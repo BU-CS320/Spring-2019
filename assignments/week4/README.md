@@ -9,9 +9,11 @@
 
 ### Notes
 * No tests are posted yet
+### Langs
 * In Lang3 if you define one variable in terms of something undefined, there should be no effect (the state shouldn't change) and the result is undefined.  For instance `x := y` in the state `{x -> 3}` should result in `(Nothing,{x -> 3})`
 * In any Lang problem, when there is any abiguity in which order to evaluate:  evaluate left to right. For instance `print(2); print(5)` should have `2` before `5`.
-* `-- hint use lookup` should have been `-- hint use Map.lookup`
+* `-- hint use lookup` should have been `-- hint use Map.lookup and Map.insert`
+* If it is possible to fail in a language, propogate the failure as soon as possible.  For example, when bad is not in the state `x := bad; 2+2` in lang 3 should return `(Nothing,{})`
 
 ### REPL hints
 * `:load` or `:l` will change the module you are inspecting
