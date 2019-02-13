@@ -4,7 +4,7 @@ module Main where
 import IntTests (intTests)
 import ListTests (listTests)
 import OrderingTests (orderingTests)
--- import SetTests (setTests)
+import SetTests (setTests)
 import StudentTests (studentTests)
 import System.Environment
 
@@ -28,7 +28,7 @@ allTests = testGroup "all tests" [
         intTests,
         listTests,
         orderingTests,
-        -- setTests,
+        setTests,
         studentTests
     ]
 

@@ -23,12 +23,12 @@ studentTests = testGroup "tests for Student functions"
         QC.testProperty "or all id, if we made a cs student, his/her id must be the same as input" $ 
             \id year fr -> getBuId (mkMathStudent id year fr) == id,
             
-        QC.testProperty "no coolest math student" $ 
+        QC.testProperty "for all id, year, friends number, if we create a list of math student using these info, there should be no cool student" $ 
             \ ls -> let
                       mathLs = fmap (\ (id, year, fr) -> (mkMathStudent id year fr)) (ls :: [(Integer,Integer,Integer)])
                     in coolestStudent (p2l mathLs) == TestBase.Nothing,
                     
-        QC.testProperty "No cool students" $ 
+        QC.testProperty "for a list with only math student and cs student without taking cs320, then there should be no cool student" $ 
             \ mls cls -> 
                     let
                       csLs = fmap (\ (id, year) -> (mkCsStudent id year False)) (cls :: [(Integer,Integer)])
@@ -57,7 +57,7 @@ studentTests = testGroup "tests for Student functions"
                       result = fmap (\ (Pair a b) -> [a,b]) $ l2p $ groupProject $ p2l $ (csLs ++ mathLs)
                     in (length result) == min (length csLs) (length mathLs),
 					
-        QC.testProperty "groupProject: never makes a new student" $ 
+        QC.testProperty "for all list of student, after assigning to groupProjects, there shouldn't be any student not in the original list" $ 
             \ students -> 
                     let
                       result = fmap (\ (Pair a b) -> [a,b]) $ l2p $ groupProject $ p2l $ (students :: [Student])
