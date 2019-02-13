@@ -8,6 +8,7 @@ WS, Sun 2/10 11:50am: There was a typo in Problem One a4, fixed online now.  Loo
 solve this part of the problem:  https://www.youtube.com/watch?v=B1VB2GDGmuM
 
 ## Code Part
+Code part is now due on 2/13 [@457](https://piazza.com/class/jr9fgrf7efv7j0?cid=457)
 ### Instructions
 * To get the assignment run ```git pull upstream master``` in your homework directory
 * `cd` into the `week3` directory, run `cabal new-repl`
