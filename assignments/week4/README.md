@@ -9,7 +9,8 @@
 
 ### Notes
 * No tests are posted yet
-* when defining Eq on Map, maps are equal when they have the exact same key value pairs
+* When defining Eq on Map, maps are equal when they have the exact same key value pairs
+* For the `TypeProblems` you may not "cheat" by cuasing an error either directly or inderectly.  For instance `head []` will recieve no credit since it crashes.
 ### Langs
 * In Lang3 if you define one variable in terms of something undefined, there should be no effect (the state shouldn't change) and the result is undefined.  For instance `x := y` in the state `{x -> 3}` should result in `(Nothing,{x -> 3})`
 * In any Lang problem, when there is any abiguity in which order to evaluate:  evaluate left to right. For instance `print(2); print(5)` should have `2` before `5`.
