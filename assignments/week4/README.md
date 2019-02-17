@@ -8,21 +8,10 @@
 * DO NOT CHANGE THE TYPE SIGNATURES!
 
 ### Notes
-* No tests are posted yet
-* When defining Eq on Map, maps are equal when they have the exact same key value pairs
-* For the `TypeProblems` you may not "cheat" by cuasing an error either directly or inderectly.  For instance `head []` will recieve no credit since it crashes.
-* For the `TypeProblems` you may give any answer that is consistent with the type specified.  You do not need to give a term that has the most general given type.  For instace: if asked for a term of type `Bool -> Bool`, both `\ b -> not b` and `\ x -> x` will get full credit.
-#### Langs
-* In Lang3 if you define one variable in terms of something undefined, there should be no effect (the state shouldn't change) and the result is undefined.  For instance `x := y` in the state `{x -> 3}` should result in `(Nothing,{x -> 3})`
-* In any Lang problem, when there is any abiguity in which order to evaluate:  evaluate left to right. For instance `print(2); print(5)` should have `2` before `5`.
-* `-- hint use lookup` should have been `-- hint use Map.lookup and Map.insert`
-* If it is possible to fail in a language, propogate the failure as soon as possible.  For example, when bad is not in the state `x := bad; 2+2` in lang 3 should return `(Nothing,{})`
-
-### REPL hints
-* `:load` or `:l` will change the module you are inspecting
-* `:reload` or `:r` will reload the file.  Do this often!
-* `:type` or `:t` will tell you the type of an expression
-* `:quit` or `:q` will leave the repl
+* we will release some additional problems soon
+* no tests are posted yet
+* for dot product you should return 0 when two list have different dimension, but we will not test the case that two lists have different dimension
+* for addAllList if the input is empty then you should return empty list, but we will not test the case that the input is empty.
 
 ### Submit (similar to [week1](../week1))
 1. run the tests by running ```cabal new-test``` 
@@ -33,3 +22,8 @@
 1. run ```git push``` to submit your commit to your private gitHub acount
 1. check that you can see your solutions on the website for your private repo
 
+### REPL hints
+* `:load` or `:l` will change the module you are inspecting
+* `:reload` or `:r` will reload the file.  Do this often!
+* `:type` or `:t` will tell you the type of an expression
+* `:quit` or `:q` will leave the repl
