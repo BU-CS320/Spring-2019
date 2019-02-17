@@ -88,9 +88,9 @@ petTests = testGroup "Tests for Pet datatype" [
     QC.testProperty "For all okCat, they are happy when temp >0" $
         \temp -> temp > 0 QC.==> isHappy okCat temp,
         
-    QC.testProperty "For all badCat, they are never happy" $
+    QC.testProperty "For all temp, the bad cat will never be happy" $
         \temp -> not $ isHappy badCat temp,
-    QC.testProperty "For all Dogs, they are always happy" $
+    QC.testProperty "For all temp, a dog should always be happy" $
         \temp -> isHappy (mkDog "good pupper") temp,
         
     QC.testProperty "For all temp and thresh, we make a cat that is happy if the temp is under thresh, then either the cat is happy or temp is larger or equal to thresh" $
