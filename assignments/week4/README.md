@@ -8,7 +8,6 @@
 * DO NOT CHANGE THE TYPE SIGNATURES!
 
 ### Notes
-* we will release some additional problems soon
 * no tests are posted yet
 * for dot product you should return 0 when two list have different dimension, but we will not test the case that two lists have different dimension
 * for addAllList if the input is empty then you should return empty list, but we will not test the case that the input is empty.
