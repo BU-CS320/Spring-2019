@@ -1,4 +1,4 @@
-# HW2 Due 2/19
+# HW3 Due 2/19
 
 ## Code Part
 ### Instructions
@@ -37,7 +37,7 @@
 1. run ```git commit -a -m "haskell is fun"``` to make a commit to your laptop
 1. run ```git pull upstream master``` to get the latest tests
 1. run the tests by running ```cabal new-test``` 
-1. run ```git push``` to submit your commit to your private gitHub acount
+1. run ```git push``` to submit your commit to your private gitHub account
 1. check that you can see your solutions on the website for your private repo
 
 ### REPL hints
