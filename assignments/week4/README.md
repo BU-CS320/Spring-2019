@@ -20,7 +20,7 @@
 * `-- hint use lookup` should have been `-- hint use Map.lookup and Map.insert`
 * If it is possible to fail in a language, propagate the failure as soon as possible.  For example, when bad is not in the state `x := bad; 2+2` in lang 3 should return `(Nothing,{})`
 #### Additional Specs of Map.hs
-Implementations should take advantage of the BST to be reasonalby efficient.
+Implementations should take advantage of the BST to be reasonalby efficient.  For instance, you do not need to rebalence your tree.
 - `toList`: return a list that is sorted from smallest to the largest
 - `fromList`: the last element should be put into the tree first, and then the second last element. That is the root of your Tree should always be the last element of your input list.
 - `delete`:  you can search for how to delete a node in a BST. Here is a good tutorial: https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/. 
@@ -29,7 +29,7 @@ Implementations should take advantage of the BST to be reasonalby efficient.
 - `filter`: don't turn it into a list and then do it. 
   - Hint: if you want to do it efficiently you need to reuse some of the code in `delete`.
 - `==`: When defining Eq on Map, maps are equal when they have the exact same key value pairs. For instance, `insert 1 'a' (insert 2 'b' empty) == insert 2 'b' (insert 1 'a' empty)`
-  - Note: the time complexity of `==` on list is O(n), but order matters in equality of list, for example `[1, 2]` is not equal to `[2, 1]`
+  - Note: the order matters in equality of list, for example `[1, 2]` is not equal to `[2, 1]`
 
 ### Submit (similar to [week1](../week1))
 1. run the tests by running ```cabal new-test``` 
