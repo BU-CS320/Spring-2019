@@ -30,8 +30,7 @@
   - Hint: you will need to use lots of pattern matching.
   - Hint: make a helper function.
 - `update`: O(log n)
-- `union`: for input map of size n1 and n2, the complexity should be O(n1)
-  - Hint: the helper function `fromAscList` will be helpful. Specs can be found [here](https://hackage.haskell.org/package/containers-0.6.0.1/docs/Data-Map-Lazy.html#g:4)
+- `union`: for input map of size n1 and n2, the complexity should be O(n1 + n2)
 - `filter`: O(n), don't turn it into a list and then do it. 
   - Hint: if you want to do it efficiently you need to reuse some of the code in `delete`.
 - `==`: O(n), two set are equal iff they contain the same elements.
