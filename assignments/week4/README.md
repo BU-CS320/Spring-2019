@@ -8,9 +8,9 @@
 * DO NOT CHANGE THE TYPE SIGNATURES!
 
 ### Notes
-* tests posted
-* for dot product you should return 0 when two list have different dimension, but we will not test the case that two lists have different dimension
-* for addAllList if the input is empty then you should return empty list, but we will not test the case that the input is empty.
+* Tests posted
+* For dot product you should return 0 when two list have different dimension, but we will not test the case that two lists have different dimension
+* For addAllList if the input is empty then you should return empty list, but we will not test the case that the input is empty.
 * When defining Eq on Map, maps are equal when they have the exact same key value pairs
 * For the `TypeProblems` you may not "cheat" by causing an error either directly or indirectly.  For instance `head []` will recieve no credit since it crashes.
 * For the `TypeProblems` you may give any answer that is consistent with the type specified.  You do not need to give a term that has the most general given type.  For instace: if asked for a term of type `Bool -> Bool`, both `\ b -> not b` and `\ x -> x` will get full credit.
