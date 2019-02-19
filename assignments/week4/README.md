@@ -15,6 +15,7 @@
 * For the `TypeProblems` you may not "cheat" by causing an error either directly or indirectly.  For instance `head []` will recieve no credit since it crashes.
 * For the `TypeProblems` you may give any answer that is consistent with the type specified.  You do not need to give a term that has the most general given type.  For instace: if asked for a term of type `Bool -> Bool`, both `\ b -> not b` and `\ x -> x` will get full credit.
 #### Langs
+* There is are hint videos availible: https://www.youtube.com/channel/UCfSqNB0yh99yuG4p4nzjPOA
 * In Lang3 if you define one variable in terms of something undefined, there should be no effect (the state shouldn't change) and the result is undefined.  For instance `x := y` in the state `{x -> 3}` should result in `(Nothing,{x -> 3})`
 * In any Lang problem, when there is any ambiguity in which order to evaluate:  evaluate left to right. For instance `print(2); print(5)` should have `2` before `5`.
 * `-- hint use lookup` should have been `-- hint use Map.lookup and Map.insert`
