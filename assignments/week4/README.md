@@ -35,7 +35,7 @@
 - `filter`: O(n), don't turn it into a list and then do it. 
   - Hint: if you want to do it efficiently you need to reuse some of the code in `delete`.
 - `==`: O(n), two set are equal iff they contain the same elements.
-  - Note: the time complexity of `==` on list is O(n). But order matters in equality of list, for example `[1, 2]` is not equal to `[2, 1]`
+  - Note: the time complexity of `==` on list is O(n), but order matters in equality of list, for example `[1, 2]` is not equal to `[2, 1]`
 - `fmap`: O(n).
 
 ### Submit (similar to [week1](../week1))
