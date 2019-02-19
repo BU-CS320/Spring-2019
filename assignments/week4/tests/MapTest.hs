@@ -37,14 +37,14 @@ module MapTest where
     QC.testProperty "fromList should behave like Data.Map.fromList (int-int pair version)" $
       \ l -> testOneArgFuncByIso
               (Map.fromList :: [(Integer, Integer)] -> Map.Map Integer Integer)
-              (Data.Map.fromList :: [(Integer, Integer)] -> Data.Map.Map Integer Integer)
-              (reverse (l :: [(Integer, Integer)] ) ),
+              ((Data.Map.fromList :: [(Integer, Integer)] -> Data.Map.Map Integer Integer).reverse)
+              ((l :: [(Integer, Integer)] ) ),
     
     QC.testProperty "fromList should behave like Data.Map.fromList (int-bool pair version)" $
       \ l -> testOneArgFuncByIso
               (Map.fromList :: [(Integer, Bool)] -> Map.Map Integer Bool)
-              (Data.Map.fromList :: [(Integer, Bool)] -> Data.Map.Map Integer Bool)
-              (reverse (l :: [(Integer, Bool)] ) ),
+              ((Data.Map.fromList :: [(Integer, Bool)] -> Data.Map.Map Integer Bool).reverse)
+              ((l :: [(Integer, Bool)] ) ),
     
     QC.testProperty "for all list, converting the list to map, the size of the map should equal of smaller to the size of the list" $
       \ l -> Map.size ( Map.fromList (l::[(Integer, Integer)]) ) <= (length l)
@@ -84,9 +84,12 @@ module MapTest where
                 (Map.toList :: Map.Map Integer Integer -> [(Integer, Integer)] )
                 (Data.Map.toList :: Data.Map.Map Integer Integer -> [(Integer, Integer)] )
                 (m :: Map.Map Integer Integer),
-          
+
       QC.testProperty "toList should behave like Data.Map.toList (int-bool pair version)" $
-        \ l -> (Data.Map.fromList $ Map.toList $ Map.fromList (l::[(Integer, Bool)]) ) == Data.Map.fromList l
+        \ m -> testOneArgFuncByIso
+                (Map.toList :: Map.Map Integer Bool -> [(Integer, Bool)] )
+                (Data.Map.toList :: Data.Map.Map Integer Bool -> [(Integer, Bool)] )
+                (m :: Map.Map Integer Bool)
     ]
 
   sizeTest = testGroup "Test size function" [

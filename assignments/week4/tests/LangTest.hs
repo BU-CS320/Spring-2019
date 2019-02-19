@@ -51,6 +51,8 @@ module LangTest where
      seperatorWorks3,
      assignWorks3,
      assign2Works3,
+     assign3Works3,
+     assign4Works3,
      idWorksEmpty3,
      idWorks3,
      id2Works3
@@ -64,6 +66,9 @@ module LangTest where
      letMore2Works4,
      letMore3Works4,
      letMore4Works4,
+     let5Works4,
+     let6Works4,
+     let7Works4,
      idWorks4,
      id2Works4,
      id3Works4     
@@ -134,6 +139,16 @@ module LangTest where
   assign2Works3 = testCase "1+(Assign x = (1;(2;1+2))+a) ,a=2 shoule be 6" $
                  assertEqual [] (Just 6) $ lefthp $ L3.eval ((L3.LiteralInt 1) `L3.Plus` ast1) (Map.fromList [("a",2)])
   
+  ast2 = L3.Assign "x" (L3.LiteralInt 2)
+  ast3 = L3.Assign "y" (L3.LiteralInt 2)
+  ast4 = L3.Assign "x" (L3.LiteralInt 3)
+  assign3Works3 = testCase "Assign: x=2; y=2; x=3, x should be 3" $
+                  assertEqual [] (Just 3) $ lefthp $ L3.eval ((ast2 `L3.Separator` ast3) `L3.Separator` ast4) Map.empty
+
+  ast5 = (L3.LiteralInt 1) `L3.Plus` ast2                
+  assign4Works3 = testCase "x = 1 + (x = 2), x should be 3" $
+                  assertEqual [] (Just 3) $ lefthp $ L3.eval (L3.Assign "x" ast5) Map.empty
+  
   idWorksEmpty3 = testCase "Id Empty should be Nothing" $
             assertEqual [] (Nothing, Map.empty) $ L3.eval (L3.Id "") $ Map.empty
 
@@ -167,6 +182,20 @@ module LangTest where
   letMore4Works4 = testCase "Let should be 'x+(let var = x+2 in var+2)=,x=2'" $
               assertEqual [] (Just 7) $ L4.eval ((L4.Id "x") `L4.Plus` lets) (Map.fromList [("x",2),("y",1)]) 
   
+  ast41 = L4.Let "x" (L4.LiteralInt 2) (L4.Id "x") 
+  let5Works4 = testCase "Let out of scope: x + let x=2 in x, should be nothing" $
+              assertEqual [] Nothing $ L4.eval ((L4.Id "x") `L4.Plus` ast41) (Map.empty)
+
+  ast42 = L4.Let "y" (L4.LiteralInt 1) (L4.Id "x" `L4.Plus` L4.Id "y") 
+  ast43 = L4.Let "x" (L4.LiteralInt 2) ast42
+  let6Works4 = testCase "nested let: let x=2 in (let y=1 in x+y), should be 3" $
+                 assertEqual [] (Just 3) $ L4.eval ast43 (Map.empty)
+
+  ast44 = L4.Let "x" (L4.LiteralInt 3) (L4.Id "x")
+  ast45 = L4.Let "x" (L4.LiteralInt 2) ast44
+  let7Works4 = testCase "let reassign: let x=2 in (let x = 3 in x), should be 3" $
+               assertEqual [] (Just 3) $ L4.eval ast45 (Map.empty)
+
   idWorks4 = testCase "Id should show its value" $
               assertEqual [] Nothing $ L4.eval (L4.Id "x") (Map.empty)            
 
