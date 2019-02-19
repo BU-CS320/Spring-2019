@@ -22,7 +22,7 @@
 #### Additional Specs of Map.hs
 - `insert`: O(log n)
 - `toList`: O(n), return a list that is sorted from smallest to the largest
-- `fromList`: O(n), the last element should be put into the tree first, and then the second last element. That is the root of your Tree should always be the last element of your input list.
+- `fromList`: O(n * log n), the last element should be put into the tree first, and then the second last element. That is the root of your Tree should always be the last element of your input list.
 - `size`: O(n)
 - `member`: O(log n)
 - `lookup`: O(log n)
@@ -30,7 +30,8 @@
   - Hint: you will need to use lots of pattern matching.
   - Hint: make a helper function.
 - `update`: O(log n)
-- `union`: for input map of size n1 and n2, the complexity should be O(n1 log n2)
+- `union`: for input map of size n1 and n2, the complexity should be O(n1)
+  - Hint: the helper function `fromAscList` will be helpful. Specs can be found [here](https://hackage.haskell.org/package/containers-0.6.0.1/docs/Data-Map-Lazy.html#g:4)
 - `filter`: O(n), don't turn it into a list and then do it. 
   - Hint: if you want to do it efficiently you need to reuse some of the code in `delete`.
 - `==`: O(n), two set are equal iff they contain the same elements.
