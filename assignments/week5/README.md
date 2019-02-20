@@ -17,7 +17,7 @@ not yet posted
 * `instance (AllTheThings a, AllTheThings b) => AllTheThings (a,b)` is harder than expected, we plan to post a hint soon
 * For `instance HasExample [a] where` remember that lists can be empty
 * We plan to post a video on the parsing part
-* "lexographicly" should have been spelled "lexicographically"
+* "lexographicly" should have been spelled "[lexicographically](https://en.wikipedia.org/wiki/Lexicographical_order)"
 
 ### Submit (similar to [week1](../week1))
 1. run the tests by running ```cabal new-test``` 
