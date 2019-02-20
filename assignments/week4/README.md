@@ -8,6 +8,7 @@
 * DO NOT CHANGE THE TYPE SIGNATURES!
 
 ### Notes
+* If the tests are running forever, and you are sure there are no mistakes in your code.  Make sure all the old test processes are terminated.  We think there is a bug in one of our testing libraries that won't runn new tests while the old processes are open, see [@622](https://piazza.com/class/jr9fgrf7efv7j0?cid=622)
 * Tests posted
 * For dot product you should return 0 when two list have different dimension, but we will not test the case that two lists have different dimension
 * For addAllList if the input is empty then you should return empty list, but we will not test the case that the input is empty.
