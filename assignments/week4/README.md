@@ -20,13 +20,13 @@
 * In any Lang problem, when there is any ambiguity in which order to evaluate:  evaluate left to right. For instance `print(2); print(5)` should have `2` before `5`.
 * `-- hint use lookup` should have been `-- hint use Map.lookup and Map.insert`
 * If it is possible to fail in a language, propagate the failure as soon as possible.  For example, when bad is not in the state `x := bad; 2+2` in lang 3 should return `(Nothing,{})`
-#### Additional Specs of Map.hs
+#### Map
 Implementations should take advantage of the BST to be reasonalby efficient.  For instance, you do not need to rebalence your tree.
 - `toList`: return a list that is sorted from smallest to the largest
 - `fromList`: the last element should be put into the tree first, and then the second last element. That is the root of your Tree should always be the last element of your input list.
 - `delete`:  you can search for how to delete a node in a BST. Here is a good tutorial: https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/. 
   - Hint: you will need to use lots of pattern matching.
-  - Hint: make a helper function.
+  - Hint: make a helper function, like the one here [/src/MapHints.hs](/src/MapHints.hs)
 - `filter`: don't turn it into a list and then do it. 
 
 - `==`: When defining Eq on Map, maps are equal when they have the exact same key value pairs. For instance, `insert 1 'a' (insert 2 'b' empty) == insert 2 'b' (insert 1 'a' empty)`
