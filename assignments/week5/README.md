@@ -13,7 +13,7 @@ not yet posted
 ### Notes
 * No tests are posted yet
 * Because of the way Ord depends on Eq, you will get errors if you have `instance Eq a => Eq ...` but no `instance Ord a => Ord ...`, this is just haskell trying to be helpful
-* `instance (AllTheThings a, AllTheThings b) => AllTheThings (a,b) where` is harder than expected, we plan to post a hint soon
+* `instance (AllTheThings a, AllTheThings b) => AllTheThings (a,b)` is harder than expected, we plan to post a hint soon
 * For `instance HasExample [a] where` remember that lists can be empty
 * We plan to post a video on the parsing part
 
