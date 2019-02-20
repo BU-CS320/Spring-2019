@@ -11,7 +11,11 @@ not yet posted
 * DO NOT CHANGE THE TYPE SIGNATURES!
 
 ### Notes
-* no tests are posted yet
+* No tests are posted yet
+* Because of the way Ord depends on Eq, you will get errors if you have `instance Eq a => Eq ...` but no `instance Ord a => Ord ...`, this is just haskell trying to be helpful
+* `instance (AllTheThings a, AllTheThings b) => AllTheThings (a,b) where` is harder than expected, we plan to post a hint soon
+* For `instance HasExample [a] where` remember that lists can be empty
+* We plan to post a video on the parsing part
 
 ### Submit (similar to [week1](../week1))
 1. run the tests by running ```cabal new-test``` 
