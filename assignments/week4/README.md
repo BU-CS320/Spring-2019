@@ -27,7 +27,7 @@ Implementations should take advantage of the BST to be reasonalby efficient.  Fo
   - Hint: you will need to use lots of pattern matching.
   - Hint: make a helper function.
 - `filter`: don't turn it into a list and then do it. 
-  - Hint: if you want to do it efficiently you need to reuse some of the code in `delete`.
+
 - `==`: When defining Eq on Map, maps are equal when they have the exact same key value pairs. For instance, `insert 1 'a' (insert 2 'b' empty) == insert 2 'b' (insert 1 'a' empty)`
   - Note: the order matters in equality of list, for example `[1, 2]` is not equal to `[2, 1]`
 
