@@ -1,4 +1,4 @@
-# HW3 Due 2/19
+# HW3 Due ~~2/19~~ 2/20 [@628](https://piazza.com/class/jr9fgrf7efv7j0?cid=628)
 
 ## Code Part
 ### Instructions
