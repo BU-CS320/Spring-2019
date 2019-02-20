@@ -4,6 +4,9 @@ Due Monday at midnight to accommodate your midterm
 ## Analytical  Part
 not yet posted
 ## Code Part
+for Monday you are only resposnable for
+* BareBonesRevenge.hs
+* TypeclassProblems.hs
 ### Instructions
 * To get the assignment run ```git pull upstream master``` in your homework directory
 * `cd` into the `week5` directory, run `cabal new-repl`
