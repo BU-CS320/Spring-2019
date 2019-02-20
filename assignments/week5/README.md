@@ -15,6 +15,7 @@ for Monday you are only resposnable for
 
 ### Notes
 * No tests are posted yet
+* posted hints in [TypeclassProblemsHints.hs](src/TypeclassProblemsHints.hs)
 * Please `deriving Show` on your `DayOfTheWeek`
 * Because of the way Ord depends on Eq, you will get errors if you have `instance Eq a => Eq ...` but no `instance Ord a => Ord ...`, this is just haskell trying to be helpful
 * `instance (AllTheThings a, AllTheThings b) => AllTheThings (a,b)` is harder than expected, we plan to post a hint soon
