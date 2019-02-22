@@ -2,7 +2,7 @@
 Due Monday at midnight to accommodate your midterm
 
 ## Analytical  Part
-not yet posted
+posted [@659](https://piazza.com/class/jr9fgrf7efv7j0?cid=659)
 ## Code Part
 for Monday you are only resposnable for
 * BareBonesRevenge.hs
@@ -15,7 +15,7 @@ for Monday you are only resposnable for
 
 ### Notes
 * No tests are posted yet
-* posted hints in [TypeclassProblemsHints.hs](src/TypeclassProblemsHints.hs)
+* Posted hints in [TypeclassProblemsHints.hs](src/TypeclassProblemsHints.hs)
 * Please `deriving Show` on your `DayOfTheWeek`
 * Because of the way Ord depends on Eq, you will get errors if you have `instance Eq a => Eq ...` but no `instance Ord a => Ord ...`, this is just haskell trying to be helpful
 * `instance (AllTheThings a, AllTheThings b) => AllTheThings (a,b)` is harder than expected, we plan to post a hint soon
