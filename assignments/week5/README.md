@@ -2,7 +2,7 @@
 Due Monday at midnight to accommodate your midterm
 
 ## Analytical  Part
-posted [@659](https://piazza.com/class/jr9fgrf7efv7j0?cid=659)
+Posted [@659](https://piazza.com/class/jr9fgrf7efv7j0?cid=659), availible [here](http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/hw04.pdf)
 ## Code Part
 for Monday you are only resposnable for
 * BareBonesRevenge.hs
