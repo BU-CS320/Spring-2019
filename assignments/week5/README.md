@@ -16,6 +16,10 @@ for Monday you are only resposnable for
 ### Notes
 * Some tests are posted
   * Before running tests you must define `DayOfTheWeek` with `deriving Show`
+  * Before running tests you must define all the instances in `BareBonesRevenge` you may start will silly incorrect implementations
+    * `  _ == _ = False`
+    * `  _ <= _ = False`
+    * `  fmap _ _ = undefined`
 * Posted hints in [TypeclassProblemsHints.hs](src/TypeclassProblemsHints.hs)
 * Please `deriving Show` on your `DayOfTheWeek`
 * Because of the way Ord depends on Eq, you will get errors if you have `instance Eq a => Eq ...` but no `instance Ord a => Ord ...`, this is just haskell trying to be helpful
