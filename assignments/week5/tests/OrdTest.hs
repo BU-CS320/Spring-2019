@@ -17,7 +17,7 @@ module OrdTest where
         ]
     
     listTests = testGroup "Test for list datatype" [
-        --QC.testProperty "Ord Transitivity List; if x <= y && 'y <= z = True, then x <= z = True" $ 
+        --QC.testProperty "Ord Transitivity List; if x <= y && y <= z = True, then x <= z = True" $ 
         --    \x y z-> (x:: List Integer)<=(y::List Integer) && y<=(z::List Integer) ==> x<=z,
             
         QC.testProperty "Ord Reflexivity List; x<=x" $

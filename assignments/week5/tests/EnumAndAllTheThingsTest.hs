@@ -13,7 +13,9 @@ module EnumAndAllTheThingsTest where
 
     enumTest = testGroup "Test for Enum "[
         testCase "`toEnum` of 0 to 6 should not be equal to each other, there should be 7 distinct days" $
-        assertEqual [] 7 (size $ fromList (map toEnum [0..6] :: [DayOfTheWeek]))
+        assertEqual [] 7 (size $ fromList (map toEnum [0..6] :: [DayOfTheWeek])),
+        testCase "[0..6] == fromEnum (toEnum [0..6] :: [DayOfTheWeek]) " $
+        assertEqual [] [0..6] (map fromEnum (map toEnum [0..6] :: [DayOfTheWeek]))
         ]
 
     allTheThingsTest = testGroup "Test for AllTheThings" [
