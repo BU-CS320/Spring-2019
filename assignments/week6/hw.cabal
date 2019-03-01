@@ -1,4 +1,4 @@
-name:                 week6
+name:                 week5
 version:              0.1.0.0
 synopsis:
 homepage:
@@ -10,7 +10,7 @@ cabal-version:        >=1.10
 
 
 library
-  exposed-modules:    MyParserLib, Lang0Parser, Lang1Parser, Lang2Parser, Lang3Parser, Lang4Parser, Lang0, Lang1, Lang2, Lang3, Lang4
+  exposed-modules:    HardQuestion, MyParserLib, Lang0Parser, Lang1Parser, Lang2Parser, Lang3Parser, Lang4Parser, Lang0, Lang1, Lang2, Lang3, Lang4
   ghc-options:        -fwarn-incomplete-patterns -fwarn-incomplete-uni-patterns
   build-depends:      containers, base >= 4.7 && < 5
   hs-source-dirs:     src, src/lang, src/parser
@@ -25,8 +25,8 @@ test-suite test
     tests
   main-is: Main.hs
   other-modules:
-    LangTest, TestBase
+    LangTest1, LangTest2, LangTest3, LangTest4
   build-depends:
       containers, base >= 4.7 && < 5
     , tasty >= 0.7, tasty-hunit, tasty-quickcheck, generic-arbitrary
-    , week6
+    , week5
