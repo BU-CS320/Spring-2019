@@ -15,6 +15,7 @@ This is the same as the parsing section from HW4. Remember to copy any paste you
 
 ### Notes
 * all tests are posted
+* If you do the optional part with the language evaluations, not that the ASTs for Lang3 and Lang4 have changed slightly.
 
 ### Submit (similar to [week1](../week1))
 1. run the tests by running ```cabal new-test``` 
