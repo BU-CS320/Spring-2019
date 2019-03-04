@@ -10,25 +10,7 @@ data Ast =
 
 -- hint: use do notation from the built in monad on Maybe
 eval :: Ast -> Maybe Integer
-eval (LiteralInt i) = return i -- undefined
-eval (x `Plus` y) =
-  do x' <- eval x
-     y' <- eval y
-     return (x' + y')
-eval (x `Sub` y) =
-  do x' <- eval x
-     y' <- eval y
-     return (x' - y')
-eval (x `Mult` y) =
-  do x' <- eval x
-     y' <- eval y
-     return (x' * y')
-eval (x `Div` y) =
-  do x' <- eval x
-     y' <- eval y
-     if x' == 0 
-     then return (x' * y')
-     else Nothing
+eval = undefined
 
 -- show the fully parenthesized syntax
 instance Show Ast where
