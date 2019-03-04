@@ -147,7 +147,7 @@ instance Monoid a => Applicative (Pair a) where
   pure = return
   (<*>) = ap
 
--- TODO: instructions, constrain a as [a] or as a monoid?
+
 -- note that the standard implementation is more interesting and is often called the Writer Monad
 --    ([True],7) >>= (\ x -> ([False],x+2))       ==      ([True,False],9)
 instance Monoid a => Monad (Pair a) where
