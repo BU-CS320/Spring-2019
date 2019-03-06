@@ -17,7 +17,7 @@ We have included a number of other files you can use to test (the parsers), that
 ### Notes
 * no tests are posted yet
 * A hint file has been added [Lang2Hint.hs](src/lang/Lang2Hint.hs)
-* Watch the videos (Summary of first lecture on Monads)[https://www.youtube.com/watch?v=i8E0G9S3ty0] , (Monad Lecture Code 2 Walk Through)[https://www.youtube.com/watch?v=45eQyaKUxXY] , (Monad Lecture Code 1 walk through)[https://www.youtube.com/watch?v=YKgVebCiDDg0
+* Watch the videos [Summary of first lecture on Monads](https://www.youtube.com/watch?v=i8E0G9S3ty0) , [Monad Lecture Code 2 Walk Through](https://www.youtube.com/watch?v=45eQyaKUxXY) , [Monad Lecture Code 1 walk through](https://www.youtube.com/watch?v=YKgVebCiDDg0)
 
 ### Submit (similar to [week1](../week1))
 1. run the tests by running ```cabal new-test``` 
