@@ -8,8 +8,8 @@ import Lang2(eval,Ast(..))
 
 
 -- this is a monadic print function
-print :: x -> PrinterMonad x ()
-print x = PrinterMonad [x] ()
+printThis :: x -> PrinterMonad x ()
+printThis x = PrinterMonad [x] ()
 
 
 -- some examples
