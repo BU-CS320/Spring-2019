@@ -4,7 +4,7 @@
 ## Analytical  Part
 not yet posted
 ## Code Part
-you are only responsible for the following files
+You are only responsible for the following files
 BareBonesLast, PrinterMonad, Lang1, Lang2.
 We have included a number of other files you can use to test (the parsers), that we plan to assign in future weeks (Lang3, Lang4), and that give hints (Lang0)
 
@@ -16,6 +16,8 @@ We have included a number of other files you can use to test (the parsers), that
 
 ### Notes
 * no tests are posted yet
+* A hint file has been added [src/lang/Lang2Hint.hs](src/lang/Lang2Hint.hs)
+* Watch the videos https://www.youtube.com/watch?v=i8E0G9S3ty0 , https://www.youtube.com/watch?v=45eQyaKUxXY , https://www.youtube.com/watch?v=YKgVebCiDDg
 
 ### Submit (similar to [week1](../week1))
 1. run the tests by running ```cabal new-test``` 
