@@ -3,7 +3,7 @@
 
 ## Analytical  Part
 Due Wed 3/20 [@861](https://piazza.com/class/jr9fgrf7efv7j0?cid=861)
-availible [here](http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/hw05.pdf)
+available [here](http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/hw06.pdf)
 
 ## Code Part
 You are only responsible for the following files
