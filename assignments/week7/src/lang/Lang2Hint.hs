@@ -10,6 +10,9 @@ import Lang2(eval,Ast(..))
 -- this is a monadic print function
 printThis :: x -> PrinterMonad x ()
 printThis x = PrinterMonad [x] ()
+-- note () is called Unit, it is a type with only 1 member allso noted as ()
+-- It is often used in Haskel when nothing intresting is returned
+-- you can read more about it here: https://stackoverflow.com/questions/16892570/what-is-in-haskell-exactly
 
 
 -- some examples
