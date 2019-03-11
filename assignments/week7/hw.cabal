@@ -10,7 +10,8 @@ cabal-version:        >=1.10
 
 
 library
-  exposed-modules:    BareBonesLast, PrinterMonad, Lang0, Lang1, Lang2
+  exposed-modules:    BareBonesLast, PrinterMonad, Lang0, Lang1, Lang2, Lang1Parser, Lang2Parser
+  other-modules:      ParserMonad
   ghc-options:        -fwarn-incomplete-patterns -fwarn-incomplete-uni-patterns
   build-depends:      containers, base >= 4.7 && < 5
   hs-source-dirs:     src, src/lang, src/parser
@@ -25,8 +26,8 @@ test-suite test
     tests
   main-is: Main.hs
   other-modules:
-    EnumAndAllTheThingsTest, EqTest, FunctorTest, LangTest, OrdTest, TestBase, ExampleTest
+    Lang1Test, Lang1TestTypes Lang2Test, Lang2TestTypes, MonadTest, MonadTestType
   build-depends:
       containers, base >= 4.7 && < 5
-    , tasty >= 0.7, tasty-hunit, tasty-quickcheck, generic-arbitrary
+    , tasty >= 0.7, tasty-hunit, tasty-quickcheck
     , week5
