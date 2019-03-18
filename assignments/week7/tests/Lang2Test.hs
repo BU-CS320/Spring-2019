@@ -35,7 +35,10 @@ module Lang2Test where
         \ i j -> ((evalAndGetPrinting $ Mult i j) :: [Integer]) == (evalAndGetPrinting i) ++ (evalAndGetPrinting j),
 
         testProperty "For two expression exp1 exp2, the print list for `Separator exp1 exp2` should be the print list of exp1 ++ print list of exp2" $
-        \ i j -> ((evalAndGetPrinting $ Separator i j) :: [Integer]) == (evalAndGetPrinting i) ++ (evalAndGetPrinting j)
+        \ i j -> ((evalAndGetPrinting $ Separator i j) :: [Integer]) == (evalAndGetPrinting i) ++ (evalAndGetPrinting j),
+
+        testProperty "For expression exp, the print list for `Print exp` should be the print list of exp ++ [value of eval exp]" $
+        \ exp -> ((evalAndGetPrinting $ Print exp) :: [Integer]) == (evalAndGetPrinting exp ++ [evalAndGetResult exp])
         ]
 
     resultTest = testGroup "Prove result correct" [
@@ -52,7 +55,10 @@ module Lang2Test where
         \ i j -> (evalAndGetResult $ Mult i j) == (evalAndGetResult i) * (evalAndGetResult j),
 
         testProperty "For all ast1 and ast2, `Separator ast1 ast2` should be evaluate to `(eval ast2)`" $
-        \ i j -> (evalAndGetResult $ Separator i j) == (evalAndGetResult j)
+        \ i j -> (evalAndGetResult $ Separator i j) == (evalAndGetResult j),
+
+        testProperty "For all ast, `Print ast` should be evaluate to `(eval ast)`" $
+        \ ast -> (evalAndGetResult $ Print ast) == (evalAndGetResult ast)
         ]
 
     lang2Test = testGroup "Lang2 Test" [
