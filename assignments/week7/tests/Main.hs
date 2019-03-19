@@ -11,7 +11,7 @@ module Main where
 
   main = 
     do 
-        setEnv "TASTY_TIMEOUT" "5s"
+        setEnv "TASTY_TIMEOUT" "10s"
         setEnv "TASTY_QUICKCHECK_TESTS" "1000" --TODO: I never trust less than 10000
         setEnv "TASTY_QUICKCHECK_MAX_SIZE" "100"
         defaultMain allTests
