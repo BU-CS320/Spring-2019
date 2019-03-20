@@ -14,11 +14,12 @@ You are responsable for State, Lang3, Reader, Lang 4, and all the parsers.
 ### Notes
 * no tests are posted yet
 * As before, Lang3 should evaluate left to right, and assignment retuns the value assigned.  For insatance `(x := 2) + x` should eval to `4`
+* Some hint files have been added [Lang1ParserHint](src/parser/Lang1ParserHint.hs), [Lang3Hint](src/lang/Lang3Hint.hs)
 
 ### Submit (similar to [week1](../week1))
 1. run the tests by running ```cabal new-test``` 
 1. run ```git status``` to make sure git is ok
-1. run ```git commit -a -m "haskell is fun"``` to make a commit to your laptop
+1. run ```git commit -a -m "please don't remove these instructions"``` to make a commit to your laptop
 1. run ```git pull upstream master``` to get the latest tests
 1. run the tests by running ```cabal new-test``` 
 1. run ```git push``` to submit your commit to your private gitHub account
