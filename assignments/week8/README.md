@@ -13,6 +13,7 @@ You are responsable for State, Lang3, Reader, Lang 4, and all the parsers.
 
 ### Notes
 * no tests are posted yet
+* As before, Lang3 should evaluate left to right, and assignment retuns the value assigned.  For insatance `(x := 2) + x` should eval to `4`
 
 ### Submit (similar to [week1](../week1))
 1. run the tests by running ```cabal new-test``` 
