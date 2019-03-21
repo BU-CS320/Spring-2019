@@ -15,6 +15,26 @@ You are responsable for State, Lang3, Reader, Lang 4, and all the parsers.
 * no tests are posted yet
 * As before, Lang3 should evaluate left to right, and assignment retuns the value assigned.  For insatance `(x := 2) + x` should eval to `4`
 * Some hint files have been added [Lang1ParserHint](src/parser/Lang1ParserHint.hs), [Lang3Hint](src/lang/Lang3Hint.hs)
+There were some small types:
+in Lang2.hs
+```
+showFullyParen (Print b)         = "print(" ++ show b ++ ")"
+```
+should be
+```
+showFullyParen (Print b)         = "print(" ++ showFullyParen b ++ ")"
+```
+
+in Lang3.hs
+
+```
+showFullyParen (Assign v b)      = "(" ++ v ++ " := " ++ show b ++ ")"
+```
+should be
+```
+showFullyParen (Assign v b)      = "(" ++ v ++ " := " ++ showFullyParen b ++ ")"
+```
+
 
 ### Submit (similar to [week1](../week1))
 1. run the tests by running ```cabal new-test``` 
