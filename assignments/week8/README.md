@@ -14,7 +14,7 @@ You are responsable for State, Lang3, Reader, Lang 4, and all the parsers.
 ### Notes
 * no tests are posted yet
 * As before, Lang3 should evaluate left to right, and assignment retuns the value assigned.  For insatance `(x := 2) + x` should eval to `4`
-* Some hint files have been added [Lang1ParserHint](src/parser/Lang1ParserHint.hs), [Lang3Hint](src/lang/Lang3Hint.hs)
+* Some hint files have been added [Lang3Hint](src/lang/Lang3Hint.hs), [Lang4Hint](src/lang/Lang4Hint.hs), [Lang1ParserHint](src/parser/Lang1ParserHint.hs)
 
 
 There were some small typeos:
