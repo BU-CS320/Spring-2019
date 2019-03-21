@@ -10,30 +10,30 @@ import Data.Map (Map)-- for state
 import qualified Data.Map as Map
 
 -- how much $ does each account have
-type State = Data.Map String Integer 
+type AcountState = Map String Integer 
 
-makeAccount :: String -> Stateful State ()
+makeAccount :: String -> State AcountState ()
 makeAccount = undefined
 
 -- starts at 0
-closeAccount :: String -> Stateful State ()
+closeAccount :: String -> State AcountState ()
 closeAccount = undefined
 
 -- only works on an open account
-getBalence :: String -> Stateful State Integer
+getBalence :: String -> State AcountState Integer
 getBalence = undefined
 
 -- only works on an open account, with non-negative money
-deposit :: String -> Integer -> Stateful State ()
+deposit :: String -> Integer -> State AcountState ()
 deposit = undefined
 
 -- only works on an open account, 
 -- can't withdraw more money than you don't have
-withdraw :: String -> Integer -> Stateful State ()
+withdraw :: String -> Integer -> State AcountState ()
 withdraw = undefined
 
 
 -- only works on open accounts
 -- sender needs to have the money
-transfer :: String -> String -> Integer -> Stateful State ()
+transfer :: String -> String -> Integer -> State AcountState ()
 transfer = undefined
