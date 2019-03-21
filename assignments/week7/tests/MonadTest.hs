@@ -91,13 +91,13 @@ module MonadTest where
 
     --Printer Monad Tests
     printerLeftTest = testProperty "left identity law for Printer Monads: forall res:: Integer, f :: Integer -> PrinterMonad Bool Integer. (return res >>= f) == f res" $
-        \(res:: Integer) (Fun _ f:: Fun Integer (PrinterMonad Bool Integer)) ->
+        \(res:: Integer) (Fun _ f:: Fun Integer (ShowablePrinter Bool Integer)) ->
             (return res >>= f) == (f res)
     
     printerRightTest = testProperty "right identity law for Printer Monads: forall res::Printer Bool Integer, (res >>= return) == res" $
-        \(res:: PrinterMonad Bool Integer) -> (res >>= return) == (res)
+        \(res:: ShowablePrinter Bool Integer) -> (res >>= return) == (res)
 
     printerAssociativityTest = testProperty "accociativity for Printer Monad: forall res::Printer Bool Integer, f1 :: Bool -> Printer Bool Integer, f2 :: Integer -> Printer Bool Integer. (res >>= f1 >>= f2) == (res >>= (\\x -> f1 x >>= f2))"$
-        \(res:: PrinterMonad Bool Integer) (Fun _ f1:: Fun Integer (PrinterMonad Bool Integer)) (Fun _ f2:: Fun Integer (PrinterMonad Bool Integer))-> 
+        \(res:: ShowablePrinter Bool Integer) (Fun _ f1:: Fun Integer (ShowablePrinter Bool Integer)) (Fun _ f2:: Fun Integer (ShowablePrinter Bool Integer))-> 
             (res >>= f1 >>= f2) == (res >>= (\x -> f1 x >>= f2))
                         
