@@ -42,3 +42,36 @@ ex = Let "x" (LiteralInt 2 `Plus` LiteralInt 2) (Var "x" `Mult` LiteralInt 5 )
        
 -- run your monad like this
 ex' = runReader (eval ex) Map.empty
+
+ex1 = Let "x" (LiteralInt 10) (Let "y" (LiteralInt 2 `Plus` Var "x") (Var "x" `Mult` Var "y" ))
+       
+ex1' = runReader (eval ex1) Map.empty
+
+e :: Env
+e = Map.fromList([("w",10)])
+
+ex2 = Let "x" (ex1 `Plus` ex) (Var "x" `Mult` (Let "z" (Var "x" `Sub` LiteralInt 1) (Var "z" `Sub` Var "w")))
+       
+ex2' = runReader (eval ex2) e
+
+{-
+
+Lang4> ex
+Let "x" (Plus (LiteralInt 2) (LiteralInt 2)) (Mult (Var "x") (LiteralInt 5))
+
+Lang4> ex'
+20
+
+Lang4> ex1
+Let "x" (LiteralInt 10) (Let "y" (Plus (LiteralInt 2) (Var "x")) (Mult (Var "x") (Var "y")))
+
+Lang4> ex1'
+120
+
+Lang4> ex2
+Let "x" (Plus (Let "x" (LiteralInt 10) (Let "y" (Plus (LiteralInt 2) (Var "x")) (Mult (Var "x") (Var "y")))) (Let "x" (Plus (LiteralInt 2) (LiteralInt 2)) (Mult (Var "x") (LiteralInt 5)))) (Mult (Var "x") (Let "z" (Sub (Var "x") (LiteralInt 1)) (Sub (Var "z") (Var "w"))))
+
+Lang4> ex2'
+18060
+
+-}
