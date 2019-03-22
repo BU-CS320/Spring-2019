@@ -7,7 +7,7 @@ http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/hw.week8.pdf
 Hints on the YT channel: https://www.youtube.com/watch?v=GpqSS075bQM&t=30s
 
 ## Code Part
-You are responsable for State, Lang3, Reader, Lang 4, and all the parsers.
+You are responsible for State, Lang3, Reader, Lang 4, and all the parsers.
 ### Instructions
 * To get the assignment run ```git pull upstream master``` in your homework directory
 * `cd` into the `week8` directory, run `cabal new-repl`
@@ -20,7 +20,7 @@ You are responsable for State, Lang3, Reader, Lang 4, and all the parsers.
 * Some hint files have been added [Lang3Hint](src/lang/Lang3Hint.hs), [Lang4Hint](src/lang/Lang4Hint.hs), [Lang1ParserHint](src/parser/Lang1ParserHint.hs)
 
 
-There were some small typeos:
+There were some small typos:
 in Lang2.hs
 ```
 showFullyParen (Print b)         = "print(" ++ show b ++ ")"
