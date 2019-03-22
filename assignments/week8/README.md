@@ -2,7 +2,8 @@
 
 
 ## Analytical  Part
-not yet posted
+http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/hw.week8.pdf
+Hints on the YT channel: https://www.youtube.com/watch?v=GpqSS075bQM&t=30s
 ## Code Part
 You are responsable for State, Lang3, Reader, Lang 4, and all the parsers.
 ### Instructions
