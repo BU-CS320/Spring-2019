@@ -4,7 +4,9 @@ import qualified Data.Map as Map
 import Reader
 
 
--- Examples and simple test cases
+-- This file is just for examples and simple test cases
+-- Don't edit this file unless you are comfortable resolving merge conflicts, since we may add hints in the future
+-- Instead copy and paste what you want into your homework
 
 
 type Env = Map String Integer
