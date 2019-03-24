@@ -15,11 +15,9 @@ You are responsible for State, Lang3, Reader, Lang 4, and all the parsers.
 * DO NOT CHANGE THE TYPE SIGNATURES!
 
 ### Notes
-* Some simple examples and test cases:  [ReaderTest](src/ReaderTest.hs)  [StateTest](src/StateTest.hs)
-* Other tests are in the Hints files
-* Comprehensive tests soon....
+* comprehensive tests soon....
 * As before, Lang3 should evaluate left to right, and assignment returns the value assigned.  For instance `(x := 2) + x` should eval to `4`
-* Some hint files have been added [Lang3Hint](src/lang/Lang3Hint.hs), [Lang4Hint](src/lang/Lang4Hint.hs), [Lang1ParserHint](src/parser/Lang1ParserHint.hs)
+* Some hint files have been added [Lang3Hint](src/lang/Lang3Hint.hs), [Lang4Hint](src/lang/Lang4Hint.hs), [Lang1ParserHint](src/parser/Lang1ParserHint.hs), [ReaderTest](src/ReaderTest.hs)  [StateTest](src/StateTest.hs)
 
 
 There were some small typos:
