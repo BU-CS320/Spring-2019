@@ -23,6 +23,14 @@ You are responsible for State, Lang3, Reader, Lang 4, and all the parsers.
 
 
 There were some small typos:
+in Lang4.hs
+```
+showPretty (Let s val inThis) d = parenthesize d 5  "let " ++ s ++ " = " ++ showPretty val 4 ++ " in " ++ showPretty inThis 5 -- binds most weakly
+```
+should be
+```
+showPretty (Let s val inThis) d = parenthesize d 5  ("let " ++ s ++ " = " ++ showPretty val 4 ++ " in " ++ showPretty inThis 5 ) -- binds most weakly
+```
 in Lang2.hs
 ```
 showFullyParen (Print b)         = "print(" ++ show b ++ ")"
