@@ -60,13 +60,13 @@ stateTest = testGroup "State test" [
     testProperty "For all initial state, ast1 and ast2, state of `Separator ast1 ast2` should be the same as `(eval ast1)` then `(eval ast2)`" $
         \s i j -> (evalTwoExpGetState s i j) == (evalOneExpGetState s (Separator i j)),
 
-    testProperty "For all initial state and ast, `Assign s ast` should add {s: eval ast} to Map" $
+    testProperty "For all variable name s, initial state and ast, `Assign s ast` should add {s: eval ast} to Map" $
         \vname s ast ->  
             let 
-                str = varNameToString (vname::VarName)
+                vnameStr = varNameToString (vname::VarName)
                 (r1,s1) = evalOneExpGetAll s ast
-                s2 = (Map.insert str r1 s1)
-                in evalOneExpGetState s (Assign str ast) == s2
+                s2 = (Map.insert vnameStr r1 s1)
+                in evalOneExpGetState s (Assign vnameStr ast) == s2
   ]
 
 resTest = testGroup "Result test" [
