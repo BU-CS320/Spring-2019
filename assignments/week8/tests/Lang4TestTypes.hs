@@ -37,7 +37,7 @@ module Lang4TestTypes (Ast(..), eval,VarName,varNameToString) where
     instance Arbitrary Ast where
         arbitrary = sized arbitrarySizedAst2
         shrink (LiteralInt i) = [LiteralInt i' | i' <- shrink i]
-        shrink (Var i) = [Var i' | i' <- shrink i]
+        shrink (Var i) = []
         shrink (Plus x y) = [x,y] ++ [Plus x' y' | (x', y') <- shrink (x, y)]
         shrink (Sub x y) = [x,y] ++ [Sub x' y' | (x', y') <- shrink (x, y)]
         shrink (Mult x y) = [x,y] ++ [Mult x' y' | (x', y') <- shrink (x, y)]
