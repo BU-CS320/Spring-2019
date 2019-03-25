@@ -10,7 +10,10 @@ cabal-version:        >=1.10
 
 
 library
-  exposed-modules:    Lang0Parser, Lang1Parser, Lang2Parser, Lang3Parser, Lang4Parser, Lang0, Lang1, Lang2, Lang3, Lang4,ParserMonad, PrinterMonad, Reader, State, HelpShow
+  exposed-modules:    Lang0Parser, Lang1Parser, Lang2Parser, Lang3Parser, Lang4Parser, 
+                      Lang0, Lang1, Lang2, Lang3, Lang4, HelpShow,
+                      PrinterMonad, Reader, State, ParserMonad
+
   ghc-options:        -fwarn-incomplete-patterns -fwarn-incomplete-uni-patterns
   build-depends:      containers, base >= 4.7 && < 5
   hs-source-dirs:     src, src/lang, src/parser
@@ -25,7 +28,8 @@ test-suite test
     tests
   main-is: Main.hs
   other-modules:
-    Lang0Test
+    Lang1TestTypes, Lang2TestTypes, Lang3TestTypes, Lang4TestTypes, ReaderTestType, StateTestType,
+    Lang3Test, Lang4Test, Parser1Test, Parser2Test, Parser3Test, Parser4Test, ReaderTest, StateTest
   build-depends:
       containers, base >= 4.7 && < 5
     , tasty >= 0.7, tasty-hunit, tasty-quickcheck, generic-arbitrary
