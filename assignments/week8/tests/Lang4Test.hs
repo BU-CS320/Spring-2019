@@ -8,6 +8,9 @@ import Lang4 (Ast(..), eval, showFullyParen)
 import Lang4TestTypes
 import Reader
 
+import HelpShow
+
+
 import Data.Map (Map,empty,insert)-- for Env
 type Env = Map String Integer
 
