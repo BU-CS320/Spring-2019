@@ -17,8 +17,9 @@ You are responsible for State, Lang3, Reader, Lang 4, and all the parsers.
 
 ### Notes
 * Automated tests have been posted.
+* The debugging hints in this [video](https://youtu.be/fJ1QPEfmXi8) still apply.
 * As before, Lang3 should evaluate left to right, and assignment returns the value assigned.  For instance `(x := 2) + x` should eval to `4`
-* we made the arbitrary choice that seperaors should be ~~right~~ left associative.  So "1;2;4" should parse to ~~(1;(2;4))~~ ((1;2);4).  (Mark: sorry for the typeo)
+* we made the arbitrary choice that seperaors should be **left** associative.  So "1;2;4" should parse to `((1;2);4)`.  (Mark: sorry for the typeo)
 * Some hint files have been added [Lang3Hint](src/lang/Lang3Hint.hs), [Lang4Hint](src/lang/Lang4Hint.hs), [Lang1ParserHint](src/parser/Lang1ParserHint.hs), [ReaderTest](src/ReaderTest.hs)  [StateTest](src/StateTest.hs)
 
 
