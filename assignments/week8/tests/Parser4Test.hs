@@ -4,6 +4,7 @@ module Parser4Test where
   import Test.Tasty.HUnit (assertEqual, assertBool, testCase, (@=?))
   import Test.Tasty.QuickCheck (testProperty,Arbitrary, oneof,arbitrary )
   
+  import HelpShow
   import Lang4 (Ast(..), eval, showFullyParen)
   import Lang4TestTypes
   import Lang4Parser (parser)
