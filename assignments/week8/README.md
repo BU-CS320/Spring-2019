@@ -1,6 +1,6 @@
-# Week8 Due 3/~~26~~ 27
-extendeing the homework becuse of late tests [@974](https://piazza.com/class/jr9fgrf7efv7j0?cid=974).
-
+# Week8 Due 3/~~26~~ 28
+~~extendeing the homework becuse of late tests [@974](https://piazza.com/class/jr9fgrf7efv7j0?cid=974).~~ 
+[@1013](https://piazza.com/class/jr9fgrf7efv7j0?cid=1013)
 
 ## Analytical  Part
 http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/hw.week8.pdf
