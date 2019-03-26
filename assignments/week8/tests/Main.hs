@@ -16,7 +16,7 @@ import Parser4Test (parser4Test)
 
 main = 
   do setEnv "TASTY_TIMEOUT" "60s"
-     setEnv "TASTY_QUICKCHECK_TESTS" "1000" 
+     setEnv "TASTY_QUICKCHECK_TESTS" "100" 
      setEnv "TASTY_QUICKCHECK_MAX_SIZE" "100"
      defaultMain allTests
      unsetEnv "TASTY_TIMEOUT"
