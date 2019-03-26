@@ -61,19 +61,15 @@ multDivs left =
 exMultDivs1 =  parse (multDivs (LiteralInt 0)) "*6"
 exMultDivs2 =  parse (multDivs (LiteralInt 6)) "  /  3"
 exMultDivs3 =  parse (multDivs (LiteralInt 1)) "  * 10 / 5 * 4 /2"
-
-multOrDivOrParensOrInt :: Parser Ast
-multOrDivOrParensOrInt = 
-  do l <- factor -- every term starts with a factor
-     multDivs l
-
 	 
 -- finally we combine all case of "T" together
 --	T -> T * F
 --  T -> T / F
 --  T -> F
 term :: Parser Ast
-term = multOrDivOrParensOrInt <|> factor
+term =
+  do l <- factor -- every term starts with a factor
+     mults l <|> return l
 	 
 -- run these in your repl to test
 exTerm1 =  parse term "100"
