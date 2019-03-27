@@ -5,7 +5,7 @@ extendeing the homework becuse of late tests [@974](https://piazza.com/class/jr9
 ## Analytical  Part
 http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/hw.week8.pdf
 
-Hints on the YT channel: https://www.youtube.com/watch?v=GpqSS075bQM&t=30s
+Hints on the [YT channel](https://www.youtube.com/watch?v=GpqSS075bQM&t=30s)
 
 ## Code Part
 You are responsible for State, Lang3, Reader, Lang 4, and all the parsers.
@@ -17,7 +17,8 @@ You are responsible for State, Lang3, Reader, Lang 4, and all the parsers.
 
 ### Notes
 * Automated tests have been posted.
-* The debugging hints in this [video](https://youtu.be/fJ1QPEfmXi8) still apply.
+* Wayne posted a video on his [YT channel](https://www.youtube.com/watch?v=ki6ZLeper70).  The debugging hints in this [video](https://youtu.be/fJ1QPEfmXi8) still apply.
+* In [@1023](https://piazza.com/class/jr9fgrf7efv7j0?cid=1023) an efficeincy bug in my example code was pointed out. It is fixed in [Lang0ParserFast.hs](https://github.com/BU-CS320/Spring-2019/blob/master/assignments/week8/src/parser/Lang0ParserFast.hs).  please take a look if you have timeout issues.
 * As before, Lang3 should evaluate left to right, and assignment returns the value assigned.  For instance `(x := 2) + x` should eval to `4`
 * we made the arbitrary choice that seperaors should be **left** associative.  So "1;2;4" should parse to `((1;2);4)`.  (Mark: sorry for the typeo)
 * Some hint files have been added [Lang3Hint](src/lang/Lang3Hint.hs), [Lang4Hint](src/lang/Lang4Hint.hs), [Lang1ParserHint](src/parser/Lang1ParserHint.hs), [ReaderTest](src/ReaderTest.hs)  [StateTest](src/StateTest.hs)
