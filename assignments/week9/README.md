@@ -2,7 +2,7 @@
 
 
 ## Analytical  Part
-Not yet posted.
+There is no analytical homework this week. 
 ## Code Part
 ### Instructions
 * To get the assignment run ```git pull upstream master``` in your homework directory
