@@ -13,7 +13,7 @@ There is no analytical homework this week.
 ### Notes
 * Automated tests have not been posted.
 * As described in the hints, `show` must write labdas in the haskell style.  For instance the lambda term `(λx.x x) λx.x x` should show as `(\x -> x x) \x -> x x`.  The standard precidence and associativity rules apply.
-* The parser should handle arbitrary lambda terms in the style above. The parser will be graded.
+* The parser should handle arbitrary lambda terms in the style above. The parser will be graded, though there are additional features you can add that are optional.
 
 
 ### Submit (similar to [week1](../week1))
