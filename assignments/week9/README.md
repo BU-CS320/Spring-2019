@@ -11,8 +11,10 @@ There is no analytical homework this week.
 * DO NOT CHANGE THE TYPE SIGNATURES!
 
 ### Notes
-* Automated tests have not been posted.
-* As described in the hints, `show` must write labdas in the haskell style.  For instance the lambda term `(λx.x x) λx.x x` should show as `(\x -> x x) \x -> x x`.  The standard precidence and associativity rules apply.
+* A set of examples and simple test cases for the lambda parser have been posted on the class web site: 
+[LambdaCalcParserExamples.hs](http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/LambdaCalcParserExamples.hs). 
+* Comprehensive automated tests have not been posted yet
+* As described in the hints, `show` must write lambdas in the Haskell style.  For instance the lambda term `(λx.x x) λx.x x` should show as `(\x -> x x) \x -> x x`.  The standard precedence and associativity rules apply: all you need to know is that function application has higher precedence than abstraction (i.e., the operator -> ). 
 * The parser should handle arbitrary lambda terms in the style above. The parser will be graded, though there are additional features you can add that are optional.
 
 
