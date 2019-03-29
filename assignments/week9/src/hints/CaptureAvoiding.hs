@@ -74,8 +74,10 @@ subst (Lam v bod)    from to avoid | v == from = Lam v bod
 
 show' :: Term -> Integer -> String 
 show' (Var v) _ = v
-show' (App f a) i = parenthesize i 3 (show' undefined 3 ++ " " ++ show' undefined 2)
+show' (App f a) i = parenthesize i 1 (show' undefined 1 ++ " " ++ show' undefined 0)
 show' (Lam v bod) i = parenthesize i 3  ("\\" ++ undefined ++ " -> " ++ show' undefined 3) 
+
+showEx = App (Lam "x" (Var "x")) (Lam "y" (Var "y"))
 
 instance Show Term where
   show t = show' t 100

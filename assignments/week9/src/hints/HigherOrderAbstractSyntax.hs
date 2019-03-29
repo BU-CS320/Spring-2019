@@ -65,14 +65,16 @@ bindToLam v t = Lam $ \x -> subst t v x
 show' :: Term -> Integer -> NewNames String
 show' (FreeVar v) _ = return v
 show' (App f a) i = 
-  do f' <- show' f 3
-     a' <- show' a 2
-     return $ parenthesize i 3 (undefined ++ " " ++ undefined) 
+  do f' <- show' f 1
+     a' <- show' a 0
+     return $ parenthesize i 1 (undefined ++ " " ++ undefined) 
 show' (Lam bod) i = 
   do v <- freshName
      bod' <- show' (bod undefined) 3
      return $  parenthesize i 3  ("\\" ++ undefined ++ " -> " ++ bod')
-     
+
+showEx = App (Lam $ \ x ->  x) (Lam $ \ y -> y)
+
 instance Show Term where
   show term = fst $ runNewNames (show' term 100) (freeVars term) 0
   
