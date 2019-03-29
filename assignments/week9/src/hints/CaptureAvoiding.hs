@@ -57,7 +57,7 @@ rename (Lam v bod)    from to | otherwise = Lam v $ rename bod from to
 rename (Var v)        from to | v == from = Var to
                               | otherwise = Var v
 
-
+-- Apply a substitution to a term, being careful in any alpha-conversions to avoid a given set of variables
 subst :: Term -> String -> Term -> Set String -> Term
 subst (App f a)      from to avoid             = App (subst f from to avoid) (subst a from to avoid)
 subst (Var v)        from to _ | v == from = to
