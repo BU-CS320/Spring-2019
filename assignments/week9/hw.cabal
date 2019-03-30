@@ -10,7 +10,8 @@ cabal-version:        >=1.10
 
 
 library
-  exposed-modules:    LambdaCalcImplementation, UsingLambdaCalc
+  exposed-modules:    LambdaCalcImplementation, UsingLambdaCalc, LambdaCalcParser, ParserMonad
+  other-modules:      HelpShow
   ghc-options:        -fwarn-incomplete-patterns -fwarn-incomplete-uni-patterns
   build-depends:      containers, base >= 4.7 && < 5
   hs-source-dirs:     src, src/hints
@@ -25,7 +26,8 @@ test-suite test
     tests
   main-is: Main.hs
   other-modules:
-    UsingLambdaCalcTest, EqTest, EvalTest, FreeVarsTest, IsClosedTest, IsValueTest, ShowTest, LambdaTestTypes
+    UsingLambdaCalcTest, EqTest, EvalTest, FreeVarsTest, IsClosedTest, IsValueTest, ParseTest, 
+    LambdaTestTypes, TestShowTermType, HelpShow
   build-depends:
       containers, base >= 4.7 && < 5
     , tasty >= 0.7, tasty-hunit, tasty-quickcheck, generic-arbitrary
