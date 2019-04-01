@@ -32,6 +32,6 @@ module Main where
         freeVarsTest,
         isClosedTest,
         evalTest,
-        parsetest,
-        eqTest
+        eqTest,
+        parsetest
       ]
