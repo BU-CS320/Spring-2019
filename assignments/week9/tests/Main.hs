@@ -14,13 +14,16 @@ module Main where
   import EqTest (eqTest)
 
   main = 
-    do setEnv "TASTY_TIMEOUT" "60s"
-       setEnv "TASTY_QUICKCHECK_TESTS" "100" 
-       setEnv "TASTY_QUICKCHECK_MAX_SIZE" "15"
-       defaultMain allTests
-       unsetEnv "TASTY_TIMEOUT"
-       unsetEnv "TASTY_QUICKCHECK_TESTS"
-       unsetEnv "TASTY_QUICKCHECK_MAX_SIZE"
+    do 
+      setEnv "TASTY_TIMEOUT" "60s"
+      -- setEnv "TASTY_QUICKCHECK_VERBOSE" "true"
+      setEnv "TASTY_QUICKCHECK_TESTS" "200" 
+      setEnv "TASTY_QUICKCHECK_MAX_SIZE" "50"
+      defaultMain allTests
+      unsetEnv "TASTY_TIMEOUT"
+      unsetEnv "TASTY_QUICKCHECK_TESTS"
+      unsetEnv "TASTY_QUICKCHECK_MAX_SIZE"
+      -- unsetEnv "TASTY_QUICKCHECK_VERBOSE"
 
 
   allTests =

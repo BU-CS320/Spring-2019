@@ -7,6 +7,11 @@ module EvalTest where
   import LambdaCalcImplementation (eval)
   import Examples (evalRes, Res(..))
   
-  evalTest = testGroup "eval test" $
-    [testCase ("1 - testing for eval of " ++ testStr) $ 
-      res @=? eval formula | (Res testStr formula res) <- evalRes]
+  foldTestCase [] = return ()
+  foldTestCase (test1:testRest) = 
+    do 
+      test1
+      foldTestCase testRest
+
+  evalTest = testCase "eval test" $ foldTestCase $
+    [assertEqual testStr res (eval formula) | (Res testStr formula res) <- evalRes]

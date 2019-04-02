@@ -7,6 +7,11 @@ module FreeVarsTest where
   import LambdaCalcImplementation (freeVars)
   import Examples (freeVarsRes, Res(..))
   
-  freeVarsTest = testGroup "freeVars test" $
-    [testCase ("1 - testing for freeVars of " ++ testStr) $ 
-      res @=? freeVars formula | (Res testStr formula res) <- freeVarsRes]
+  foldTestCase [] = return ()
+  foldTestCase (test1:testRest) = 
+    do 
+      test1
+      foldTestCase testRest
+
+  freeVarsTest = testCase "freeVars test" $ foldTestCase $
+    [assertEqual testStr res (freeVars formula) | (Res testStr formula res) <- freeVarsRes]

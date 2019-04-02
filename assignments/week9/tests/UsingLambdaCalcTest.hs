@@ -14,49 +14,66 @@ module UsingLambdaCalcTest  where
   fromStandardInteger 0 f s = s
   fromStandardInteger n f s = f (fromStandardInteger (n-1) f s )
 
+  basicTrueFalseTest = 
+    do
+      assertEqual "true returns first" ("then") (true "then" "else")
+      assertEqual "false returns 2nd" ("else") (false "then" "else")
+  
+  notTest = 
+    do 
+      assertEqual "(not true) -> false" False $ toStandardBool (UsingLambdaCalc.not true)
+      assertEqual "(not false) -> true" True $ toStandardBool (UsingLambdaCalc.not false)
+      
+  andTest = 
+    do 
+      assertEqual "(and true true) -> true"    True $ toStandardBool (UsingLambdaCalc.and true true)
+      assertEqual "(and true false) -> false"  False $ toStandardBool (UsingLambdaCalc.and true false)
+      assertEqual "(and false true) -> false"  False $ toStandardBool (UsingLambdaCalc.and false true)
+      assertEqual "(and false false) -> false" False $ toStandardBool (UsingLambdaCalc.and false false)
+
+  orTest = 
+    do 
+      assertEqual "(or true true) -> true"    True $ toStandardBool (UsingLambdaCalc.or true true)
+      assertEqual "(or true false) -> true"   True $ toStandardBool (UsingLambdaCalc.or true false)
+      assertEqual "(or false true) -> true"   True $ toStandardBool (UsingLambdaCalc.or false true)
+      assertEqual "(or false false) -> false" False $ toStandardBool (UsingLambdaCalc.or false false)
+  
+  xorTest = 
+    do 
+      assertEqual "(xor true true) -> false"   False $ toStandardBool (UsingLambdaCalc.xor true true)
+      assertEqual "(xor true false) -> true"   True $ toStandardBool (UsingLambdaCalc.xor true false)
+      assertEqual "(xor false true) -> true"   True $ toStandardBool (UsingLambdaCalc.xor false true)
+      assertEqual "(xor false false) -> false" False $ toStandardBool (UsingLambdaCalc.xor false false)
+                 
+
+  basicNumberTest = 
+    do 
+      assertEqual "0 ok" 0 $ toStandardInteger zero
+      assertEqual "1 ok" 1 $ toStandardInteger one
+      assertEqual "2 ok" 2 $ toStandardInteger two
+      assertEqual "3 ok" 3 $ toStandardInteger three
+      assertEqual "7 ok" 7 $ toStandardInteger seven
+
   usingLambdaCalcTest = testGroup "UsingLambdaCalc test" [
-      testCase "10 - true returns first" $ assertEqual [] "then" $ true "then" "else",
-      testCase "10 - false returns 2nd" $ assertEqual [] "else" $ false "then" "else",
+      testCase "basic true false definition"  basicTrueFalseTest,
+      testCase "not test" notTest,
+      testCase "and test" andTest,
+      testCase "or test" orTest,
+      testCase "xor test" xorTest,
 
-      testCase "10 - (not true) -> false" $ assertEqual [] False $ toStandardBool (UsingLambdaCalc.not true),
-      testCase "10 - (not false) -> true" $ assertEqual [] True $ toStandardBool (UsingLambdaCalc.not false),
+      testCase "basic number test" basicNumberTest,
 
-      testCase "10 - (and true true) -> true" $ assertEqual [] True $ toStandardBool (UsingLambdaCalc.and true true),
-      testCase "10 - (and true false) -> false" $ assertEqual [] False $ toStandardBool (UsingLambdaCalc.and true false),
-      testCase "10 - (and false true) -> false" $ assertEqual [] False $ toStandardBool (UsingLambdaCalc.and false true),
-      testCase "10 - (and false false) -> false" $ assertEqual [] False $ toStandardBool (UsingLambdaCalc.and false false),
-
-      testCase "10 - 0 ok" $ assertEqual [] 0 $ toStandardInteger zero,
-      testCase "10 - 1 ok" $ assertEqual [] 1 $ toStandardInteger one,
-      testCase "10 - 2 ok" $ assertEqual [] 2 $ toStandardInteger two,
-      testCase "10 - 3 ok" $ assertEqual [] 3 $ toStandardInteger three,
-      testCase "10 - 7 ok" $ assertEqual [] 7 $ toStandardInteger seven,
-
-      testProperty "50 - add is correct" $ (((\n m -> if m >= 0 && n >= 0
+      testProperty "add is correct" $ (((\n m -> if m >= 0 && n >= 0
                                                     then  (n + m == (toStandardInteger $ add (fromStandardInteger n) (fromStandardInteger m)))
                                                     else True)):: (Integer -> Integer -> Bool)),
 
-      testProperty "50 - mult is correct" $ (((\n m -> if m >= 0 && n >= 0
+      testProperty "mult is correct" $ (((\n m -> if m >= 0 && n >= 0
                                                     then  (n * m == (toStandardInteger $ mult (fromStandardInteger n) (fromStandardInteger m)))
                                                     else True)):: (Integer -> Integer -> Bool)) ,
 
-      testCase "10 - isEven 0 ok" $ assertEqual [] True $ toStandardBool $ isEven zero,
-      testCase "10 - isEven 1 ok" $ assertEqual [] False $ toStandardBool $ isEven one,
-      testCase "10 - isEven 2 ok" $ assertEqual [] True $  toStandardBool $ isEven two,
-      testProperty "50 - isEven is correct" $ (((\n -> if n >= 0
+      testProperty "isEven is correct" $ (((\n -> if n >= 0
                                                     then  ((mod n 2) == 0) == (toStandardBool $ isEven $ fromStandardInteger n)--isEven (fromStandardInteger n)))
-                                                    else True)):: ( Integer -> Bool)),
-
-      testCase "10 - (or true true) -> true" $ assertEqual [] True $ toStandardBool (UsingLambdaCalc.or true true),
-      testCase "10 - (or true false) -> true" $ assertEqual [] True $ toStandardBool (UsingLambdaCalc.or true false),
-      testCase "10 - (or false true) -> true" $ assertEqual [] True $ toStandardBool (UsingLambdaCalc.or false true),
-      testCase "10 - (or false false) -> false" $ assertEqual [] False $ toStandardBool (UsingLambdaCalc.or false false),
-    
-      testCase "10 - (xor true true) -> false" $ assertEqual [] False $ toStandardBool (UsingLambdaCalc.xor true true),
-      testCase "10 - (xor true false) -> true" $ assertEqual [] True $ toStandardBool (UsingLambdaCalc.xor true false),
-      testCase "10 - (xor false true) -> true" $ assertEqual [] True $ toStandardBool (UsingLambdaCalc.xor false true),
-      testCase "10 - (xor false false) -> false" $ assertEqual [] False $ toStandardBool (UsingLambdaCalc.xor false false)
-                                                  
+                                                    else True)):: ( Integer -> Bool))                                 
     ]
 
 
