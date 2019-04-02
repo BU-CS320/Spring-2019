@@ -165,14 +165,16 @@ module TestShowTermType where
       
   -- | generate a random test show Lambda term
   genSizedShowTerm ::  Int -> Gen TestShowTerm
-  genSizedShowTerm size = 
-    oneof [
-      genSizedVar size,
-      genSizedApp size,
-      genSizedLam size,
-      genSizedParened size,
-      genSpaceAround size
-      ]
+  genSizedShowTerm size 
+    | size < 1 = genSizedVar size
+    | otherwise = 
+      oneof [
+        genSizedVar size,
+        genSizedApp size,
+        genSizedLam size,
+        genSizedParened size,
+        genSpaceAround size
+        ]
 
   -- | shrink the VarName
   shrinkVarName :: VarName -> [VarName]

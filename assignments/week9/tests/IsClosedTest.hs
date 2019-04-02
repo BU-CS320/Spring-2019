@@ -7,6 +7,11 @@ module IsClosedTest where
   import LambdaCalcImplementation (isClosed)
   import Examples (isClosedRes, Res(..))
 
-  isClosedTest = testGroup "isClosed test"  $
-    [testCase ("1 - testing for isClosed of " ++ testStr) $ 
-      res @=? isClosed formula | (Res testStr formula res) <- isClosedRes]
+  foldTestCase [] = return ()
+  foldTestCase (test1:testRest) = 
+    do 
+      test1
+      foldTestCase testRest
+
+  isClosedTest = testCase "isClosed test"  $ foldTestCase $
+    [assertEqual testStr res (isClosed formula) | (Res testStr formula res) <- isClosedRes]

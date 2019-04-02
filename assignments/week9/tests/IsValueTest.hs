@@ -7,6 +7,11 @@ module IsValueTest where
   import LambdaCalcImplementation (isValue)
   import Examples (isValRes, Res(..))
   
-  isValueTest = testGroup "isValue test" $
-    [testCase ("1 - testing for isValue of " ++ testStr) $ 
-      res @=? isValue formula | (Res testStr formula res) <- isValRes]
+  foldTestCase [] = return ()
+  foldTestCase (test1:testRest) = 
+    do 
+      test1
+      foldTestCase testRest
+
+  isValueTest = testCase "isValue test" $ foldTestCase $
+    [assertEqual testStr res (isValue formula) | (Res testStr formula res) <- isValRes]
