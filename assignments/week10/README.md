@@ -16,9 +16,11 @@ This week we will write our largest language so far.  It is a functional languag
 * DO NOT CHANGE THE TYPE SIGNATURES!
 
 ### Notes
-* Automated tests have not been posted.
-* see [hints video](https://www.youtube.com/watch?v=QUBUPId5WRQ&t=7s) posted last semester.
-* you can choose your own error messages as long as they are reasonable.
+* Some simple examples and easy tests cases for the parser have been posted on the class web site: [LangParserEasyTests.hs](http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/LangParserEasyTests.hs)
+* Automated tests for the parser have been posted; automated tests for the evaluation function soon....
+* See [hints video](https://www.youtube.com/watch?v=QUBUPId5WRQ&t=7s) posted last semester.
+* Some comments on the parser have been uploaded to Snyder's YT channel. 
+* You can choose your own error messages as long as they are reasonable.
 
 
 
