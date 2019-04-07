@@ -19,7 +19,7 @@ This week we will write our largest language so far.  It is a functional languag
 * Some simple examples and easy tests cases for the parser have been posted on the class web site: [LangParserEasyTests.hs](http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/LangParserEasyTests.hs)
 * Automated tests for the parser have been posted; automated tests for the evaluation function soon....
 * See [hints video](https://www.youtube.com/watch?v=QUBUPId5WRQ&t=7s) posted last semester.
-* Some comments on the parser have been uploaded to Snyder's YT channel. 
+* Some comments on the parser have been uploaded to Snyder's YT channel: [YT](https://www.youtube.com/watch?v=Pc6Lz9MkWEU&t=14s) 
 * You can choose your own error messages as long as they are reasonable.
 
 
