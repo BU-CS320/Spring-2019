@@ -5,7 +5,7 @@
 Posted on the class web site, due Thursday 4/11:  [Last HW](http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/hwWeek10.pdf)
 ## Code Part
 This week we will write our largest language so far.  It is a functional language that has Bools, Integers, and Lists.
-* You will need to write the monadic plumbing in EnvUnsafe.hs
+* You will need to write the monadic plumbing in EnvUnsafe.hs. Note that this is a combination of the Reader Monad and the Ok/Maybe Monad.  You can pretty much write this by referring to those previous monads and paying attention to the types. 
 * You will need to write an evaluation function in Lang.hs
 * you will need to write a parser in LangParser.hs
 
