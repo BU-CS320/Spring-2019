@@ -5,27 +5,10 @@ import Test.Tasty.HUnit (assertEqual, assertBool, testCase)
 import Test.Tasty.QuickCheck
 
 
-import ParserMonad
+import ParserMonad (parse)
 
-import Lang
-import LangParser
-
-
-
--- data Ast = And Ast Ast | Or Ast Ast | Not Ast
---          | Plus Ast Ast | Minus Ast Ast | Mult Ast Ast | Div Ast Ast
---          | ValInt Integer
---          | ValBool Bool
-
-
---          | If Ast Ast Ast
---          | Let String Ast Ast
---          | Lam String Ast --TODO a little redundent
---          | App Ast Ast
---          | Var String -- TODO: this could also be a val
---          | Nil
---          | Cons Ast Ast
---          deriving (Show, Eq)
+import Lang (showFullyParen, showPretty, Ast(..))
+import LangParser (parser)
 
 
 --TODO: move the generator to a shared place
@@ -60,32 +43,9 @@ arbitrarySizedIf m = do b <- arbitrarySizedAst (m `div` 3)
                         e <- arbitrarySizedAst (m `div` 3)
                         return $ If b t e
 
-unitTests =
-  testGroup
-    "Lang3Test"
-    [instructorTests
-     -- TODO: your tests here!!!
-	 ]
-
-instructorTests = testGroup
-      "instructorTests"
+parserTest = testGroup
+      "parser Test"
       [
-      testProperty "parse should return the same AST when fully parenthisized" $ ((\ x -> Just (x , "") == (parse parser $ fullyParenthesized x)) :: Ast -> Bool),
-      testProperty "parse should return the same AST when pretty printed" $ ((\ x -> Just (x , "") == (parse parser $ prettyShow x 0)) :: Ast -> Bool),
-      --TODO: same for show
-      testCase "example eval, assign also returns it's value" $ assertEqual []  3 $ 3
-
+      testProperty "parse should return the same AST when fully parenthisized" $ ((\ x -> Just (x , "") == (parse parser $ showFullyParen x)) :: Ast -> Bool),
+      testProperty "parse should return the same AST when pretty printed" $ ((\ x -> Just (x , "") == (parse parser $ showPretty x 0)) :: Ast -> Bool)
       ]
-
--- Mult (Var "z") (Or Nil (ValBool True))
-
-
-
--- prop_one :: Integer -> QuickCheck.Result
--- prop_one _ = MkResult (Just True) True "always succeeds" False [] []
-
-
--- TODO: your tests here!!!
--- TODO: Many, many more example test cases (every simple thing, many normal things, some extreame things)
--- TODO: add a generator, can then test more advanced language properties
--- TODO: you should always be able to parse show (when the var names aren't too bad)

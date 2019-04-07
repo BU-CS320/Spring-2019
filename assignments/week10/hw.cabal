@@ -11,6 +11,7 @@ cabal-version:        >=1.10
 
 library
   exposed-modules:    Lang, LangParser, ParserMonad, EnvUnsafe
+  other-modules:      HelpShow
   ghc-options:        -fwarn-incomplete-patterns -fwarn-incomplete-uni-patterns
   build-depends:      containers, base >= 4.7 && < 5
   hs-source-dirs:     src
@@ -21,7 +22,6 @@ test-suite test
     Haskell2010
   type:
     exitcode-stdio-1.0
--- TODO: detailed-1.0 is preferred
   hs-source-dirs:
     tests
   main-is: Main.hs
