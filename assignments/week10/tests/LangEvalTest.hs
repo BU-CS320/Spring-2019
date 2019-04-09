@@ -59,7 +59,6 @@ module LangEvalTest where
       Ok res -> Ok $ valToTestVal res 
       Error msg -> Error msg
 
-
   -- | Get the subexpression of the ast 
   subexpression :: Ast -> [Ast] 
   subexpression (ValBool _) = []
@@ -112,6 +111,10 @@ module LangEvalTest where
                           e <- arbitrarySizedAst (m `div` 3)
                           return $ If b t e
   
+  -- declear cons as a right associative infix 
+  infixr 7 `cons`
+  cons = Cons
+  
   -- | test for if the result carries the error
   errorTest = testGroup "test for basic error handling" [
     testProperty "for all ast, the eval result should have the same error as the first error encountered" $
@@ -138,9 +141,9 @@ module LangEvalTest where
     testCase "evaluation should support multityped list" $ 
       do 
         assertEqual "[1, 2, True]" (Ok $ TLs [TI 1, TI 2, TB True]) 
-          (runEmptyT $ ValInt 1 `Cons` ValInt 2 `Cons` ValBool True `Cons` Nil)
+          (runEmptyT $ ValInt 1 `cons` ValInt 2 `cons` ValBool True `cons` Nil)
         assertEqual "[1, True, [False, 2]]" (Ok $ TLs [TI 1, TB True, TLs [TB False, TI 2]]) 
-          (runEmptyT $ ValInt 1 `Cons` ValBool True `Cons` (ValBool False `Cons` ValInt 2 `Cons` Nil) `Cons` Nil),
+          (runEmptyT $ ValInt 1 `cons` ValBool True `cons` (ValBool False `cons` ValInt 2 `cons` Nil) `Cons` Nil),
 
     testCase "division by 0" $
       assertBool "1/0" $ isError (runEmptyT $ ValInt 1 `Div` ValInt 0),
@@ -149,7 +152,7 @@ module LangEvalTest where
     testProperty "function in list example: [True, 1, \\x -> x]" $
       \inp -> 
         let 
-          res = runEmpty $ ValBool True `Cons` ValInt 1 `Cons` Lam "x" (Var "x")
+          res = runEmpty $ ValBool True `cons` ValInt 1 `cons` Lam "x" (Var "x") `cons` Nil
         in 
           case res of 
             Ok (Ls [B True, I 1, Fun f]) -> (f $ I inp) `eqInt` (Ok $ I $ inp)
@@ -178,12 +181,12 @@ module LangEvalTest where
     testCase "test for head function" $ 
       do 
         assertBool "for a empty list, the head should return an error" $ isError $ run (Var "head" `App` Nil)
-        assertBool "head of [1, \\x -> x] should be 1" $ run (Var "head" `App` (ValInt 1 `Cons` Lam "x" (Var "x") `Cons` Nil)) `eqInt` (Ok $ I 1),
+        assertBool "head of [1, \\x -> x] should be 1" $ run (Var "head" `App` (ValInt 1 `cons` Lam "x" (Var "x") `cons` Nil)) `eqInt` (Ok $ I 1),
     
     testCase "test for len function" $ 
       do 
         assertBool "for a empty list, the length shold be 0" $ run (Var "len" `App` Nil) `eqInt` (Ok $ I $ 0)
         assertBool "length of [True, 1, \\x -> x, False] should be 4" $  
-          run (Var "head" `App` (ValBool True `Cons` ValInt 1 `Cons` Lam "x" (Var "x") `Cons` ValBool False `Cons` Nil)) `eqInt` (Ok $ I 4)
+          run (Var "len" `App` (ValBool True `cons` ValInt 1 `cons` Lam "x" (Var "x") `cons` ValBool False `cons` Nil)) `eqInt` (Ok $ I 4)
   
     ]
