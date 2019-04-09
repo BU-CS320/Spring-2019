@@ -72,7 +72,7 @@ module LangEvalTest where
   subexpression (Div r l) = [r, l]
   subexpression (Nil) = []
   subexpression (Cons r l) = [r, l]
-  subexpression (If b trueExp falseExp) = [trueExp, falseExp]
+  subexpression (If b trueExp falseExp) = [b, trueExp, falseExp]
   subexpression (Let varName varExp bodyExp) = [varExp, bodyExp]
   subexpression (Var _) = []
   subexpression (Lam para body) = []
