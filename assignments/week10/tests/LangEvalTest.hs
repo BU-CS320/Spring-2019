@@ -133,6 +133,7 @@ module LangEvalTest where
         assertBool "1 and True" $ isError (runEmptyT $ ValInt 1 `And` ValBool True)
         assertBool "[] or False" $ isError (runEmptyT $ Nil `Or` ValBool False)
         assertBool "not []" $ isError (runEmptyT $ Not Nil)
+        assertBool "Cons [] 3" $ isError (runEmptyT $ Cons Nil (ValInt 3))
         assertBool "if [] then 2 else 3" $ isError (runEmptyT $ If Nil (ValInt 2) (ValInt 3))
         assertBool "App 1 2" $ isError (runEmptyT $ (ValInt 1) `App` (ValInt 2))
     ]
