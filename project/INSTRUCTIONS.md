@@ -123,6 +123,7 @@ Professor Snyder will give a lecture on types and type checking on Monday 4/22, 
 
 "Simple" additions
 * 5pt add a function composition (.) operator
+* 5pt make lambdas support multiple argumnets, so you may write `\x y z -> x` instead of `\x -> \ y -> \ z -> x`
 * 5pt let with multiple sequential definitions ("let x = 4, y = x + 5, z = y in z * 2")
 * 5pt letrec
 
