@@ -8,7 +8,7 @@
 * Final Deadline: 5/3/19
   * Completion is worth 90pts/100.
 ## Getting Started
-* Read [Before You Begin](project/BEFORE.md)
+* Read [Before You Begin](BEFORE.md)
 * Come up with a language name/team name among your group
 * Follow this [Link](https://classroom.github.com/g/potVpRHi) to create/Join a group repo.
 * Like in [Week 1](../assignments/week1#setup-your-local-repository) you will need to checkout the new repository! 
