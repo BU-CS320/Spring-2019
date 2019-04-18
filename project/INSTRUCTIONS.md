@@ -10,7 +10,7 @@
 ## Getting Started
 * Come up with a language name/team name among your group
 * Follow this [Link](https://classroom.github.com/g/potVpRHi) to create/Join a group repo.  Even if you are working alone.
-* Like in [Week 1](../assignments/week1#setup-your-local-repository) you will need to checkout the new repository! 
+* Like in [Week 1](../assignments/week1#setup-your-local-repository) you will need to `git clone` the new repository! 
   * ```cd``` into the newly created directory 
   * You always want to take advantage of the latest corrections to the assignments and shared tests so we will add the main repository as a source
     * In your terminal type ```git remote add upstream https://github.com/BU-CS320/Spring-2019.git```
