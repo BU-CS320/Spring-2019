@@ -112,7 +112,7 @@ In addition, all week 10 language features must still work:
 We recommend:
 * You can start with your implementation for the last homework and simply add these operators in their appropriate places by consulting the <a href="https://self-learning-java-tutorial.blogspot.com/2016/04/haskell-operator-precedence.html">Haskell refference</a>. 
 * You should modify the `EnvUnsafe` monad code to include logging (the `Writer` monad) using a `print` expression, as we did in a previous homework (because we will be adding the print and separator from [lang2](../assignments/week7/src/lang/Lang2.hs))
-* You should provide an eval(....) function to evaluate expressions in the AST into a suitable result type analogous to Val from the last homework; and it must use the EnvUnsafe monad in an essential way. (We expect this would involve lots of do expressions, but you may write them in the primitive "bind" style if you wish :-)
+* You should provide an `eval` function to evaluate expressions in the `Ast` into a suitable result type analogous to `EnvUnsafe Env  Val` from the last homework; it should use the modified `EnvUnsafe` monad.
 * Start early!
 
 ### Additional ("Mix-In") Features
