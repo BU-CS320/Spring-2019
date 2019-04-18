@@ -35,7 +35,10 @@ New features which need to be added beyond your week 10 code:
   * a sequencing infix operator `;`
 * Implement a static check that takes in an `Ast` and warns when a variable is used when not declared. For instance  `\ x -> y + 10` should warn something like "y is not in scope".  This will not be part of your parser or interperter(eval), but should be implemented in a seperate `check` function.
 * Add support for the following types of data: floats, characters, strings, lists, and pairs (tuples with two elements)
-* You must write a suite of hunit-style tests for your code to verify its correctness; there will be a lecture about this on Wednesday 4/24.
+* You must write a suite of hunit-style tests for your code to verify its correctnes; there will be a lecture about this on Wednesday 4/24.
+  * You need a test group for each of the feature you implemented.
+  * You need to have enough test to convince us your code is correct by just looking at your tests, so make sure to cover all the edge case you can think of and every possible error
+  * You can build on the test of week10, but you need to add more tests (not just for mix-ins, for vanilla as well).
 * Add support for the infix operators and functions in the tables below
   * all operators and functions should report a sensible error message when applied incorrectly.  For example `[0,1] !! 10` should return an error like "can't get element 10 from a 2 element list" and `7 !! 10` should return "7 is not a list"
 
