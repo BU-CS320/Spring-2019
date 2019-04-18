@@ -129,28 +129,28 @@ Professor Snyder will give a lecture on types and type checking on Monday 4/22, 
 * 5pt add `letrec` to make recursion more confineint. So you can write `letrec f = \ x -> if x == 0 then 1 else x * (f (x-1)) in f 5`.  Alternatively you may also add this functionality to `let`.
 
 Modules
-* 15pt top level mutually recursive function definitions. You may want to add a top level operator "=" (without a let). 
+* 15pt top level mutually recursive function definitions. You may want to add a top level operator `=` (without a `let`). 
 * 10pt A language feature to import a "file" of definitions. [*](#medium)
 
 Parser enhancments
-* 10pt add error reporting to the parser monad, your parser should fail with clear context specific error messages.
+* 10pt add error reporting to the `Parser` monad, your parser should fail with clear context specific error messages.
 * 5pt parser calculates the line and character where it failed.
 * 10pt scope based on indentations like in haskell and python[*](#medium)
 
 Usability
 * Pattern matching [*](#medium)
-  * 5pt case ... of expressions for the integers, bools
-  * 5pt nested pattern matching that allows lists, and tuples
-  * 5pt build pattern matchin into lambda expressions with at least lists and tuples.
+  * 5pt `case ... of` expressions for the integers, bools
+  * 5pt nested pattern matching that allows integers, bools, lists, and tuples
+  * 5pt build pattern matchin into lambda expressions for integers, bools, lists, and tuples
 * User-defined data types
   * 5pt definition and contructors 
   * 5pt pattern-matching [*](#medium)
   * 10pt typechecking
 * 5pt A Read-Eval-Print loop, so that users can work interactively with your language, including preloading a 
-      Prelude-like initialization file, and the ability to load files interactively. You would need to learn about the IO monad (start with Chapter 10 in Hutton).
+      Prelude-like initialization file. You would need to learn about the IO monad (start with Chapter 10 in Hutton).
 
 Static Checking
-* 5pt Warn when a var is intruduced but never used
+* 5pt Warn when a variable is intruduced but never used
 * 15pt Checking simple types, where every variable has a type annotation
 * 20-30pt  Advanced type checking: Bidirectional, Hindly-milner, or dependently typed [**](#difficult)
 
@@ -159,8 +159,7 @@ Mutable state
 * 20-30pt Lexically scoped mutable state[**](#difficult)
 
 Misc
-* 10pt Add a warning (as in the Ok monad presented in lecture) to the monad, and flag appropriate conditions which
-are not errors, but cause concern (e.g., you defined a variable or function but then didn't use it).
+* 10pt Add runtime warnings to the monad, and flag appropriate conditions which are not errors, but cause concern (e.g., you defined a variable or function but then didn't use it).  (as in the Ok monad presented in lecture)
 * 5-15 pt Overloaded operators and constants, automatic type conversion (as in Java or Python) [*](#medium)
 
 Additionally you can get points by using engineering best practices
@@ -173,7 +172,7 @@ You can implement as many features as you want but you cannot score above a 100
 
 There are many other features, small and large, which could be imagined (orderings on lists? array types? n-ary tuples? conversion between prefix and infix? lazy evaluation? compilation[**](#difficult)?   The list goes on and on.....).  Please talk to Mark if you have creative ideas!  Some things are very challenging, and may change the language specification drasticly: these need to be aproved by Mark before the first milestone, and may require additional work by the 2nd milestone.
 
-<a name="medium">*</a> Mark needs to aprove before Before Milstone 2
+<a name="medium">*</a> Mark needs to aprove before Before Milstone 2. Might require some work on our end, for instance We might need to give you extra permissions in your repo for you to set up Continuous Integration.
 
 <a name="difficult">**</a> This is challenging, Mark needs to aprove before Before Milstone 1
 
