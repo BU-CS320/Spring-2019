@@ -28,8 +28,8 @@ Many of the requirements are flexible, for instance if you want to use Java-styl
 
 ### Required ("Vanilla") Features
 New features which need to be added beyond your week 10 code:
-* Additional syntax for lists  (for example ```[1,2,3]```)
-* Single and multiline comments (for example ```x+ 7 -- this is a comment``` and ```x+ {- this is a multi-line comment-} 7```)
+* Additional syntax for lists.  For example ```[1,2,3]```
+* Single and multiline comments. For example ```x+ 7 -- this is a comment``` and ```x+ {- this is a multi-line comment-} 7```
 * Support for logging
   * a `print` keyword 
   * a sequencing infix operator `;`
