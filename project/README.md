@@ -4,7 +4,7 @@ Follow the [instructions](INSTRUCTIONS.md), use this space to document your proj
 
 ## Names
 put your names here
-## Summery
+## Summary
 put a short summary here
 ## Plan
 put your plan here
