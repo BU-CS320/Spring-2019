@@ -10,7 +10,7 @@
 ## Getting Started
 * Read [Before You Begin](BEFORE.md)
 * Come up with a language name/team name among your group
-* Follow this [Link](https://classroom.github.com/g/potVpRHi) to create/Join a group repo.
+* Follow this [Link](https://classroom.github.com/g/potVpRHi) to create/Join a group repo.  Even if you are working alone.
 * Like in [Week 1](../assignments/week1#setup-your-local-repository) you will need to checkout the new repository! 
   * ```cd``` into the newly created directory 
   * You always want to take advantage of the latest corrections to the assignments and shared tests so we will add the main repository as a source
@@ -42,8 +42,7 @@ New features which need to be added beyond your week 10 code:
 is one important exception: the precedence for application should follow the last homework (application is the lowest
 precedence) rather than a very high precedence (as in Haskell). This is a matter of taste perhaps, but it makes
 things a little easier in terms of implementation to make application have low precedence. Otherwise, you can follow
-the Haskell rules. In other words, you can start with your implementation for the last homework and simply
-add these operators in their appropriate places by consulting the link above. </p>
+the Haskell rules. </p>
 <pre>  
 Infix Operators 
 
@@ -110,9 +109,11 @@ In addition, all week 10 language features must still work:
 * The language constructs from last HW must still work: let, if-then-else, etc.
 * Dynamic type-checking for expressions for all operators and predefined functions and for all types, and reporting of appropriate errors.
 
-We recommend
+We recommend:
+* You can start with your implementation for the last homework and simply add these operators in their appropriate places by consulting the link above. 
 * You should modify the EnvUnsafe monad code to include logging (the Writer monad) using a print expression, as we did in a previous homework (because we will be adding the print and separator from lang2 in week 5)
 * You should provide an eval(....) function to evaluate expressions in the AST into a suitable result type analogous to Val from the last homework; and it must use the EnvUnsafe monad in an essential way. (We expect this would involve lots of do expressions, but you may write them in the primitive "bind" style if you wish :-)
+* Start early!
 
 ### Additional ("Mix-In") Features
 This will acount for 30/100 of the points.  Listed point totals are aproxomate and may change.
