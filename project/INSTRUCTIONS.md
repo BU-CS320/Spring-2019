@@ -112,7 +112,7 @@ In addition, all week 10 language features must still work:
 We recommend:
 * You can start with your implementation for the last homework and simply add these operators in their appropriate places by consulting the <a href="https://self-learning-java-tutorial.blogspot.com/2016/04/haskell-operator-precedence.html">Haskell refference</a>. 
 * You should modify the `EnvUnsafe` monad code to include logging (the `Writer` monad) using a `print` expression, as we did in a previous homework (because we will be adding the print and separator from [lang2](../assignments/week7/src/lang/Lang2.hs))
-* You should provide an `eval` function to evaluate expressions in the `Ast` into a suitable result type analogous to `EnvUnsafe Env  Val` from the last homework; it should use the modified `EnvUnsafe` monad.
+* You should provide an `eval` function to evaluate expressions in the `Ast` into a suitable result type analogous to `EnvUnsafe Env  Val` from the last homework; it should use your modified monad.
 * Start early!
 
 ### Additional ("Mix-In") Features
@@ -123,9 +123,9 @@ You will be graded based on hunit test cases that you will provide us (unless sp
 Professor Snyder will give a lecture on types and type checking on Monday 4/22, and on testing on Wednesday 4/24, and may try to sneak in a lecture on the IO monad as well. Or a video.....
 
 "Simple" additions
-* 5pt add a function composition (.) operator
-* 5pt make lambdas support multiple argumnets, so you may write `\x y z -> x` instead of `\x -> \ y -> \ z -> x`
-* 5pt let with multiple sequential definitions ("let x = 4, y = x + 5, z = y in z * 2")
+* 5pt add an infix function composition operator `(.)`.  So you may write `f . g` instead of `\x -> f (g x)`
+* 5pt make lambdas support multiple argumnets.  So you may write `\x y z -> x` instead of `\x -> \ y -> \ z -> x`
+* 5pt add multiple sequential definitions to `let` with.  So you may write `let x = 4, y = x + 5, z = y in z * 2` instead of `let x = 4 in (let y = x + 5 in (let z = y in z * 2))`
 * 5pt letrec
 
 Modules
