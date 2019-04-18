@@ -8,7 +8,6 @@
 * Final Deadline: 5/3/19
   * Completion is worth 90pts/100.
 ## Getting Started
-* Read [Before You Begin](BEFORE.md)
 * Come up with a language name/team name among your group
 * Follow this [Link](https://classroom.github.com/g/potVpRHi) to create/Join a group repo.  Even if you are working alone.
 * Like in [Week 1](../assignments/week1#setup-your-local-repository) you will need to checkout the new repository! 
@@ -18,6 +17,7 @@
     * check that it worked by typing ```git remote -v```.  You should see see the line ```upstream https://github.com/BU-CS320/Spring-2019.git (fetch)```
     * You always want to keep your assignment up to date by running ```git pull upstream master```, do that now
   * check the status of your repo: ```git status```
+* Read [Before You Begin](BEFORE.md)
 
 
 	
@@ -126,7 +126,7 @@ Professor Snyder will give a lecture on types and type checking on Monday 4/22, 
 * 5pt add an infix function composition operator `(.)`.  So you may write `f . g` instead of `\x -> f (g x)`
 * 5pt make lambdas support multiple argumnets.  So you may write `\x y z -> x` instead of `\x -> \ y -> \ z -> x`
 * 5pt add multiple sequential definitions to `let` with.  So you may write `let x = 4, y = x + 5, z = y in z * 2` instead of `let x = 4 in (let y = x + 5 in (let z = y in z * 2))`
-* 5pt letrec
+* 5pt add `letrec` to make recursion more confineint. So you can write `letrec f = \ x -> if x == 0 then 1 else x * (f (x-1)) in f 5`.  Alternatively you may also add this functionality to `let`.
 
 Modules
 * 15pt top level mutually recursive function definitions. You may want to add a top level operator "=" (without a let). 
