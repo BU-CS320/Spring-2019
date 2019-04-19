@@ -36,7 +36,7 @@ New features which need to be added beyond your week 10 code:
 * Support for logging
   * a `print` keyword 
   * a sequencing infix operator `;`
-* Implement a static check that takes in an `Ast` and warns when a variable is used when not declared. For instance  `\ x -> y + 10` should warn something like "y is not in scope".  This will not be part of your parser or interperter(eval), but should be implemented in a separate `check` function which is executed between the parser and the evaluator. 
+* Implement a static check that takes in an `Ast` and warns when a variable is used when not declared. For instance  `\ x -> y + 10` should warn something like "y is not in scope".  This will not be part of your parser or interperter(eval), but should be implemented in a separate `check` function which is normally executed between the parser and the evaluator. 
 * Add support for the following types of data: floats, characters, strings, lists, and pairs (tuples with two elements)
 * You must write a suite of hunit-style tests for your code to verify its correctnes; there will be a lecture about this on Wednesday 4/24.
   * You need a test group for each of the feature you implemented.
