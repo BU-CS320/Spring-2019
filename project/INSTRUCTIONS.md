@@ -76,6 +76,7 @@ Infix Operators (blank lines precedence classes, in increasing order, L associat
     &&    Boolean And  
     
     ||    Boolean Or 
+    
                                                      -- relational operators are non-associative (can only be one in expression)
 						     -- relational operators are overloaded for all types except functions
 						     -- but both operands must be same type
@@ -88,9 +89,20 @@ Infix Operators (blank lines precedence classes, in increasing order, L associat
     >     Greater-than 
      
     !!    List indexing operator                     -- R associative
+	  
 
-	
-	
+Miscellaneous
+
+    \ and ->   Lambda abstraction constructors
+    [ and ]    List constructors, "," as separator
+    ' and '    Char constructors
+    " and "    String constructors
+    --    Start of comment line (ignore everything until the next newline)
+    {-    Start of multi-line comment 
+    -}    End of multi-line comment
+
+    Also include expressions defined by keywords, i.e., if-then-else, let-in, and print. 
+    
 Predefined Functions
 
     head
@@ -103,21 +115,6 @@ Predefined Functions
     chr     (integer -> char)
     float   (integer -> float)
     int     (float -> integer with truncation)
-    fst
-    snd
-  
-
-Miscellaneous
-
-    \ and ->   Lambda abstraction constructors
-    [ and ]    List constructors, "," as separator
-    ' and '    Literal char constructors
-    " and "    String constructors
-    --    Start of comment line (ignore everything until the next newline)
-    {-    Start of multi-line comment
-    -}    End of multi-line comment
-
-    Also include expressions defined by keywords, i.e., if-then-else and let expressions. 
 
 </pre>
 
