@@ -54,4 +54,25 @@ of another team  member.
 </dd></p>
 </dl>	
 	
+<h3>How to Start </h3>
+
+Wow, this is overwhelming! Where to start? <b> Develop a plan and a schedule.</b>  Find a time ASAP when you and your team
+can meet with no distractions for at least an hour.  Look over the whole assignment together and think about what
+the vanilla project looks like, and on whose version of the last homework you will base it. Then make a rough
+decision on what mix-in features are interesting and possible for you and your team to do.  Don't worry if you
+don't understand all the issues; we'll help you with that.  But you do what to choose features that at least
+seem interesting. Finally, decide who will do what, and the time frame for getting it all done. Yes, you may
+be unrealistic in some of the deadlines, but you <b>need a plan and a schedule.</b>  If you attempt to
+pull this all together in a couple of days before the final deadline, you will fail. 
+
+<p> How to assign tasks to people?  Roughly, the point values of the various features correspond to how much
+	work is involved, but what about the basic, vanilla project? What about testing? The major components can be see by looking at the basic project/src repo. You should organize your plan around completing these
+files first, starting with the AST, and then dividing up the Parser/Helpshow and the files related to
+	evaluation. The AST ties together the parsing phase and the evaluator (with a bit of static checking in between).
+	These can be done in parallel and put together later. The parser is not that much work (unless you choose to do
+	parser error reporting as an additional feature) so it would not be fair for one person to do the parser
+	and the others to do the evaluator. Probably you all need to be involved in the evaluation phase; there is
+	quite a lot of duplication, so it would be good to have multiple people working at once on that. 
+	</p>
 	
+
