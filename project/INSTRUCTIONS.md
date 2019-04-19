@@ -55,20 +55,20 @@ of precedence, with associativity and other characteristics noted.
 <pre>  
 Infix Operators (blank lines precedence classes, in increasing order, L associative except as noted)
 
-    ;     Separator                                 -- lowest precedence, R associative
+    ;     Separator                  -- lowest precedence, R associative
     
-          Application                               -- function application (no operators, just a blank between expressions)
+          Application                -- function application (no operators, just a blank between expressions)
 	
-    :     List cons                                 -- R associative
-    ++    List concatenation                        -- R associative
+    :     List cons                  -- R associative
+    ++    List concatenation         -- R associative
     
-    +     Addition                                  -- these three operators will be overloaded but require both operands to be the same type. 
-    -     Subtraction                               -- this is overloaded to also be a unary minus function (see below)
+    +     Addition                   -- these 2 operators overloaded but both operands must be the same type. 
+    -     Subtraction                -- this is overloaded to also be a unary minus function (see below)
     
-    *     Multiplication                         
-    /     Floating-Point Division                   -- note: exponentiation and division operators will NOT be overloaded 
+    *     Multiplication             -- overloaded but both operands must be the same type.                              
+    /     Floating-Point Division     
     //    Integer Division   
-    %     Modulus (remainder after integer division)
+    %     Modulus (remainder after integer division)    -- both operands must be integers
     
     ^     Floating-Point Exponentiation             -- R associative
     **    Integer Exponential                       -- R associative
@@ -77,22 +77,21 @@ Infix Operators (blank lines precedence classes, in increasing order, L associat
     
     ||    Boolean Or 
     
-                                                     -- relational operators are non-associative (can only be one in expression)
-						     -- relational operators are overloaded for all types except functions
-						     -- but both operands must be same type
-						     -- relational operators are non-associative (only one per expression)
-    ==    Equals                                                        
+                                     -- relational operators are non-associative (can only be one operator in expression)
+                                     -- but both operands must be same type
+    ==    Equals                     -- equality operators overloaded for all types except functions                  
     /=    Not-equal                                                     
-    <     Less-than                                  -- these four operators only need to compare integers and floats  
-    <=    Less-than-or-equal                         
+    <     Less-than                  -- these four operators only need to compare integers and floats, but both  
+    <=    Less-than-or-equal         -- both operands must be same type                     
     >=    Greater-than-or-equal              
     >     Greater-than 
      
-    !!    List indexing operator                     -- R associative
+    !!    List indexing operator     -- R associative, left operand must be list, right must be integer
 	  
 
 Miscellaneous
 
+    -          unary minus
     \ and ->   Lambda abstraction constructors
     [ and ]    List constructors, "," as separator
     ' and '    Char constructors
@@ -101,7 +100,7 @@ Miscellaneous
     {-    Start of multi-line comment 
     -}    End of multi-line comment
 
-    Also include expressions defined by keywords, i.e., if-then-else, let-in, and print. 
+    Also include expressions defined by keywords, i.e., Boolean not, if-then-else, let-in, and print. 
     
 Predefined Functions
 
