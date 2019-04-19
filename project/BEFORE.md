@@ -62,7 +62,8 @@ the vanilla project looks like, and on whose version of the last homework you wi
 decision on what mix-in features are interesting and possible for you and your team to do.  Don't worry if you
 don't understand all the issues; we'll help you with that.  But you do what to choose features that at least
 seem interesting. Finally, decide who will do what, and the time frame for getting it all done. Yes, you may
-be unrealistic in some of the deadlines, but you <b>need a plan and a schedule.</b>  
+be unrealistic in some of the deadlines, but you <b>need a plan and a schedule. The outcome of this first meeting
+should be the completion of the First Milestone. </b>  
 
 Please pay careful attention to this piece of advice: <b>Do NOT think you can pull this all together
 a couple of days before the final deadline. Trust us, you will fail, and we'll be busy helping the
