@@ -66,8 +66,9 @@ be unrealistic in some of the deadlines, but you <b>need a plan and a schedule.<
 
 Please pay careful attention to this piece of advice: <b>Do NOT think you can pull this all together
 a couple of days before the final deadline. Trust us, you will fail, and we'll be busy helping the
-serious students finishing up their projects, and will not be able to get our help with things
-you should have done a week previously.  </b> 
+students who took this advice seriously finishing up their projects, and will not be able to get our help with things
+you should have done the previous week. To be brutally honest: none of us will have any interest
+	in helping teams close to the deadline that didn't take this project seriously and are going to fail anyway. </b>
 
 
 <p> How to assign tasks to people?  Roughly, the point values of the various features correspond to how much
