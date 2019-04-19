@@ -66,10 +66,10 @@ be unrealistic in some of the deadlines, but you <b>need a plan and a schedule. 
 should be the completion of the First Milestone. </b>  
 
 Please pay careful attention to this piece of advice: <b>Do NOT think you can pull this all together
-a couple of days before the final deadline. Trust us, you will fail, and we'll be busy helping the
-students who took this advice seriously finishing up their projects, and will not be able to get our help with things
-you should have done the previous week. To be brutally honest: none of us will have any interest
-	in helping teams close to the deadline that didn't take this project seriously and are going to fail anyway. </b>
+a couple of days before the final deadline. Trust us, you will fail, and we'll be busy helping
+students who took this advice seriously to finish up their projects, and will not be able to get our help with things
+you should have done the previous week. To be brutally honest: none of us will have any interest close to the deadline
+	in helping teams that didn't take this seriously and are going to fail the project anyway. </b>
 
 
 <p> How to assign tasks to people?  Roughly, the point values of the various features correspond to how much
@@ -78,9 +78,11 @@ files first, starting with the AST, and then dividing up the Parser/Helpshow and
 	evaluation. The AST ties together the parsing phase and the evaluator (with a bit of static checking in between).
 	These can be done in parallel and put together later. The parser is not that much work (unless you choose to do
 	parser error reporting as an additional feature) so it would not be fair for one person to do the parser
-	and the others to do the evaluator. Otherwise a good model is that everyone needs to know about
+	and the others to do the evaluator. Otherwise a good model is that (i) someone does the parser and Helpshow,
+	(ii) everyone needs to know about
 	and be involving in thinking about all the vanilla features, even if specific people are in charge of
-	different phases of the coding.  When you discuss the additional features, then you can break this
+	different phases of the coding; the person doing the parser can be responsible for less of this.   
+	When you discuss the additional features, then you can break this
 	up into different simultaneous activities better. 
 	</p>
 	
