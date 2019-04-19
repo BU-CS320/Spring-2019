@@ -54,7 +54,7 @@ the Haskell rules. The operators are listed below in classes (operators of the s
 of precedence, with associativity and other characteristics noted.  
 
 <pre>  
-Infix Operators (blank lines precedence classes, in increasing order, L associative except as noted)
+Infix Operators (precedence classes, in increasing order, L associative except as noted)
   <hr> 
     ;     Separator                  -- lowest precedence, R associative
   <hr> 
