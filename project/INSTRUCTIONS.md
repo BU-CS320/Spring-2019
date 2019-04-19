@@ -1,6 +1,9 @@
 # Project Instructions
 * Milestone 1: **4/23/19**
-  * Create a group repo, and summarize your plans in the readme. 
+  * Join the Piazza group as organized by Prof Snyder
+  * Create a group repo, and summarize your plans in the readme:
+    * Which Additional Features you plan to do (tentative, can be changed)
+    * Who has primary responsibility for what (should be approximately equal, and, again, can be changed)
   * Completion is worth 5pts/100.
 * Milestone 2: 4/29/19
   * Details TBA
