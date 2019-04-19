@@ -55,29 +55,29 @@ of precedence, with associativity and other characteristics noted.
 
 <pre>  
 Infix Operators (blank lines precedence classes, in increasing order, L associative except as noted)
-
+  <hr> 
     ;     Separator                  -- lowest precedence, R associative
   <hr> 
           Application                -- function application (no operators, just a blank between expressions)
-	
+  <hr> 	
     :     List cons                  -- R associative
     ++    List concatenation         -- R associative
-    
+   <hr>    
     +     Addition                   -- these 2 operators overloaded but both operands must be the same type. 
     -     Subtraction                -- this is overloaded to also be a unary minus function (see below)
-    
+   <hr>    
     *     Multiplication             -- overloaded but both operands must be the same type.                              
     /     Floating-Point Division     
     //    Integer Division   
     %     Modulus (remainder after integer division)    -- both operands must be integers
-    
+    <hr>   
     ^     Floating-Point Exponentiation             -- R associative
     **    Integer Exponential                       -- R associative
-
+  <hr> 
     &&    Boolean And  
-    
+   <hr>    
     ||    Boolean Or 
-    
+    <hr>   
                                      -- relational operators are non-associative (can only be one operator in expression)
                                      -- but both operands must be same type
     ==    Equals                     -- equality operators overloaded for all types except functions                  
@@ -86,9 +86,9 @@ Infix Operators (blank lines precedence classes, in increasing order, L associat
     <=    Less-than-or-equal         -- both operands must be same type                     
     >=    Greater-than-or-equal              
     >     Greater-than 
-     
+    <hr>    
     !!    List indexing operator     -- R associative, left operand must be list, right must be integer
-	  
+  <hr> 	  
 
 Miscellaneous
 
@@ -102,7 +102,7 @@ Miscellaneous
     -}    End of multi-line comment
 
     Also include expressions defined by keywords, i.e., Boolean not, if-then-else, let-in, and print. 
-    
+  <hr>     
 Predefined Functions
 
     head
