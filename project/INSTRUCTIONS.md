@@ -1,6 +1,6 @@
 # Project Instructions
 * Milestone 1: **4/23/19**
-  * Join the Piazza group as organized by Prof Snyder
+  * Join a Piazza group as organized by Prof Snyder
   * Create a group repo, and summarize your plans in the readme:
     * Which Additional Features you plan to do (tentative, can be changed)
     * Who has primary responsibility for what (should be approximately equal, and, again, can be changed)
@@ -31,9 +31,10 @@ Many of the requirements are flexible, for instance if you want to use Java-styl
 
 ### Required ("Vanilla") Features
 New features which need to be added beyond your week 10 code:
-* Additional syntax for lists.  For example ```[1,2,3]```
-* Single and multiline comments. For example ```x+ 7 -- this is a comment``` and ```x+ {- this is a multi-line comment-} 7```
-* Support for logging
+* Additional operators and functions as explained below, including:
+  * Additional syntax for lists.  For example ```[1,2,3]```
+  * Single and multiline comments. For example ```x+ 7 -- this is a comment``` and ```x+ {- this is a multi-line comment-} 7```
+* Appropriate changes to "EnvUnsafe" monad, including support for logging:
   * a `print` keyword 
   * a sequencing infix operator `;`
 * Implement a static check that takes in an `Ast` and warns when a variable is used when not declared. For instance  `\ x -> y + 10` should warn something like "y is not in scope".  This will not be part of your parser or interperter(eval), but should be implemented in a separate `check` function which is normally executed between the parser and the evaluator. 
@@ -43,7 +44,7 @@ New features which need to be added beyond your week 10 code:
   * You need to have enough tests to convince us your code is correct by just looking at your tests, so make sure to cover all the edge case you can think of and every possible error
   * You can build on the test of week10, but you need to add more tests (not just for mix-ins, for vanilla as well).
 * Add support for the infix operators and functions in the tables below
-  * All operators and functions should report a sensible error message when applied incorrectly.  For example `[0,1] !! 10` should return an error like "Can't get element 10 from a 2 element list" and `7 !! 10` should return "7 is not a list"
+  * All operators and functions should report a sensible error message when applied incorrectly during execution (this is called "dynamic type checking).  For example `[0,1] !! 10` should return an error like "Can't get element 10 from a 2 element list" and `7 !! 10` should return "7 is not a list"
 
 In general, the precedence, associativity, and default meaning should be as in <a href="https://self-learning-java-tutorial.blogspot.com/2016/04/haskell-operator-precedence.html">Haskell</a>. But there
 is one important exception: the precedence for application should follow the last homework (application is lower in
@@ -56,7 +57,7 @@ of precedence, with associativity and other characteristics noted.
 Infix Operators (blank lines precedence classes, in increasing order, L associative except as noted)
 
     ;     Separator                  -- lowest precedence, R associative
-    
+  <hr> 
           Application                -- function application (no operators, just a blank between expressions)
 	
     :     List cons                  -- R associative
