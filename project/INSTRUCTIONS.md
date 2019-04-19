@@ -46,7 +46,7 @@ New features which need to be added beyond your week 10 code:
   * All operators and functions should report a sensible error message when applied incorrectly.  For example `[0,1] !! 10` should return an error like "Can't get element 10 from a 2 element list" and `7 !! 10` should return "7 is not a list"
 
 In general, the precedence, associativity, and default meaning should be as in <a href="https://self-learning-java-tutorial.blogspot.com/2016/04/haskell-operator-precedence.html">Haskell</a>. But there
-is one important exception: the precedence for application should follow the last homework (application is the lowest
+is one important exception: the precedence for application should follow the last homework (application is lower in
 precedence) rather than a very high precedence (as in Haskell). This is a matter of taste perhaps, but it makes
 things a little easier in terms of implementation to make application have low precedence. Otherwise, you can follow
 the Haskell rules. The operators are listed below in classes (operators of the same precedence) in increasing order
