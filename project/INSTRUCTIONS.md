@@ -52,30 +52,42 @@ things a little easier in terms of implementation to make application have low p
 the Haskell rules. 
 
 <pre>  
-Infix Operators 
+Infix Operators (blank lines indicate change of precedence, in increasing order, L associative except as noted)
 
-    +     Add operator                              -- these three operators will be overloaded but require both operands to be the same type. 
-    -     Subtract/negate operator                  -- this is overloaded to also be a unary minus function (see below)
-    *     Multiply operator
-    /     Floating-Point Division operator          -- note: exponentiation and division operators will NOT be overloaded 
-    //    Integer Division operator  )
-    ^     Floating-Point Exponentiation operator 
-    **    Integer Exponential operator
-    %     Modulus (remainder after integer division
-    &&    And operator
-    ||    Or operator
-    ==    Equal operator                             -- relational operators will be overloaded,                   
-    /=    Not-equal operator                         -- but both operands must be the same type                    
-    <     Less-than operator                         -- these four operators only need to compare integers and floats  
-    <=    Less-than-or-equal operator                
-    >=    Greater-than-or-equal operator
-    >     Greater-than operator
-    \     Lambda operator
-    :     Cons operator
-    ->    Function mapping operator in lambda abstraction
-    ++    List/string concatenation operator  
-    !!    List indexing operator
-    ;     Separator
+    ;     Separator                                 -- lowest precedence, R associative
+    
+          Application                               -- function application (no operators, just a blank between expressions)
+	
+    :     List cons                                 -- R associative
+    ++    List concatenation                        -- R associative
+    
+    +     Addition                                  -- these three operators will be overloaded but require both operands to be the same type. 
+    -     Subtraction                               -- this is overloaded to also be a unary minus function (see below)
+    
+    *     Multiplication                         
+    /     Floating-Point Division                   -- note: exponentiation and division operators will NOT be overloaded 
+    //    Integer Division   
+    %     Modulus (remainder after integer division)
+    
+    ^     Floating-Point Exponentiation             -- R associative
+    **    Integer Exponential                       -- R associative
+
+    &&    Boolean And  
+    
+    ||    Boolean Or 
+                                                     -- relational operators are non-associative (can only be one in expression)
+						     -- relational operators are overloaded for all types except functions
+						     -- but both operands must be same type
+						     -- relational operators are non-associative (only one per expression)
+    ==    Equals                                                        
+    /=    Not-equal                                                     
+    <     Less-than                                  -- these four operators only need to compare integers and floats  
+    <=    Less-than-or-equal                         
+    >=    Greater-than-or-equal              
+    >     Greater-than 
+     
+    !!    List indexing operator                     -- R associative
+
 	
 	
 Predefined Functions
@@ -96,6 +108,7 @@ Predefined Functions
 
 Miscellaneous
 
+    \ and ->   Lambda abstraction constructors
     [ and ]    List constructors, "," as separator
     ( and )    Tuple constructors, "," as separator
     ' and '    Literal char constructors
@@ -103,8 +116,8 @@ Miscellaneous
     --    Start of comment line (ignore everything until the next newline)
     {-    Start of multi-line comment
     -}    End of multi-line comment
-	
-	       
+
+    Also include expressions defined by keywords, i.e., if-then-else and let expressions. 
 
 </pre>
 
