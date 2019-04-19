@@ -62,8 +62,13 @@ the vanilla project looks like, and on whose version of the last homework you wi
 decision on what mix-in features are interesting and possible for you and your team to do.  Don't worry if you
 don't understand all the issues; we'll help you with that.  But you do what to choose features that at least
 seem interesting. Finally, decide who will do what, and the time frame for getting it all done. Yes, you may
-be unrealistic in some of the deadlines, but you <b>need a plan and a schedule.</b>  If you attempt to
-pull this all together in a couple of days before the final deadline, you will fail. 
+be unrealistic in some of the deadlines, but you <b>need a plan and a schedule.</b>  
+
+Please pay careful attention to this piece of advice: <b>Do NOT think you can pull this all together
+a couple of days before the final deadline. Trust us, you will fail, and we'll be busy helping the
+serious students finishing up their projects, and will not be able to get our help with things
+you should have done a week previously.  </b> 
+
 
 <p> How to assign tasks to people?  Roughly, the point values of the various features correspond to how much
 	work is involved, but what about the basic, vanilla project? What about testing? The major components can be see by looking at the basic project/src repo. You should organize your plan around completing these
@@ -71,8 +76,10 @@ files first, starting with the AST, and then dividing up the Parser/Helpshow and
 	evaluation. The AST ties together the parsing phase and the evaluator (with a bit of static checking in between).
 	These can be done in parallel and put together later. The parser is not that much work (unless you choose to do
 	parser error reporting as an additional feature) so it would not be fair for one person to do the parser
-	and the others to do the evaluator. Probably you all need to be involved in the evaluation phase; there is
-	quite a lot of duplication, so it would be good to have multiple people working at once on that. 
+	and the others to do the evaluator. Otherwise a good model is that everyone needs to know about
+	and be involving in thinking about all the vanilla features, even if specific people are in charge of
+	different phases of the coding.  When you discuss the additional features, then you can break this
+	up into different simultaneous activities better. 
 	</p>
 	
 
