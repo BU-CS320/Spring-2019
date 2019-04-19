@@ -36,20 +36,21 @@ New features which need to be added beyond your week 10 code:
 * Support for logging
   * a `print` keyword 
   * a sequencing infix operator `;`
-* Implement a static check that takes in an `Ast` and warns when a variable is used when not declared. For instance  `\ x -> y + 10` should warn something like "y is not in scope".  This will not be part of your parser or interperter(eval), but should be implemented in a seperate `check` function.
+* Implement a static check that takes in an `Ast` and warns when a variable is used when not declared. For instance  `\ x -> y + 10` should warn something like "y is not in scope".  This will not be part of your parser or interperter(eval), but should be implemented in a separate `check` function which is executed between the parser and the evaluator. 
 * Add support for the following types of data: floats, characters, strings, lists, and pairs (tuples with two elements)
 * You must write a suite of hunit-style tests for your code to verify its correctnes; there will be a lecture about this on Wednesday 4/24.
   * You need a test group for each of the feature you implemented.
-  * You need to have enough test to convince us your code is correct by just looking at your tests, so make sure to cover all the edge case you can think of and every possible error
+  * You need to have enough tests to convince us your code is correct by just looking at your tests, so make sure to cover all the edge case you can think of and every possible error
   * You can build on the test of week10, but you need to add more tests (not just for mix-ins, for vanilla as well).
 * Add support for the infix operators and functions in the tables below
-  * all operators and functions should report a sensible error message when applied incorrectly.  For example `[0,1] !! 10` should return an error like "can't get element 10 from a 2 element list" and `7 !! 10` should return "7 is not a list"
+  * All operators and functions should report a sensible error message when applied incorrectly.  For example `[0,1] !! 10` should return an error like "Can't get element 10 from a 2 element list" and `7 !! 10` should return "7 is not a list"
 
 In general, the precedence, associativity, and default meaning should be as in <a href="https://self-learning-java-tutorial.blogspot.com/2016/04/haskell-operator-precedence.html">Haskell</a>. But there
 is one important exception: the precedence for application should follow the last homework (application is the lowest
 precedence) rather than a very high precedence (as in Haskell). This is a matter of taste perhaps, but it makes
 things a little easier in terms of implementation to make application have low precedence. Otherwise, you can follow
-the Haskell rules. 
+the Haskell rules. The operators are listed below in classes (operators of the same precedence) in increasing order
+of precedence, with associativity and other characteristics noted.  
 
 <pre>  
 Infix Operators (blank lines indicate change of precedence, in increasing order, L associative except as noted)
@@ -110,7 +111,6 @@ Miscellaneous
 
     \ and ->   Lambda abstraction constructors
     [ and ]    List constructors, "," as separator
-    ( and )    Tuple constructors, "," as separator
     ' and '    Literal char constructors
     " and "    String constructors
     --    Start of comment line (ignore everything until the next newline)
@@ -131,57 +131,57 @@ In addition, all week 10 language features must still work:
 * Dynamic type-checking for expressions for all operators and predefined functions and for all types, and reporting of appropriate errors.
 
 We recommend:
-* You can start with your implementation for the last homework and simply add these operators in their appropriate places by consulting the <a href="https://self-learning-java-tutorial.blogspot.com/2016/04/haskell-operator-precedence.html">Haskell refference</a>. 
+* You can start with your implementation for the last homework and simply add these operators in their appropriate places.  
 * You should modify the `EnvUnsafe` monad code to include logging (the `Writer` monad) using a `print` expression, as we did in a previous homework (because we will be adding the print and separator from [lang2](../assignments/week7/src/lang/Lang2.hs))
 * You should provide an `eval` function to evaluate expressions in the `Ast` into a suitable result type analogous to `EnvUnsafe Env  Val` from the last homework; it should use your modified monad.
 * With project this size, good variable name and nice documentation will never be a waste of time. Write as much documentation as you can and also make your variable name as descriptive as possible.
 * Start early!
 
 ### Additional ("Mix-In") Features
-This will acount for 30/100 of the points.  Listed point totals are aproxomate and may change.
+This will account for 30/100 of the points.  Listed point totals are approximate and may change.
 
 You will be graded based on hunit test cases that you will provide us (unless specified otherwise)
 
-Professor Snyder will give a lecture on types and type checking on Monday 4/22, and on testing on Wednesday 4/24, and may try to sneak in a lecture on the IO monad as well. Or a video.....
+Professor Snyder will give a lecture on types and type checking on Monday 4/22, and on testing on Wednesday 4/24, and may try to sneak in a lecture on the IO monad as well. And will sneak in a couple of videos...
 
 "Simple" additions
-* 5pt add an infix function composition operator `(.)`.  So you may write `f . g` instead of `\x -> f (g x)`
-* 5pt make lambdas support multiple argumnets.  So you may write `\x y z -> x` instead of `\x -> \ y -> \ z -> x`
-* 5pt add multiple sequential definitions to `let` with.  So you may write `let x = 4, y = x + 5, z = y in z * 2` instead of `let x = 4 in (let y = x + 5 in (let z = y in z * 2))`
-* 5pt add `letrec` to make recursion more confineint. So you can write `letrec f = \ x -> if x == 0 then 1 else x * (f (x-1)) in f 5`.  Alternatively you may also add this functionality to `let`.
+* 5pt Add an infix function composition operator `(.)`.  So you may write `f . g` instead of `\x -> f (g x)`
+* 5pt Make lambdas support multiple arguments.  So you may write `\x y z -> x` instead of `\x -> \ y -> \ z -> x`
+* 5pt Add multiple sequential definitions to `let`.  So you may write `let x = 4, y = x + 5, z = y in z * 2` instead of `let x = 4 in (let y = x + 5 in (let z = y in z * 2))`
+* 5pt Add `letrec` to make recursion more convenient. So you can write `letrec f = \ x -> if x == 0 then 1 else x * (f (x-1)) in f 5`.  Alternatively you may also add this functionality to `let`.  There will be a video about this issue shortly. 
 
 Modules
-* 15pt top level mutually recursive function definitions. You may want to add a top level operator `=` (without a `let`). 
+* 15pt Top level mutually-recursive function definitions. You may want to add a top level operator `=` (without a `let`). 
 * 10pt A language feature to import a "file" of definitions. [*](#medium)
 
 Parser enhancments
-* 10pt add error reporting to the `Parser` monad, your parser should fail with clear context specific error messages.
-* 5pt parser calculates the line and character where it failed.
-* 10pt scope based on indentations like in haskell and python[*](#medium)
+* 10pt Add error reporting to the `Parser` monad, your parser should fail with clear context specific error messages.
+* 5pt Parser which calculates the line and character where it failed for more precise error reporting.
+* 10pt Scope based on indentations like in Haskell and Python[*](#medium)
 
 Usability
 * Pattern matching [*](#medium)
-  * 5pt `case ... of` expressions for the integers, bools
-  * 5pt nested pattern matching that allows integers, bools, lists, and tuples
-  * 5pt build pattern matchin into lambda expressions for integers, bools, lists, and tuples
+  * 5pt `case ... of` expressions for the integers and bools
+  * 5pt Nested pattern matching that allows integers, bools, and lists.
+  * 5pt Build pattern matching into lambda expressions for integers, bools, and lists.
 * User-defined data types
-  * 5pt definition and contructors 
-  * 5pt pattern-matching [*](#medium)
-  * 10pt typechecking
+  * 5pt Definitions and constructors 
+  * 5pt Pattern-matching [*](#medium)
+  * 10pt Typechecking
 * 5pt A Read-Eval-Print loop, so that users can work interactively with your language, including preloading a 
       Prelude-like initialization file. You would need to learn about the IO monad (start with Chapter 10 in Hutton).
 
 Static Checking
-* 5pt Warn when a variable is intruduced but never used
-* 15pt Checking simple types, where every variable has a type annotation
-* 20-30pt  Advanced type checking: Bidirectional, Hindly-milner, or dependently typed [**](#difficult)
+* 5pt Warn when a variable is introduced but never used
+* 15pt Checking simple types, where every variable has a type annotation (lecture will be presented on this)
+* 20-30pt  Advanced type checking: Bidirectional, Hindly-milner, or dependently typed [**](#difficult -- talk to Mark)
 
 Mutable state
-* 10pt Dynmamically scoped mutable state[*](#medium)
+* 10pt Dynamically scoped mutable state[*](#medium)
 * 20-30pt Lexically scoped mutable state[**](#difficult)
 
 Misc
-* 10pt Add runtime warnings to the monad, and flag appropriate conditions which are not errors, but cause concern (e.g., you defined a variable or function but then didn't use it).  (as in the Ok monad presented in lecture)
+* 10pt Add runtime warnings to the monad, and flag appropriate conditions which are not errors, but cause concern (e.g., you defined a variable or function but then didn't use it, as in the Ok monad presented in lecture).
 * 5-15 pt Overloaded operators and constants, automatic type conversion (as in Java or Python) [*](#medium)
 
 Additionally you can get points by using engineering best practices
@@ -196,7 +196,7 @@ There are many other features, small and large, which could be imagined (orderin
 
 <a name="medium">*</a> Mark needs to aprove before Before Milstone 2. Might require some work on our end, for instance We might need to give you extra permissions in your repo for you to set up Continuous Integration.
 
-<a name="difficult">**</a> This is challenging, Mark needs to aprove before Before Milstone 1
+<a name="difficult">**</a> This is challenging, Mark needs to approve before Milestone 1
 
 
 
