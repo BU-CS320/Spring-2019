@@ -60,9 +60,6 @@ Infix Operators (precedence classes, in increasing order, L associative except a
     ;     Separator                  -- lowest precedence, R associative
   <hr> 
           Application                -- function application (no operators, just a blank between expressions)
-  <hr> 	
-    :     List cons                  -- R associative
-    ++    List concatenation         -- R associative
   <hr> 
     &&    Boolean And              
    <hr>    
@@ -76,6 +73,9 @@ Infix Operators (precedence classes, in increasing order, L associative except a
     <=    Less-than-or-equal                              
     >=    Greater-than-or-equal              
     >     Greater-than 
+      <hr> 	
+    :     List cons                  -- R associative
+    ++    List concatenation         -- R associative
     <hr>    
     +     Addition                   -- these 2 operators overloaded for integers and floats
     -     Subtraction                -- this is overloaded to also be a unary minus function (see below)
