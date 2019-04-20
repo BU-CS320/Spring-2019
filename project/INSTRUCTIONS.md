@@ -27,7 +27,7 @@
 ## Requirements
 This will acount for 60/100 of the points.
 
-Many of the requirements are flexible, for instance if you want to use Java-style comments instead of the Haskell's style or use Python's `and` instead of `&&` talk to Mark. 
+Many of the requirements are flexible, for instance if you want to use Java-style comments instead of the Haskell's style, or use Python's `and` instead of `&&`,  talk to Mark. 
 
 ### Required ("Vanilla") Features
 New features which need to be added beyond your week 10 code:
@@ -42,7 +42,7 @@ New features which need to be added beyond your week 10 code:
 * You must write a suite of hunit-style tests for your code to verify its correctnes; there will be a lecture about this on Wednesday 4/24.
   * You need a test group for each of the feature you implemented.
   * You need to have enough tests to convince us your code is correct by just looking at your tests, so make sure to cover all the edge case you can think of and every possible error
-  * You can build on the test of week10, but you need to add more tests (not just for mix-ins, for vanilla as well).
+  * You can build on the tests of week10, but you need to add more tests (not just for mix-ins, for vanilla as well).
 * Add support for the infix operators and functions in the tables below
   * All operators and functions should report a sensible error message when applied incorrectly during execution (this is called "dynamic type checking).  For example `[0,1] !! 10` should return an error like "Can't get element 10 from a 2 element list" and `7 !! 10` should return "7 is not a list"
 
@@ -54,7 +54,8 @@ the Haskell rules. The operators are listed below in classes (operators of the s
 of precedence, with associativity and other characteristics noted.  
 
 <pre>  
-Infix Operators (precedence classes, in increasing order, L associative except as noted)
+Infix Operators (precedence classes, in increasing order, L associative except as noted, for arithmetic,relational,
+    and boolean operators both operands must be same type)
   <hr> 
     ;     Separator                  -- lowest precedence, R associative
   <hr> 
@@ -63,27 +64,27 @@ Infix Operators (precedence classes, in increasing order, L associative except a
     :     List cons                  -- R associative
     ++    List concatenation         -- R associative
    <hr>    
-    +     Addition                   -- these 2 operators overloaded but both operands must be the same type. 
+    +     Addition                   -- these 2 operators overloaded for integers and floats
     -     Subtraction                -- this is overloaded to also be a unary minus function (see below)
    <hr>    
-    *     Multiplication             -- overloaded but both operands must be the same type.                              
+    *     Multiplication             -- overloaded for integers and floats                          
     /     Floating-Point Division     
     //    Integer Division   
-    %     Modulus (remainder after integer division)    -- both operands must be integers
+    %     Modulus (remainder after integer division)    -- only for integers
     <hr>   
     ^     Floating-Point Exponentiation             -- R associative
     **    Integer Exponential                       -- R associative
   <hr> 
-    &&    Boolean And  
+    &&    Boolean And              
    <hr>    
     ||    Boolean Or 
     <hr>   
-                                     -- relational operators are non-associative (can only be one operator in expression)
-                                     -- but both operands must be same type
-    ==    Equals                     -- equality operators overloaded for all types except functions                  
+                                     -- relational operators are non-associative (can only be one operator 
+                                     -- in an expression) 
+    ==    Equals                     -- equality operators are overloaded for all types except functions                  
     /=    Not-equal                                                     
-    <     Less-than                  -- these four operators only need to compare integers and floats, but both  
-    <=    Less-than-or-equal         -- both operands must be same type                     
+    <     Less-than                  -- these four operators only need to compare integers and floats,  
+    <=    Less-than-or-equal                              
     >=    Greater-than-or-equal              
     >     Greater-than 
     <hr>    
@@ -107,7 +108,7 @@ Predefined Functions
 
     head
     tail
-    elem                                           -- will only work on types where equaility makes sense, for instance: elem [\x -> x*0] (\y -> 0) should return an error
+    elem                       -- only for types with equality; for instance: (elem (\y -> 0) [(\x -> x*0)] ) should return an error
     map
     filter
     foldr
