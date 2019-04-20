@@ -146,7 +146,7 @@ Professor Snyder will give a lecture on types and type checking on Monday 4/22, 
 * 5pt Add an infix function composition operator `(.)`.  So you may write `f . g` instead of `\x -> f (g x)`
 * 5pt Make lambdas support multiple arguments.  So you may write `\x y z -> x` instead of `\x -> \ y -> \ z -> x`
 * 5pt Add multiple sequential definitions to `let`.  So you may write `let x = 4, y = x + 5, z = y in z * 2` instead of `let x = 4 in (let y = x + 5 in (let z = y in z * 2))`
-* 5pt Add `letrec` to make recursion more convenient. So you can write `letrec f = \ x -> if x == 0 then 1 else x * (f (x-1)) in f 5`.  Alternatively you may also add this functionality to `let`.  There will be a video about this issue shortly. 
+* 5pt Add `letrec` to make recursion more convenient. So you can write `letrec f = \ x -> if x == 0 then 1 else x * (f (x-1)) in f 5`.  Alternatively you may also add this functionality to `let`.  We will talk about this in lecture this week. 
 
 Modules
 * 15pt Top level mutually-recursive function definitions. You may want to add a top level operator `=` (without a `let`). 
