@@ -63,17 +63,6 @@ Infix Operators (precedence classes, in increasing order, L associative except a
   <hr> 	
     :     List cons                  -- R associative
     ++    List concatenation         -- R associative
-   <hr>    
-    +     Addition                   -- these 2 operators overloaded for integers and floats
-    -     Subtraction                -- this is overloaded to also be a unary minus function (see below)
-   <hr>    
-    *     Multiplication             -- overloaded for integers and floats                          
-    /     Floating-Point Division     
-    //    Integer Division   
-    %     Modulus (remainder after integer division)    -- only for integers
-    <hr>   
-    ^     Floating-Point Exponentiation             -- R associative
-    **    Integer Exponential                       -- R associative
   <hr> 
     &&    Boolean And              
    <hr>    
@@ -88,6 +77,17 @@ Infix Operators (precedence classes, in increasing order, L associative except a
     >=    Greater-than-or-equal              
     >     Greater-than 
     <hr>    
+    +     Addition                   -- these 2 operators overloaded for integers and floats
+    -     Subtraction                -- this is overloaded to also be a unary minus function (see below)
+   <hr>    
+    *     Multiplication             -- overloaded for integers and floats                          
+    /     Floating-Point Division     
+    //    Integer Division   
+    %     Modulus (remainder after integer division)    -- only for integers
+    <hr>   
+    ^     Floating-Point Exponentiation             -- R associative
+    **    Integer Exponential                       -- R associative
+  <hr> 
     !!    List indexing operator     -- R associative, left operand must be list, right must be integer
   <hr> 	  
 
