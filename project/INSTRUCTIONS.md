@@ -111,7 +111,7 @@ Predefined Functions
     elem                       -- only for types with equality; for instance: (elem (\y -> 0) [(\x -> x*0)] ) should return an error
     map
     filter
-    foldr
+    foldr   (optional -- but give it a shot!)
     ord     (char -> integer)
     chr     (integer -> char)
     float   (integer -> float)
