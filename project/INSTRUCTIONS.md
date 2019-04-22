@@ -54,7 +54,7 @@ the Haskell rules. The operators are listed below in classes (operators of the s
 of precedence, with associativity and other characteristics noted.  
 
 <pre>  
-Infix Operators (precedence classes, in increasing order, L associative except as noted, for arithmetic,relational,
+Predecence Classes (in increasing order, L associative except as noted, for arithmetic,relational,
     and boolean operators both operands must be same type)
   <hr> 
     ;     Separator                  -- lowest precedence, R associative
@@ -89,11 +89,19 @@ Infix Operators (precedence classes, in increasing order, L associative except a
     **    Integer Exponential                       -- R associative
   <hr> 
     !!    List indexing operator     -- R associative, left operand must be list, right must be integer
-  <hr> 	  
+  <hr> 
+    -- prefix operators and functions
+    not    Boolean not
+    -      Unary minus
+    print  Print expression
+  <hr> 
+    -- atomic expressions
+    The highest precedence is the atoms, e.g., integers, floats, chars, lists represented by syntax [,,,], variables, let, if-then-else,lambda abstractions. 
+  <hr>
+  
+  
+Miscellaneous symbols to think about:
 
-Miscellaneous
-
-    -          unary minus
     \ and ->   Lambda abstraction constructors
     [ and ]    List constructors, "," as separator
     ' and '    Char constructors
@@ -102,9 +110,8 @@ Miscellaneous
     {-    Start of multi-line comment 
     -}    End of multi-line comment
 
-    Also include expressions defined by keywords, i.e., Boolean not, if-then-else, let-in, and print. 
   <hr>     
-Predefined Functions
+Predefined Functions as part of stdLib
 
     head
     tail
