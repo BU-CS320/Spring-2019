@@ -6,7 +6,8 @@
     * Who has primary responsibility for what (should be approximately equal, and, again, can be changed)
   * Completion is worth 5pts/100.
 * Milestone 2: 4/29/19
-  * Details TBA
+  * Details: You will have to submit your tests for the project; while it is not necessary to fully complete all features
+  of the project, you will need to have made substantial progress on the coding in order to submit the tests. 
   * Completion is worth 5pts/100.
 * Final Deadline: 5/3/19
   * Completion is worth 90pts/100.
@@ -39,11 +40,11 @@ New features which need to be added beyond your week 10 code:
 * Appropriate changes to "EnvUnsafe" monad, including support for logging:
   * a `print` keyword 
   * a sequencing infix operator `;`
-* Implement a static check that takes in an `Ast` and warns when a variable is used when not declared. For instance  `\ x -> y + 10` should warn something like "y is not in scope".  This will not be part of your parser or interperter(eval), but should be implemented in a separate `check` function which is normally executed between the parser and the evaluator. 
+* Implement a static check that takes in an `Ast` and warns when a variable is used but not declared. For instance  `\ x -> y + 10` should warn something like "y is not in scope".  This will not be part of your parser or interpreter (eval), but should be implemented in a separate `check` function which is normally executed between the parser and the evaluator. 
 
 * You must write a suite of hunit-style tests for your code to verify its correctnes; there will be a lecture about this on Wednesday 4/24.
-  * You need a test group for each of the feature you implemented.
-  * You need to have enough tests to convince us your code is correct by just looking at your tests, so make sure to cover all the edge case you can think of and every possible error
+  * You need a test group for each of the features you implemented.
+  * You need to have enough tests to convince us your code is correct by just looking at your tests, so make sure to cover all the edge cases you can think of and every possible error (the tests will be a major part of Milestone 2). 
   * You can build on the tests of week10, but you need to add more tests (not just for mix-ins, for vanilla as well).
 
 
