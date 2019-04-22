@@ -34,17 +34,18 @@ New features which need to be added beyond your week 10 code:
 * Additional operators and functions as explained below, including:
   * Additional syntax for lists.  For example ```[1,2,3]```
   * Single and multiline comments. For example ```x+ 7 -- this is a comment``` and ```x+ {- this is a multi-line comment-} 7```
+  * All operators and functions should report a sensible error message when applied incorrectly during execution (this is called "dynamic type checking).  For example `[0,1] !! 10` should return an error like "Can't get element 10 from a 2 element list" and `7 !! 10` should return "7 is not a list"
+  * Add support for the following types of data: floats, characters, strings, and lists.
 * Appropriate changes to "EnvUnsafe" monad, including support for logging:
   * a `print` keyword 
   * a sequencing infix operator `;`
 * Implement a static check that takes in an `Ast` and warns when a variable is used when not declared. For instance  `\ x -> y + 10` should warn something like "y is not in scope".  This will not be part of your parser or interperter(eval), but should be implemented in a separate `check` function which is normally executed between the parser and the evaluator. 
-* Add support for the following types of data: floats, characters, strings, lists, and pairs (tuples with two elements)
+
 * You must write a suite of hunit-style tests for your code to verify its correctnes; there will be a lecture about this on Wednesday 4/24.
   * You need a test group for each of the feature you implemented.
   * You need to have enough tests to convince us your code is correct by just looking at your tests, so make sure to cover all the edge case you can think of and every possible error
   * You can build on the tests of week10, but you need to add more tests (not just for mix-ins, for vanilla as well).
-* Add support for the infix operators and functions in the tables below
-  * All operators and functions should report a sensible error message when applied incorrectly during execution (this is called "dynamic type checking).  For example `[0,1] !! 10` should return an error like "Can't get element 10 from a 2 element list" and `7 !! 10` should return "7 is not a list"
+
 
 In general, the precedence, associativity, and default meaning should be as in <a href="https://self-learning-java-tutorial.blogspot.com/2016/04/haskell-operator-precedence.html">Haskell</a>. But there
 is one important exception: the precedence for application should follow the last homework (application is lower in
