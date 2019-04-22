@@ -54,7 +54,7 @@ the Haskell rules. The operators are listed below in classes (operators of the s
 of precedence, with associativity and other characteristics noted.  
 
 <pre>  
-Predecence Classes (in increasing order, L associative except as noted, for arithmetic,relational,
+Precedence Classes (in increasing order, L associative except as noted, for arithmetic,relational,
     and boolean operators both operands must be same type)
   <hr> 
     ;     Separator                  -- lowest precedence, R associative
