@@ -66,9 +66,9 @@ in increasing order, L associative except as noted, for arithmetic,relational,
   <hr> 
           Application                -- function application (no operators, just a blank between expressions)
   <hr> 
-    &&    Boolean And              
+    ||    Boolean Or                  
    <hr>    
-    ||    Boolean Or 
+    &&    Boolean And 
     <hr>   
                                      -- relational operators are non-associative (can only be one operator 
                                      -- in an expression) 
