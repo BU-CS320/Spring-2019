@@ -6,8 +6,11 @@
     * Who has primary responsibility for what (should be approximately equal, and, again, can be changed)
   * Completion is worth 5pts/100.
 * Milestone 2: 4/29/19
-  * Details: You will have to submit your tests for the project; while it is not necessary to fully complete all features
-  of the project, you will need to have made substantial progress on the coding in order to submit the tests. 
+  * Submit your tests for the project
+    * Tests should be organized in a reasonable way, each test file should contain a toplevel test group and focus on testing one aspect of the project.  For example, ParserTest.hs should not use exec, it should test the parser directly.
+    * Tests should be thorough, a Parser test without quickcheck should have at more than 20 tests.  Every time you fix a bug, make a test.
+    * Within reason, every mixin should have its own test group in it's own file.
+    * While it is not necessary to fully complete all features of the project, you will need to have made substantial progress in order to create reasonable tests.
   * Completion is worth 5pts/100.
 * Final Deadline: 5/3/19
   * Completion is worth 90pts/100.
