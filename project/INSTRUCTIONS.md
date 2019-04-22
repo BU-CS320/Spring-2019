@@ -58,10 +58,10 @@ things a little easier in terms of implementation to make application have low p
 the Haskell rules. The operators are listed below in classes (operators of the same precedence) in increasing order
 of precedence, with associativity and other characteristics noted.  
 
+#### Precedence Classes
+in increasing order, L associative except as noted, for arithmetic,relational,
+    and boolean operators both operands must be same type
 <pre>  
-Precedence Classes (in increasing order, L associative except as noted, for arithmetic,relational,
-    and boolean operators both operands must be same type)
-  <hr> 
     ;     Separator                  -- lowest precedence, R associative
   <hr> 
           Application                -- function application (no operators, just a blank between expressions)
@@ -102,11 +102,9 @@ Precedence Classes (in increasing order, L associative except as noted, for arit
   <hr> 
     -- atomic expressions
     The highest precedence is the atoms, e.g., integers, floats, chars, lists represented by syntax [,,,], variables, let, if-then-else,lambda abstractions. 
-  <hr>
-  
-  
-Miscellaneous symbols to think about:
-
+</pre>  
+#### Miscellaneous symbols
+<pre>  
     \ and ->   Lambda abstraction constructors
     [ and ]    List constructors, "," as separator
     ' and '    Char constructors
@@ -114,10 +112,10 @@ Miscellaneous symbols to think about:
     --    Start of comment line (ignore everything until the next newline)
     {-    Start of multi-line comment 
     -}    End of multi-line comment
-
-  <hr>     
-Predefined Functions as part of stdLib
-
+</pre>  
+#### Predefined Functions
+as part of stdLib
+<pre>  
     head
     tail
     elem                       -- only for types with equality; for instance: (elem (\y -> 0) [(\x -> x*0)] ) should return an error
