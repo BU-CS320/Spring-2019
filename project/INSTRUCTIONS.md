@@ -170,8 +170,8 @@ Parser enhancments
 Usability
 * Pattern matching [*](#medium)
   * 5pt `case ... of` expressions for the integers and bools
-  * 5pt Nested pattern matching that allows integers, bools, and lists.
-  * 5pt Build pattern matching into lambda expressions for integers, bools, and lists.
+  * +5pt Nested pattern matching that allows integers, bools, and lists.
+  * +5pt Build pattern matching into lambda expressions for integers, bools, and lists.
 * User-defined data types
   * 5pt Definitions and constructors 
   * 5pt Pattern-matching [*](#medium)
