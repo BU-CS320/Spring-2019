@@ -141,7 +141,7 @@ In addition, all week 10 language features must still work:
 We recommend:
 * You can start with your implementation for the last homework and simply add these operators in their appropriate places.  
 * You should modify the `EnvUnsafe` monad code to include logging (the `Writer` monad) using a `print` expression, as we did in a previous homework (because we will be adding the print and separator from [lang2](../assignments/week7/src/lang/Lang2.hs))
-* You should provide an `eval` function to evaluate expressions in the `Ast` into a suitable result type analogous to `EnvUnsafe Env  Val` from the last homework; it should use your modified monad.
+* You should provide an `eval` function to evaluate expressions in the `Ast` into a suitable result type analogous to `Val` from the last homework; it should use your monad as specified in the previous item.
 * With project this size, good variable name and nice documentation will never be a waste of time. Write as much documentation as you can and also make your variable name as descriptive as possible.
 * Start early!
 
@@ -193,7 +193,7 @@ Misc
 * 5-15 pt Overloaded operators and constants, automatic type conversion (as in Java or Python) [*](#medium)
 
 Additionally you can get points by using engineering best practices
-* 5pt Writeing a quickcheck generator and shrinker for your Ast and using it to test your parser
+* 5pt Writing a quickcheck generator and shrinker for your Ast and using it to test your parser
 * 5pt Writing clear Haddock style comments and generating the html documentation
 * 5pt Setting up Continuous Integration on your github repo[*](#medium)
 
