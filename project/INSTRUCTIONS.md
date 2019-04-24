@@ -1,11 +1,11 @@
 # Project Instructions
-* Milestone 1: **4/23/19**
+* Milestone 1: 4/23/19
   * Join a Piazza group as organized by Prof Snyder
   * Create a group repo, and summarize your plans in the readme:
     * Which Additional Features you plan to do (tentative, can be changed)
     * Who has primary responsibility for what (should be approximately equal, and, again, can be changed)
   * Completion is worth 5pts/100.
-* Milestone 2: 4/29/19
+* Milestone 2: **4/29/19**
   * Submit your tests for the project
     * Tests should be organized in a reasonable way, each test file should contain a toplevel test group and focus on testing one aspect of the project.  For example, ParserTest.hs should not use exec, it should test the parser directly.
     * Tests should be thorough, a Parser test without quickcheck should have at more than 20 tests.  Every time you fix a bug, make a test.
@@ -202,9 +202,9 @@ You can implement as many features as you want but you cannot score above a 100
 
 There are many other features, small and large, which could be imagined (orderings on lists? array types? n-ary tuples? conversion between prefix and infix? lazy evaluation? compilation[**](#difficult)?   The list goes on and on.....).  Please talk to Mark if you have creative ideas!  Some things are very challenging, and may change the language specification drasticly: these need to be aproved by Mark before the first milestone, and may require additional work by the 2nd milestone.
 
-<a name="medium">*</a> Mark needs to aprove before Before Milstone 2. Might require some work on our end, for instance We might need to give you extra permissions in your repo for you to set up Continuous Integration.
+<a name="medium">*</a> Mark needs to aprove before Before Milstone 2. These problems might require some work on our end, for instance We might need to give you extra permissions in your repo for you to set up Continuous Integration.  Mark also might have some hints he would like to give you before you start.
 
-<a name="difficult">**</a> This is challenging, Mark needs to approve before Milestone 1
+<a name="difficult">**</a> This is challenging, Mark needs to approve before ~~Milestone 1~~ ASAP.
 
 
 
