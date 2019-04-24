@@ -182,7 +182,7 @@ Usability
 Static Checking
 * 5pt Warn when a variable is introduced but never used
 * 15pt Checking simple types, where every variable has a type annotation (lecture will be presented on this)
-* 20-30pt  Advanced type checking: Bidirectional, Hindly-milner, or dependently typed [**](#difficult -- talk to Mark)
+* 20-30pt  Advanced type checking: Bidirectional, Hindly-milner, or dependently typed [**](#difficult)
 
 Mutable state
 * 10pt Dynamically scoped mutable state[*](#medium)
