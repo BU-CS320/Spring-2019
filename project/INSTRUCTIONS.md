@@ -189,8 +189,8 @@ Mutable state
 * 20-30pt Lexically scoped mutable state[**](#difficult)
 
 Misc
-* 10pt Add runtime warnings to the monad, and flag appropriate conditions which are not errors, but cause concern (e.g., you defined a variable or function but then didn't use it, as in the Ok monad presented in lecture). [*](#medium)
 * 5-15 pt Overloaded operators and constants, automatic type conversion (as in Java or Python) [*](#medium)
+* 10pt Add runtime warnings to the monad (as in the Ok monad presented in lecture), and flag appropriate conditions which are not errors, but cause concern (e.g., integers go outside the range -2<sup>29</sup> to 2<sup>29</sup>-1, you defined a variable or function but then didn't use it). [*](#medium)
 
 Additionally you can get points by using engineering best practices
 * 5pt Writing a quickcheck generator and shrinker for your Ast and using it to test your parser
