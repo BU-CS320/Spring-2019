@@ -14,6 +14,10 @@
   * Completion is worth 5pts/100.
 * Final Deadline: 5/3/19
   * Completion is worth 90pts/100.
+
+## Notes
+* In Check.hs, `deriving (Show,Eq)` should have been `deriving (Show,Eq,Ord)`
+  
 ## Getting Started
 * Come up with a language name/team name among your group
 * Follow this [Link](https://classroom.github.com/g/potVpRHi) to create/Join a group repo.  Even if you are working alone.
