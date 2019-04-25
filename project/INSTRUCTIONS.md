@@ -97,7 +97,7 @@ in increasing order, L associative except as noted, for arithmetic,relational,
     ^     Floating-Point Exponentiation             -- R associative
     **    Integer Exponential                       -- R associative
   <hr> 
-    !!    List indexing operator     -- R associative, left operand must be list, right must be integer
+    !!    List indexing operator     -- L associative, left operand must be list, right must be integer
   <hr> 
     -- prefix operators and functions
     not    Boolean not
