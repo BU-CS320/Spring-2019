@@ -89,6 +89,12 @@ showFullyParen Nil = "( [] )"
 -- Look through the definitions for Plus, Cons, Eq, and Not to see how this
 -- is done. You can extend this easily to your grammar.
 
+-- IMPORTANT NOTE: In our project, since the minus sign is overloaded in two different precedence levels,
+-- this is an ambiguity if you pretty-print -5 as "-5", since (f - 5) can be either
+-- a function f applied to (-5) or a variable f minus 5.
+-- To avoid this, always pretty print a unary minus expression with parentheses around it.
+-- Show, showPretty (UnaryMinus (ValInt 5)) => "( - 5 )
+
 
 showPretty :: Ast -> Integer -> String
 showPretty (ValInt i) _ =  if i < 0
