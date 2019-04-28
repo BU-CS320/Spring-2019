@@ -13,7 +13,7 @@
               <li>Lecture Slides 4/24: <a href="http://www.cs.bu.edu/fac/snyder/cs320/Lectures/Lecture19-- Project Prep 2pptx.pdf">PDF</a> </li>
               <li> YouTube Video on  Basic Testing: <a href="https://www.youtube.com/watch?v=tspioUDu_ms">YT</a> </li>
               <li>YouTube Video on Program Testing with Quickcheck. <a href= "https://www.youtube.com/watch?v=tM_mqvolusc">YT</a>
-		and files discussed there: <a href="Homeworks and Labs/TestingExample2/">DIR</a>. </li>
+		and files discussed there: <a href="http://www.cs.bu.edu/fac/snyder/cs320/Homeworks and Labs/TestingExample2/">DIR</a>. </li>
 	</ul>	
 </li>  
   <li>  Cheng has posted a basic template for how to generate terms in /src/hints/GenerateExample.hs.   </li>  
