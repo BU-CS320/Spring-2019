@@ -16,10 +16,10 @@ three = succ (succ (succ zero))
 -- we can aslo define
 
 one : Nat 
-one = {!!} 
+one = succ zero
 
 two : Nat 
-two = {!!}
+two = succ one
 
 
 four : Nat 
@@ -37,12 +37,7 @@ four = {!!}
 
 
 five : Nat 
-five = ?
-
-
-
-
-
+five = 5
 
 
 
@@ -52,7 +47,8 @@ five = ?
 -- to pattern match: C-c C-c
 -- "refine" a hole: C-c C-r
 _+_ : Nat -> Nat -> Nat
-l + r = {!!}
+zero + r = r
+succ l + r = l + succ r
 
 
 
@@ -69,13 +65,15 @@ data GTE  : Nat ->  Nat -> Set where
 
 -- C-c C-a or C-c C-r
 proof3>=1 : GTE 3 1
-proof3>=1 = {!!}
+proof3>=1 = greaterThanByOne 2 1 (greaterThanByOne 1 1 (eqItself 1))
 
 proof3>=1' : GTE 3 1
-proof3>=1' = {!!}
+proof3>=1' = greaterThanByOne (succ (succ zero)) (succ zero)
+               (greaterThanByOne (succ zero) (succ zero) (eqItself (succ zero)))
 
 proofAllNatsGTEZero : (n : Nat) -> GTE n zero
-proofAllNatsGTEZero n = {!!}
+proofAllNatsGTEZero zero = eqItself zero
+proofAllNatsGTEZero (succ n) = greaterThanByOne n zero (proofAllNatsGTEZero n)
 
 
 
@@ -202,12 +200,17 @@ isGTE' (succ n) (succ m) | Left x = Left (gteSucc n m x)
 isGTE' (succ n) (succ m) | Right x = Right (gteSucc m n x)
 
 
-insert' : (n : Nat) -> (ls : List Nat) -> Sorted ls ->  Σ ( List Nat) (\ ls' ->  (Sorted ls')  × {!!} ) --  ( (x : Nat) -> GTE n x -> lBound x ls -> lBound x ls')
-insert' n Nil pr = (Cons n Nil) , {!!}
-insert' n (Cons m ls) isSorted with isGTE' n m
-insert' n (Cons m ls) (notEmpty .m .ls isSorted m<=ls) | Left x = {!!}
-insert' n (Cons m ls) (notEmpty .m .ls isSorted m<=ls) | Right m>=n = ( (Cons n  (Cons m ls))) , {!!}
 
+lemma1 : (n  : Nat) ->  (m        : Nat) -> (ls       : List Nat) ->   lBound m ls ->  Sorted ls -> GTE m n -> Sorted (Cons n (Cons m ls))
+lemma1  n m ls m<=ls isSorted m>=n  = notEmpty n (Cons m ls) (notEmpty m ls isSorted m<=ls) (hasThings m ls m>=n {!!})
+
+
+insert' : (n : Nat) -> (ls : List Nat) -> Sorted ls ->  Σ ( List Nat) (\ ls' ->  (Sorted ls')  × ( (x : Nat) -> GTE n x -> lBound x ls -> lBound x ls'))
+insert' n Nil pr = (Cons n Nil) , < notEmpty n Nil pr emptyGood , (λ x → hasThings n Nil) >
+insert' n (Cons m ls) isSorted with isGTE' n m
+insert' n (Cons m ls) (notEmpty .m .ls isSorted m<=ls) | Right m>=n = ( (Cons n  (Cons m ls))) , < lemma1 n m ls m<=ls isSorted m>=n  , (λ x → hasThings n (Cons m ls)) >
+insert' n (Cons m ls) (notEmpty .m .ls pr x) | Left n>=m with insert' n ls pr
+insert' n (Cons m ls) (notEmpty .m .ls pr bound) | Left n>=m | (ls' , < ls'sorted , f >) = Cons m ls' , {!!}
 
 
 sort' :  (ls : List Nat) ->  Σ ( List Nat) Sorted 
