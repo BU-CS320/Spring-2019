@@ -41,7 +41,7 @@ Many of the requirements are flexible, for instance if you want to use Java-styl
 New features which need to be added beyond your week 10 code:
 * Additional operators and functions as explained below, including:
   * Add support for the following types of data: floats, characters, strings, and lists.
-  * All operators and functions should report a sensible error message when applied incorrectly during execution (this is called "dynamic type checking").  For example `[0,1] !! 10` should return an error like "Can't get element 10 from a 2 element list" and `7 !! 10` should return "7 is not a list". No input should cause your program to crash, instead, you need to check for all possible errors at execution time. 
+  * All operators and functions should report a sensible error message when applied incorrectly during execution.  For example `[0,1] !! 10` should return an error like "Can't get element 10 from a 2 element list" and `7 !! 10` should return "7 is not a list". No input should cause your program to crash, instead, you need to check for all possible errors at execution time. 
   * Additional syntax for lists.  For example ```[1,2,3]```
   * Single and multiline comments. For example ```x+ 7 -- this is a comment``` and ```x+ {- this is a multi-line comment-} 7```
 * Appropriate changes to "EnvUnsafe" monad, including support for logging:
