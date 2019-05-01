@@ -181,7 +181,7 @@ Usability
   * 5pt Pattern-matching [*](#medium)
   * 10pt Typechecking
 * 5pt A Read-Eval-Print loop, so that users can work interactively with your language, including preloading a 
-      Prelude-like initialization file. You would need to learn about the IO monad (start with Chapter 10 in Hutton).
+      Prelude-like initial environment. You would need to learn about the IO monad (start with Chapter 10 in Hutton).
 
 Static Checking
 * 5pt Warn when a variable is introduced but never used
